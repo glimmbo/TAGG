@@ -3,6 +3,19 @@ import Image from "next/image"
 import styles from "../styles/Home.module.css"
 import { NavBar } from "../components/Nav"
 
+export async function getStaticProps() {
+  // fetch list of videos
+  const response = await fetch(
+    "https://jsonplaceholder.typicode.com/posts?_page=1",
+  )
+  const postList = await response.json()
+  return {
+    props: {
+      postList,
+    },
+  }
+}
+
 export default function Home() {
   return (
     <div className={styles.container}>
@@ -12,9 +25,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
-        <NavBar />
-      </main>
+      <main className={styles.main}></main>
     </div>
   )
 }
