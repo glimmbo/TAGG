@@ -1,22 +1,39 @@
 import Head from "next/head"
-import Image from "next/image"
-import styles from "../styles/Home.module.css"
 import { NavBar } from "../components/Nav"
+import { vimeoClient, TAGG_ID } from "../vimeo"
+import styles from "../styles/Home.module.css"
 
-export async function getStaticProps() {
-  // fetch list of videos
-  const response = await fetch(
-    "https://jsonplaceholder.typicode.com/posts?_page=1",
-  )
-  const postList = await response.json()
-  return {
-    props: {
-      postList,
-    },
-  }
+export async function getStaticProps(context) {
+  // fetch list of videos, promisified
+  const videolist = await new Promise((resolve, reject) => {
+    vimeoClient.request(
+      {
+        method: "GET",
+        path: `/users/${TAGG_ID}/videos`,
+        userId: TAGG_ID,
+      },
+      (error, body, status_code, headers) => {
+        console.log("error", error)
+        console.log("body", body)
+        console.log("status_code", status_code)
+        console.log("headers", headers)
+
+        if (error) {
+          console.error(error)
+          reject(error)
+        }
+
+        resolve(body.data)
+      },
+    )
+  })
+
+  return { props: { videolist } }
 }
 
-export default function Home() {
+export default function Home(props) {
+  console.log("props.videolist")
+  console.log(props)
   return (
     <div className={styles.container}>
       <Head>
@@ -25,7 +42,16 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main className={styles.main}></main>
+      <main className={styles.main}>
+        <h1 style={{ fontFamily: "Montserrat" }}></h1>
+        {/* Clip Carousel */}
+        {/* Featured Projects */}
+        {/* Who We Are */}
+        {/* People */}
+        {/* Extended Family */}
+        {/* Worked With */}
+        {/* Contact */}
+      </main>
     </div>
   )
 }
