@@ -56,7 +56,6 @@ export default function Home(props) {
       </Head>
 
       <main>
-        <h1 style={{ fontFamily: "Montserrat" }}></h1>
         {videolist.map((video, i) => {
           return (
             <Link href={`/works${video.uri}`} key={i}>
@@ -67,11 +66,29 @@ export default function Home(props) {
           )
         })}
         {/* Clip Carousel clips from /public or vimeo */}
+        <h1 id="works" style={{ fontFamily: "Montserrat", margin: "30vh" }}>
+          Featured Projects
+        </h1>
         {/* Featured Projects videolist={videolist}*/}
+        <h1 id="about" style={{ fontFamily: "Montserrat", margin: "30vh" }}>
+          Who We Are
+        </h1>
         {/* Who We Are roster*/}
+        <h1 id="" style={{ fontFamily: "Montserrat", margin: "30vh" }}>
+          People
+        </h1>
         {/* People */}
+        <h1 id="" style={{ fontFamily: "Montserrat", margin: "30vh" }}>
+          Extended Family
+        </h1>
         {/* Extended Family */}
+        <h1 id="" style={{ fontFamily: "Montserrat", margin: "30vh" }}>
+          Worked With
+        </h1>
         {/* Worked With */}
+        <h1 id="contact" style={{ fontFamily: "Montserrat", margin: "30vh" }}>
+          Contact
+        </h1>
         {/* Contact */}
       </main>
     </>

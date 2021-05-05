@@ -1,5 +1,4 @@
 import { useRouter } from "next/router"
-import Link from "next/link"
 ;`
   div {
     background-color: transparent;
@@ -75,9 +74,7 @@ export const NavLink = (props) => {
       <div className="top right" />
       <div className="bottom right" />
       <div className="bottom left" />
-      <Link href={props.href}>
-        <a>{props.content}</a>
-      </Link>
+      <a href={props.href}>{props.content}</a>
     </div>
   )
 }
