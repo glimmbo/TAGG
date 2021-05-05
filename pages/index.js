@@ -4,8 +4,11 @@ import { NavBar } from "../components/Nav"
 import { vimeoClient, TAGG_ID } from "../vimeo"
 import styles from "../styles/Home.module.css"
 
+// This function gets called at build time on server-side.
+// It may be called again, on a serverless function, if
+// revalidation is enabled and a new request comes in
 export async function getStaticProps(context) {
-  // fetch list of videos, promisified
+  // fetch list of works videos
   const videolist = await new Promise((resolve, reject) => {
     vimeoClient.request(
       {
@@ -29,36 +32,48 @@ export async function getStaticProps(context) {
     )
   })
 
-  return { props: { videolist } }
+  // fetch carousel clips
+  let carouselclips = []
+
+  // receive as props below
+  return {
+    props: { videolist, carouselclips },
+    revalidate: 60,
+  }
+  // Next.js will attempt to re-generate the page:
+  // - When a request comes in
+  // - At most once every minute
 }
 
 export default function Home(props) {
-  const { videolist } = props
+  const { videolist, carouselclips } = props
   return (
-    <div className={styles.container}>
+    <>
       <Head>
         <title>TAGG Creative</title>
         <meta name="description" content="Make good content" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="images/favicon/favicon.ico" />
       </Head>
 
-      <main className={styles.main}>
+      <main>
         <h1 style={{ fontFamily: "Montserrat" }}></h1>
-        {videolist.map((video) => {
+        {videolist.map((video, i) => {
           return (
-            <Link href={`/works${video.uri}`} key={video.resouce_key}>
-              <a style={{ color: "white" }}>{video.name}</a>
+            <Link href={`/works${video.uri}`} key={i}>
+              <a style={{ color: "white" }} key={i}>
+                {video.name}
+              </a>
             </Link>
           )
         })}
-        {/* Clip Carousel */}
-        {/* Featured Projects */}
-        {/* Who We Are */}
+        {/* Clip Carousel clips from /public or vimeo */}
+        {/* Featured Projects videolist={videolist}*/}
+        {/* Who We Are roster*/}
         {/* People */}
         {/* Extended Family */}
         {/* Worked With */}
         {/* Contact */}
       </main>
-    </div>
+    </>
   )
 }

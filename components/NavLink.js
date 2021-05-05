@@ -1,8 +1,6 @@
-import styled from "styled-components"
 import { useRouter } from "next/router"
 import Link from "next/link"
-
-const Div = styled.div`
+;`
   div {
     background-color: transparent;
   }

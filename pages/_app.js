@@ -1,4 +1,4 @@
-import "../styles/globals.css"
+import "../styles/globals.module.css"
 import { Layout } from "../components/layout"
 import Head from "next/head"
 

@@ -2,7 +2,7 @@ import Link from "next/link"
 import Head from "next/head"
 import { vimeoClient, TAGG_ID } from "../../vimeo"
 
-// because [slug] is a dynamic route, get all routes
+// because this is a dynamic route, get all routes at build
 export async function getStaticPaths() {
   const videolist = await new Promise((resolve, reject) => {
     vimeoClient.request(
@@ -59,7 +59,10 @@ export async function getStaticProps({ params }) {
     )
   })
 
-  return { props: { video } }
+  return {
+    props: { video },
+    revalidate: 60,
+  }
 }
 
 export default function Work(props) {
@@ -80,3 +83,15 @@ export default function Work(props) {
     </main>
   )
 }
+
+// import styles from './styles.module.css'
+
+// const Post = ({ id, pathname }) => {
+//   return (
+//     <div className={styles.post}>
+//       I am the article {id}; my pathname is: {pathname}
+//     </div>
+//   )
+// }
+
+// export default Post
