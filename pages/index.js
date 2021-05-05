@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from "next/link"
 import { NavBar } from "../components/Nav"
 import { vimeoClient, TAGG_ID } from "../vimeo"
 import styles from "../styles/Home.module.css"
@@ -32,8 +33,7 @@ export async function getStaticProps(context) {
 }
 
 export default function Home(props) {
-  console.log("props.videolist")
-  console.log(props)
+  const { videolist } = props
   return (
     <div className={styles.container}>
       <Head>
@@ -44,6 +44,13 @@ export default function Home(props) {
 
       <main className={styles.main}>
         <h1 style={{ fontFamily: "Montserrat" }}></h1>
+        {videolist.map((video) => {
+          return (
+            <Link href={`/works${video.uri}`} key={video.resouce_key}>
+              <a style={{ color: "white" }}>{video.name}</a>
+            </Link>
+          )
+        })}
         {/* Clip Carousel */}
         {/* Featured Projects */}
         {/* Who We Are */}
