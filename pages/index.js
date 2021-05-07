@@ -54,7 +54,7 @@ import WorkedWith from "../components/sections/WorkedWith"
 import Contact from "../components/sections/Contact"
 import WorkModal from "../components/WorkModal"
 
-import styles from "../styles/globals.module.css"
+// import styles from "../styles/globals.module.css"
 export default function Home(props) {
   const { videolist, carouselclips, roster, clients } = props
   return (
