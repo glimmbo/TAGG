@@ -1,0 +1,14 @@
+:local(popped-h2) {
+  background-color: transparent;
+  color: var(--lightgrey);
+  font-family: Montserrat-Bold;
+  letter-spacing: 50;
+  margin: 0;
+  text-shadow: -0.1em 0.1em var(--red);
+  text-transform: uppercase;
+  z-index: 2;
+}
+:local(popped-h1) {
+  composes: popped-h2;
+  font-size: 3em;
+}

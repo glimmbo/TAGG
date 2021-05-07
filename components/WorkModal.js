@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Head from "next/head"
-import { vimeoClient, TAGG_ID } from "../../vimeo"
+import { vimeoClient, TAGG_ID } from "../vimeo"
 
 // because this is a dynamic route, get all routes at build
 export async function getStaticPaths() {
@@ -70,7 +70,7 @@ export default function Work(props) {
   return (
     <main>
       <Head>
-        <title>{title}</title>
+        <title>{props.title}</title>
       </Head>
 
       <h1>{props.name}</h1>

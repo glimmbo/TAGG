@@ -2,7 +2,10 @@ import { Vimeo } from "vimeo"
 import { config } from "dotenv"
 // add .env file to process
 config()
-const { CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN, TAGG_ID } = process.env
+const CLIENT_ID = process.env.CLIENT_ID
+const CLIENT_SECRET = process.env.CLIENT_SECRET
+const ACCESS_TOKEN = process.env.ACCESS_TOKEN
+const TAGG_ID = process.env.TAGG_ID
 const vimeoClient = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN)
 
 // If you need to generate another credientials set,
