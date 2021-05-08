@@ -33,12 +33,17 @@ export async function getStaticProps(context) {
   })
 
   // fetch team
+  const team = {
+    leadership: [{ sur: "Troy Adam", given: "Gordon" }],
+    extended: [{ sur: "Mark", given: "Glimm" }],
+  }
 
   // fetch clients
+  const clients = ["dude1", "dude2"]
 
   // pass to props below
   return {
-    props: { videolist, carouselclips },
+    props: { carouselclips, videolist, team, clients },
     revalidate: 3600,
   }
 }
@@ -55,28 +60,25 @@ import Contact from "../components/sections/Contact"
 import WorkModal from "../components/WorkModal"
 
 // import styles from "../styles/globals.module.css"
-export default function Home(props) {
-  const { videolist, carouselclips, roster, clients } = props
+export default function Home({ carouselclips, videolist, team, clients }) {
   return (
-    // <body style={styles.body}>
-    <body>
+    <>
       <NavBar />
-      {/* <main style={styles.main}> */}
       <main>
         {/* sections */}
-        {/* <Carousel carouselclips onWatch /> */}
-        <Works videolist />
+        {/* <Carousel carouselclips={carouselclips} onWatch /> */}
+        <Works videolist={videolist} />
         <About />
         <Foundation />
         <WhatWeDo />
-        <People roster />
-        <ExtendedFam roster />
-        <WorkedWith clients />
+        <People roster={team.leadership} />
+        <ExtendedFam roster={team.extended} />
+        <WorkedWith clients={clients} />
         <Contact />
 
         {/* modal logic */}
-        <WorkModal />
+        {/* <WorkModal /> */}
       </main>
-    </body>
+    </>
   )
 }
