@@ -1,14 +1,36 @@
+import styled from "styled-components"
 import { NavLink } from "./NavLink"
-import { nav, spacer } from "../styles/Nav.module.css"
+
+const Nav = styled.nav`
+  align-items: center;
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  height: 23vh;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 2;
+  font-weight: 300;
+`
+
+const Spacer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-right: 5em;
+  width: 25%;
+`
 
 export const NavBar = () => {
   return (
-    <nav className={nav}>
-      <div className={spacer}>
+    <Nav>
+      <Spacer>
         <NavLink href="#about">ABOUT</NavLink>
         <NavLink href="#works">WORKS</NavLink>
         <NavLink href="#contact">CONTACT</NavLink>
-      </div>
-    </nav>
+      </Spacer>
+    </Nav>
   )
 }

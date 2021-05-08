@@ -1,4 +1,5 @@
-import "../styles/globals.css"
+import { GlobalStyle } from "../styles/Global"
+
 import Head from "next/head"
 
 function MyApp({ Component, pageProps }) {
@@ -9,6 +10,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="description" content="Make good content" />
         <link rel="icon" href="images/favicon/favicon.ico" />
       </Head>
+      <GlobalStyle />
       <Component {...pageProps} />
     </>
   )

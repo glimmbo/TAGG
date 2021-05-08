@@ -23,8 +23,6 @@
     position: relative;
     width: 125px;
     padding: 0.35em 0.5em;
-    text-align: center;
-  }
 
   .selected a {
     color: var(--lightgrey);
