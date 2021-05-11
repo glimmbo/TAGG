@@ -66,8 +66,8 @@ export default function Home({ carouselclips, videolist, team, clients }) {
         {/* <WhatWeDo /> */}
         {/* <People /> */}
         {/* <ExtendedFam /> */}
-        {/* <WorkedWith clients={clients} /> */}
-        <Contact />
+        <WorkedWith />
+        {/* <Contact /> */}
 
         {/* modal logic */}
         {/* <WorkModal /> */}
