@@ -6,7 +6,7 @@ const Nav = styled.nav`
   background-color: transparent;
   display: flex;
   flex-direction: row;
-  height: 23vh;
+  height: 10vh;
   justify-content: flex-end;
   position: fixed;
   top: 0;
@@ -19,8 +19,8 @@ const Spacer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-right: 10vw;
-  width: 25%;
+  margin-right: 4vw;
+  width: 25vw;
 `
 
 export const NavBar = () => {
