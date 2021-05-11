@@ -44,7 +44,6 @@ export default function ExtendedFam() {
   return (
     <section id="extended-fam">
       <RedStrokeHeader>EXTENDED FAMILY</RedStrokeHeader>
-      <PoppedHeader></PoppedHeader>
       <div style={{ display: "grid" }}>
         {team.extended.map(({ given, sur, role, bio, head }, i) => (
           <RosterCard

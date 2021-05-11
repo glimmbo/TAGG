@@ -4,7 +4,7 @@ import { useState } from "react"
 export default function HoverLogo({ active, inactive }) {
   const [src, setSrc] = useState(inactive)
   return (
-    <div style={{ margin: "3em" }}>
+    <div style={{ margin: "3em", minWidth: "100px" }}>
       <Image
         src={src}
         height="100px"

@@ -15,6 +15,6 @@ const Popped = styled.h2`
     z-index: 3;
   }
 `
-export default function PoppedHeader({ children }) {
-  return <Popped>{children}</Popped>
+export default function PoppedHeader({ children, style }) {
+  return <Popped style={style}>{children}</Popped>
 }

@@ -58,6 +58,14 @@ export const GlobalStyle = createGlobalStyle`
     display: none;
   }
 
+  p {
+    color: var(--grey);
+    font-family: Consolas;
+    font-size: 18px;
+    line-height: 25px;
+    letter-spacing: 25;
+  }
+
   a {
     color: inherit;
     text-decoration: none;

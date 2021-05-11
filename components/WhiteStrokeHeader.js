@@ -25,12 +25,12 @@ const H1 = styled.h1`
   margin: 0;
   opacity: 0;
   padding: 0;
-  position: relative;
+  position: absolute;
   text-transform: uppercase;
   text-align: center;
   z-index: 1;
 `
 
-export default function WhiteStrokeHeader({ children, top, left }) {
-  return <H1 style={{ top, left }}>{children}</H1>
+export default function WhiteStrokeHeader({ children, style }) {
+  return <H1 style={style}>{children}</H1>
 }

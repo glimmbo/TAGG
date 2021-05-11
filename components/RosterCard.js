@@ -3,7 +3,7 @@ import styled from "styled-components"
 const Card = styled.div`
   display: flex;
   flex-direction: row;
-  width: 30vw;
+  width: fit-content;
   height: auto;
   z-index: 2;
 
@@ -12,12 +12,6 @@ const Card = styled.div`
     flex-direction: column;
     margin-right: 1%;
     z-index: 2;
-  }
-
-  @keyframes rotate {
-    to {
-      transform: rotate(360deg);
-    }
   }
 
   img {
@@ -43,6 +37,7 @@ const Card = styled.div`
   }
 
   p {
+    opacity: 0;
     background-color: transparent;
     color: var(--grey);
     font-family: Consolas;
@@ -50,6 +45,13 @@ const Card = styled.div`
     line-height: 25px;
     letter-spacing: 25;
     transform: translateX(0.01em);
+    max-width: 100%;
+  }
+
+  :hover {
+    p {
+      opacity: 1;
+    }
   }
 `
 

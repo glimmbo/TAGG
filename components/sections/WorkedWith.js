@@ -1,11 +1,5 @@
-import styled from "styled-components"
 import RedStrokeHeader from "../RedStrokeHeader"
 import HoverLogo from "../elements/HoverLogo"
-
-// const Arrangement = styled.div`
-//   /* display: flex; */
-//   /* width: 80%; */
-// `
 
 export default function WorkedWith() {
   return (

@@ -44,7 +44,7 @@ export async function getStaticProps(context) {
 
 import { NavBar } from "../components/Nav"
 import Works from "../components/sections/Works"
-import WhoAreWe from "../components/sections/WhoAreWe"
+import WhoWeAre from "../components/sections/WhoWeAre"
 import Foundation from "../components/sections/Foundation"
 import WhatWeDo from "../components/sections/WhatWeDo"
 import People from "../components/sections/People"
@@ -61,12 +61,12 @@ export default function Home({ carouselclips, videolist, team, clients }) {
         {/* sections */}
         {/* <Carousel carouselclips={carouselclips} onWatch /> */}
         {/* <Works videolist={videolist} /> */}
-        {/* <WhoAreWe /> */}
+        <WhoWeAre />
         {/* <Foundation /> */}
         {/* <WhatWeDo /> */}
         {/* <People /> */}
         {/* <ExtendedFam /> */}
-        <WorkedWith />
+        {/* <WorkedWith /> */}
         {/* <Contact /> */}
 
         {/* modal logic */}
