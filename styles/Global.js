@@ -62,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
     color: inherit;
     text-decoration: none;
   }
-
+  
   section {
     height: 100vh;
   }

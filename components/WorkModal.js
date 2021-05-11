@@ -12,10 +12,10 @@ export async function getStaticPaths() {
         userId: TAGG_ID,
       },
       (error, body, status_code, headers) => {
-        console.log("error", error)
-        console.log("body", body)
-        console.log("status_code", status_code)
-        console.log("headers", headers)
+        // console.log("error", error)
+        // console.log("body", body)
+        // console.log("status_code", status_code)
+        // console.log("headers", headers)
 
         if (error) {
           console.error(error)
@@ -66,7 +66,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Work(props) {
-  console.log(props)
+  // console.log(props)
   return (
     <main>
       <Head>

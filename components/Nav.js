@@ -19,7 +19,7 @@ const Spacer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  padding-right: 5em;
+  margin-right: 10vw;
   width: 25%;
 `
 

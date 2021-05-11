@@ -1,9 +1,9 @@
+import { useEffect, useState } from "react"
 import { useRouter } from "next/router"
 import styled from "styled-components"
 import { ActiveCorners } from "./elements/ActiveCorners"
 
 const StyledA = styled.a`
-  position: "relative";
   text-decoration: none;
   padding: 0.5em 0.5em;
   display: block;
@@ -19,21 +19,26 @@ const StyledA = styled.a`
   }
 `
 
-const Box = styled.div`
-  .selected {
-  }
-`
-
 export const NavLink = ({ href, children }) => {
   const router = useRouter()
-  console.log(`/${href}` === router.asPath)
+  const [currentPath, setCurrentPath] = useState("")
+  useEffect(() => setCurrentPath(router.pathname), [])
 
   return (
-    <>
-      {/* {`${props.href}` === router.asPath && <ActiveCorners />} */}
-      <ActiveCorners active={true}>
-        <StyledA href={href}>{children}</StyledA>
-      </ActiveCorners>
-    </>
+    <ActiveCorners active={currentPath === href}>
+      <StyledA href={href}>{children}</StyledA>
+    </ActiveCorners>
   )
 }
+
+// function MyComp() {
+//   const router = useRouter()
+//   const [currentPath, setCurrentPath] = useState("")
+//   useEffect(() => setCurrentPath(router.pathname), [])
+
+//   return (
+//     <a className={currentPath === "/some-path" ? "currentCSS" : "defaultCSS"}>
+//       Some link
+//     </a>
+//   )
+// }

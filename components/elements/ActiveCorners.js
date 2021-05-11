@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 const Corners = styled.div`
-  background-color: transparent;
   position: "relative";
+  background-color: transparent;
 
   .top,
   .bottom {
@@ -33,7 +33,7 @@ const Corners = styled.div`
 `
 export const ActiveCorners = ({ children, active }) => {
   return (
-    <Corners>
+    <Corners style={{ position: "relative" }}>
       <div className="top left" style={{ opacity: active ? 1 : 0 }} />
       <div className="top right" style={{ opacity: active ? 1 : 0 }} />
       <div className="bottom left" style={{ opacity: active ? 1 : 0 }} />

@@ -1,4 +1,20 @@
-import "../styles/PoppedHeader.module.css"
-export default function PoppedHeader({ children, size }) {
-  return size === 1 ? <h1>{children}</h1> : <h2>{children}</h2>
+import styled from "styled-components"
+
+const Popped = styled.h2`
+  background-color: transparent;
+  color: var(--lightgrey);
+  font-family: Montserrat-Bold;
+  letter-spacing: 50;
+  margin: 0;
+  text-shadow: -0.1em 0.1em var(--red);
+  text-transform: uppercase;
+  user-select: none;
+  z-index: 2;
+
+  a {
+    z-index: 3;
+  }
+`
+export default function PoppedHeader({ children }) {
+  return <Popped>{children}</Popped>
 }
