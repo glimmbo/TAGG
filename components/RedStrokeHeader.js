@@ -9,7 +9,7 @@ const H1 = styled.h1`
   letter-spacing: 0.05em;
   margin: 0;
   padding: 0;
-  position: relative;
+  position: absolute;
   text-transform: uppercase;
   text-align: center;
   user-select: none;

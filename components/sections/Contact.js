@@ -6,7 +6,7 @@ export default function Contact() {
       <RedStrokeHeader style={{ transform: "translateY(19vh)" }}>
         CONTACT
       </RedStrokeHeader>
-      <ContactCard />
+      <ContactCard style={{ transform: "translateY(42vh)" }} />
     </section>
   )
 }

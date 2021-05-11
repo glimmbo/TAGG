@@ -49,9 +49,9 @@ const CardStyles = styled.div`
   }
 `
 
-export default function ContactCard(props) {
+export default function ContactCard({ style }) {
   return (
-    <CardStyles>
+    <CardStyles style={style}>
       <a href="mailto:info@taggcreative.com">
         <PoppedHeader>info@taggcreative.com</PoppedHeader>
       </a>
