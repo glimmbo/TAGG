@@ -1,12 +1,11 @@
 import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Modal from "react-modal"
-import Article from "../../components/Article"
-import { data } from "../../components/Grid"
+// import
 
 Modal.setAppElement("#__next")
 
-const ArticlePage = ({ articleId }) => {
+const WorkPage = ({ workTitle }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -19,24 +18,24 @@ const ArticlePage = ({ articleId }) => {
       <Modal
         isOpen={true} // The modal should always be shown on page load, it is the 'page'
         onRequestClose={() => router.push("/")}
-        contentLabel="Post modal"
+        contentLabel="Work modal"
       >
-        <Article id={articleId} pathname={router.pathname} />
+        {/* Work */}
       </Modal>
     </>
   )
 }
 
-export default ArticlePage
+export default WorkPage
 
-export function getStaticProps({ params: { articleId } }) {
-  return { props: { articleId: articleId } }
+export function getStaticProps({ params: { workTitle } }) {
+  return { props: { workTitle: workTitle } }
 }
 
 export function getStaticPaths() {
   return {
-    paths: data.map((articleId) => ({
-      params: { articleId: articleId.toString() },
+    paths: data.map((workTitle) => ({
+      params: { workTitle: workTitle.toString() },
     })),
     fallback: false,
   }

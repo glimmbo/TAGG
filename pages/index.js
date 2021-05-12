@@ -14,6 +14,7 @@ export async function getStaticProps(context) {
       {
         method: "GET",
         path: `/users/${TAGG_ID}/videos`,
+
         userId: TAGG_ID,
       },
       (error, body, status_code, headers) => {
@@ -51,7 +52,7 @@ import People from "../components/sections/People"
 import ExtendedFam from "../components/sections/ExtendedFam"
 import WorkedWith from "../components/sections/WorkedWith"
 import Contact from "../components/sections/Contact"
-import WorkModal from "../components/WorkModal"
+import WorkModal from "../components/WorkPage"
 
 export default function Home({ carouselclips, videolist, team, clients }) {
   return (
@@ -60,8 +61,8 @@ export default function Home({ carouselclips, videolist, team, clients }) {
       <main>
         {/* sections */}
         {/* <Carousel carouselclips={carouselclips} onWatch /> */}
-        {/* <Works videolist={videolist} /> */}
-        <WhoWeAre />
+        <Works videolist={videolist} />
+        {/* <WhoWeAre /> */}
         {/* <Foundation /> */}
         {/* <WhatWeDo /> */}
         {/* <People /> */}
