@@ -1,11 +1,38 @@
 import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Modal from "react-modal"
-// import
+import WorkPage from "../../components/WorkPage"
+import { getWork, getWorks } from "../../vimeo"
+
+// because this is a dynamic route, get all possible routes at build
+export async function getStaticPaths() {
+  const videolist = await getWorks()
+
+  return {
+    paths: videolist.map((video) => {
+      return {
+        params: {
+          uri: `/works/${video.uri}`,
+        },
+      }
+    }),
+    fallback: false,
+  }
+}
+
+export async function getStaticProps({ params }) {
+  const { uri } = params
+  const video = await getWork(uri)
+
+  return {
+    props: { video },
+    revalidate: 60,
+  }
+}
 
 Modal.setAppElement("#__next")
 
-const WorkPage = ({ workTitle }) => {
+const WorkPageModal = ({ video }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -20,23 +47,10 @@ const WorkPage = ({ workTitle }) => {
         onRequestClose={() => router.push("/")}
         contentLabel="Work modal"
       >
-        {/* Work */}
+        <WorkPage video={video} />
       </Modal>
     </>
   )
 }
 
-export default WorkPage
-
-export function getStaticProps({ params: { workTitle } }) {
-  return { props: { workTitle: workTitle } }
-}
-
-export function getStaticPaths() {
-  return {
-    paths: data.map((workTitle) => ({
-      params: { workTitle: workTitle.toString() },
-    })),
-    fallback: false,
-  }
-}
+export default WorkPageModal

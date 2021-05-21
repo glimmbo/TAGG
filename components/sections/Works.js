@@ -1,26 +1,29 @@
 import RedStrokeHeader from "../RedStrokeHeader"
-import styles from "../../styles/Works.module.css"
 import Link from "next/link"
-import { snakeCase } from "lodash"
-export default function Works({ videolist }) {
+import styled from "styled-components"
+import WorkThumb from "../WorkThumb"
+
+const WorksSection = styled.section``
+
+export default function Works({ videoList }) {
   // list of videolist = 8 (fixed to a TAGG folder, can change)
 
-  console.log(videolist)
+  // console.log(videolist)
   return (
-    <section id="works" className={styles.section}>
+    <WorksSection id="works">
       <RedStrokeHeader>Works</RedStrokeHeader>
-      <div className={styles.grid}>
+      <div className="list">
         {/* first 8 for now */}
-        {videolist.map((video, i) => (
+        {videoList.map((video, i) => (
           <Link
             key={i}
             href="/works/[workUri]" // hosted page file
             as={`/works/${video.id}`} // actual, generated url
           >
-            <a>{video.title}</a>
+            <WorkThumb video={video} />
           </Link>
         ))}
       </div>
-    </section>
+    </WorksSection>
   )
 }

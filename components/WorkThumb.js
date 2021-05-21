@@ -6,13 +6,14 @@ const Thumb = styled.img`
   width: 160;
 `
 const Title = styled.h3`
+  font-family: Montserrat-Bold;
   color: var(--grey);
   :hover {
     color: var(--red);
   }
 `
 export const getStaticProps = async (context) => {
-  console.log("WorkThumb context", context)
+  // console.log("WorkThumb context", context)
   // Get thumbnails:
   //  /videos/{video_id}/animated_thumbsets
   const allThumbs = vimeoClient.request(
@@ -31,16 +32,20 @@ export const getStaticProps = async (context) => {
   return { props: { selectedThumb: selectedThumb } }
 }
 
-export const WorkThumb = ({ selectedThumb, workName, workSubtitle }) => (
-  <>
-    <Thumb src={selectedThumb} />
-    <Title>{workName}</Title>
-    <p>{workSubtitle}</p>
-  </>
-)
-
+const WorkThumb = ({ selectedThumb, video }) => {
+  console.dir(selectedThumb, { depth: null, maxArrayLength: null })
+  console.dir(video, { depth: null, maxArrayLength: null })
+  return (
+    <>
+      <Thumb src={selectedThumb} />
+      <Title>{video.name}</Title>
+      <p>{video.description}</p>
+    </>
+  )
+}
+export default WorkThumb
 /* 
-// use most recently, max thumb.create_ond
+// use most recently, max thumb.create_on
 {
   "total": 1,
   "data": [
