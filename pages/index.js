@@ -1,25 +1,4 @@
-import { getClipsMobile, getClipsDesktop, getWorks } from "../vimeo"
-
-// This function gets called at build time on server-side.
-// It may be called again, on a serverless function, if
-// revalidation is enabled and a new request comes in
-// at most once every hour
-export async function getStaticProps(context) {
-  const videoList = await getWorks()
-  const clipListMobile = await getClipsMobile()
-  const clipListDesktop = await getClipsDesktop()
-
-  // TODO: get client list
-
-  // pass to props below
-  return {
-    props: { videoList, clipListMobile, clipListDesktop },
-    revalidate: 60,
-  }
-}
-
 import { NavBar } from "../components/Nav"
-
 import Carousel from "../components/elements/Carousel"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
@@ -30,23 +9,51 @@ import ExtendedFam from "../components/sections/ExtendedFam"
 import WorkedWith from "../components/sections/WorkedWith"
 import Contact from "../components/sections/Contact"
 import WorkModal from "../components/WorkPage"
+import {
+  getMostRecentAnimatedThumb,
+  getClipsMobile,
+  getClipsDesktop,
+  getWorks,
+} from "../vimeo"
+import { useState, useEffect } from "react"
 
-export default function Home({ videoList, clipListMobile, clipListDesktop }) {
-  console.log(videoList, clipListMobile, clipListDesktop)
+export async function getStaticProps(context) {
+  const clipsMobile = await getClipsMobile()
+  const clipsDesktop = await getClipsDesktop()
+  let videoList = await getWorks()
+
+  for await (let video of videoList) {
+    video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+  }
+
+  // TODO: get active client list from somewhere?
+
+  return {
+    props: { videoList, clipsMobile, clipsDesktop },
+    revalidate: 60, //min
+  }
+}
+
+export default function Home({
+  videoList,
+  clipsMobile,
+  clipsDesktop,
+  videoListThumbs,
+}) {
   return (
     <>
       <NavBar />
       <main>
         {/* sections */}
-        <Carousel clipListMobile={clipListMobile} />
-        <Works videoList={videoList} />
-        <WhoWeAre />
+        <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
+        <Works videoList={videoList} thumbs={videoListThumbs} />
+        {/* <WhoWeAre />
         <Foundation />
         <WhatWeDo />
         <People />
         <ExtendedFam />
         <WorkedWith />
-        <Contact />
+        <Contact /> */}
 
         {/* modal logic */}
         {/* <WorkModal /> */}

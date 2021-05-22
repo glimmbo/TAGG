@@ -1,11 +1,11 @@
 import { Carousel } from "react-responsive-carousel"
 
-const ClipCarousel = ({ clipListMobile }) => {
-  console.log("CAROUSEL CLIPS", clipListMobile)
+const ClipCarousel = ({ clipsMobile }) => {
+  // console.log("CAROUSEL CLIPS", clipsMobile)
   // TODO modify carousel: frame, buttons,
   return (
     <Carousel>
-      {clipListMobile?.map((clip) => {
+      {clipsMobile?.map((clip) => {
         // load a vimeo player with no controls, an overlay effect
         return <div>{clip}</div>
       })}

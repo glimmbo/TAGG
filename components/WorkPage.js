@@ -3,7 +3,6 @@ import Head from "next/head"
 import PoppedHeader from "./PoppedHeader"
 
 export default function WorkPage({ video }) {
-  console.log(video)
   return (
     <main>
       <Head>

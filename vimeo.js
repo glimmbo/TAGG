@@ -58,7 +58,6 @@ export const getClipsMobile = async (album_id = "8493940") => {
           console.error(error)
           reject(error)
         }
-        console.log(body)
         resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
@@ -131,7 +130,7 @@ export const getWork = async (uri) => {
 // Create a new set: Go to the advanced settings of a video from vimeo.com to create
 // The site will use the most recently created thumbnail.
 export const getMostRecentAnimatedThumb = async (uri) => {
-  const gif = await new Promise((resolve, reject) => {
+  const gifs = await new Promise((resolve, reject) => {
     vimeoClient.request(
       {
         method: "GET",
@@ -145,17 +144,17 @@ export const getMostRecentAnimatedThumb = async (uri) => {
           reject(error)
         }
 
-        const mostRecentThumb = body?.data?.sort(
-          (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,
-        )[0]
-
-        resolve(JSON.parse(JSON.stringify(mostRecentThumb)))
+        resolve(JSON.parse(JSON.stringify(body)))
       },
     )
   })
+
+  // return most recent
+  return gifs.data.sort(
+    (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,
+  )[0]
 }
 
-// Embed Privacy?? whitelist tagg.vercel.app
 const test = async () => {
   // console.log(await getToken())
   // console.log(await getClipsMobile())
