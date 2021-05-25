@@ -42,18 +42,18 @@ export default function Home({
 }) {
   return (
     <>
-      <NavBar />
+      {/* <NavBar /> */}
       <main>
         {/* sections */}
-        <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
+        {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
         <Works videoList={videoList} thumbs={videoListThumbs} />
-        {/* <WhoWeAre />
-        <Foundation />
-        <WhatWeDo />
-        <People />
-        <ExtendedFam />
+        {/* <WhoWeAre /> */}
+        {/* <Foundation /> */}
+        {/* <WhatWeDo /> */}
+        {/* <People /> */}
+        {/* <ExtendedFam /> */}
         <WorkedWith />
-        <Contact /> */}
+        {/* <Contact /> */}
 
         {/* modal logic */}
         {/* <WorkModal /> */}

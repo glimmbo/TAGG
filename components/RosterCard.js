@@ -17,6 +17,28 @@ const Card = styled.div`
   img {
     height: 20vh;
     transform: translate(5%, -25%);
+
+    /* face cover, this plus image clip */
+    /* .image-container {
+      position: relative;
+      width: 200px;
+      height: 300px;
+    }
+
+    .image-container .after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      color: #fff;
+    }
+
+    .image-container:hover .after {
+      display: block;
+      background: rgba(0, 0, 0, 0.6);
+    } */
   }
 
   h3 {
