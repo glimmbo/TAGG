@@ -12,6 +12,7 @@ const StyledA = styled.a`
   background-color: transparent;
   font-family: Montserrat;
   font-size: 1.1em;
+  margin-right: 4vw;
 
   :hover {
     color: var(--lightgrey);

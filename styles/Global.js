@@ -45,6 +45,7 @@ export const GlobalStyle = createGlobalStyle`
     overflow: -moz-scrollbars-none;
     overflow-x: hidden;
     background-color: var(--black);
+    scroll-behavior: smooth;
   }
 
 
@@ -52,6 +53,10 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  main {
+    
   }
 
   .body::-webkit-scrollbar {
@@ -64,7 +69,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 18px;
     line-height: 25px;
     letter-spacing: 25;
-    z-index: 2;
+    z-index: 5;
   }
 
   a {
@@ -73,6 +78,10 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   section {
-    height: 100vh;
+    border-top: 1px solid white;
+    min-height: 100vh;
+    height: fit-content;
+    padding: 5vh;
+    margin-top: 10vh; /* nav height */
   }
 `

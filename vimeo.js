@@ -62,7 +62,6 @@ export const getClipsMobile = async (album_id = "8493940") => {
       },
     )
   })
-
   return clipList
 }
 
@@ -104,12 +103,12 @@ export const getWorks = async (album_id = "8478566") => {
   return videoList
 }
 
-export const getWork = async (uri) => {
+export const getWork = async (id) => {
   const video = await new Promise((resolve, reject) => {
     vimeoClient.request(
       {
         method: "GET",
-        path: uri,
+        path: `/videos/${id}`,
         userId: TAGG_ID,
       },
       (error, body, status_code, headers) => {
@@ -119,7 +118,7 @@ export const getWork = async (uri) => {
           reject(error)
         }
 
-        resolve(JSON.parse(JSON.stringify(body?.data)))
+        resolve(JSON.parse(JSON.stringify(body)))
       },
     )
   })
@@ -154,12 +153,3 @@ export const getMostRecentAnimatedThumb = async (uri) => {
     (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,
   )[0]
 }
-
-const test = async () => {
-  // console.log(await getToken())
-  // console.log(await getClipsMobile())
-  // console.log(await getClipsDesktop())
-  // console.log(await getWorks())
-  // console.log(await getWork("/videos/291998673"))
-}
-test()

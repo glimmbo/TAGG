@@ -3,6 +3,10 @@ import WhiteStrokeHeader from "../WhiteStrokeHeader"
 import PoppedHeader from "../PoppedHeader"
 import Image from "next/image"
 
+const Section = styled.section`
+  position: relative;
+  height: 100vh;
+`
 const Frame = styled.div`
   height: 100vh;
   width: 100%;
@@ -12,14 +16,14 @@ const Frame = styled.div`
 `
 export default function WhoWeAre() {
   return (
-    <section id="about" style={{ position: "relative" }}>
-      <WhiteStrokeHeader style={{ transform: "translate(35vw, 8vh)" }}>
+    <Section id="about">
+      <WhiteStrokeHeader style={{ transform: "translate(11vw, 8vh)" }}>
         Who
       </WhiteStrokeHeader>
-      <WhiteStrokeHeader style={{ transform: "translate(48vw, 34vh)" }}>
+      <WhiteStrokeHeader style={{ transform: "translate(38vw, 34vh)" }}>
         We
       </WhiteStrokeHeader>
-      <WhiteStrokeHeader style={{ transform: "translate(56vw, 60vh)" }}>
+      <WhiteStrokeHeader style={{ transform: "translate(48vw, 60vh)" }}>
         Are
       </WhiteStrokeHeader>
       <PoppedHeader
@@ -32,9 +36,9 @@ export default function WhoWeAre() {
         clients' brand and translate it into something interesting and
         shareable.
       </p>
-      <Frame>
+      {/* <Frame>
         <Image src="/images/who.png" layout="fill" objectFit="cover"></Image>
-      </Frame>
-    </section>
+      </Frame> */}
+    </Section>
   )
 }

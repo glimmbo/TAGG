@@ -2,11 +2,33 @@ import RedStrokeHeader from "../RedStrokeHeader"
 import Link from "next/link"
 import styled from "styled-components"
 import WorkThumb from "../WorkThumb"
+import PoppedHeader from "../PoppedHeader"
 
 const WorksSection = styled.section``
 
+const List = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas:
+    ". ."
+    ". ."
+    ". ."
+    ". .";
+
+  @media screen and (max-device-width: 411px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+`
+
 const Work = styled.div`
-  max-width: 20%;
+  display: initial;
+  cursor: pointer;
+  padding: 5vh;
+
   h3 {
     font-family: Montserrat-Bold;
     color: var(--grey);
@@ -20,13 +42,17 @@ const Work = styled.div`
 export default function Works({ videoList }) {
   return (
     <WorksSection id="works">
+      <PoppedHeader style={{ marginLeft: "4vw" }}>
+        Featured Projects
+      </PoppedHeader>
       {/* <RedStrokeHeader>Works</RedStrokeHeader> */}
-      <div className="list">
+      <List>
         {videoList.map((video, i) => {
+          const videoId = video.uri.split("/")[2]
           return (
             <Link
-              href="/works/[workUri]" // hosted page file
-              as={`/works/${video.id}`} // actual, generated url
+              href="/works/[videoId]" // hosted page file
+              as={`/works/${videoId}`} // actual, generated url
               key={i}
             >
               <Work key={i}>
@@ -43,7 +69,7 @@ export default function Works({ videoList }) {
             </Link>
           )
         })}
-      </div>
+      </List>
     </WorksSection>
   )
 }

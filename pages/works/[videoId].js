@@ -8,21 +8,24 @@ import { getWork, getWorks } from "../../vimeo"
 export async function getStaticPaths() {
   const videolist = await getWorks()
 
+  const paths = videolist.map((video) => {
+    const videoId = video.uri.split("/")[2]
+    return {
+      params: {
+        videoId,
+      },
+    }
+  })
+
   return {
-    paths: videolist.map((video) => {
-      return {
-        params: {
-          uri: `/works/${video.uri}`,
-        },
-      }
-    }),
+    paths,
     fallback: false,
   }
 }
 
 export async function getStaticProps({ params }) {
-  const { uri } = params
-  const video = await getWork(uri)
+  const { videoId } = params
+  const video = await getWork(videoId)
 
   return {
     props: { video },
@@ -44,8 +47,19 @@ const WorkPageModal = ({ video }) => {
     <>
       <Modal
         isOpen={true} // The modal should always be shown on page load, it is the 'page'
-        onRequestClose={() => router.push("/")}
+        onRequestClose={() => router.push("/#works")}
         contentLabel="Work modal"
+        shouldCloseOnEsc={true}
+        style={{
+          content: {
+            backgroundColor: "var(--black)",
+            border: "none",
+            borderRadius: 0,
+            margin: 0,
+            padding: 0,
+            inset: 0,
+          },
+        }}
       >
         <WorkPage video={video} />
       </Modal>

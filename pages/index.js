@@ -8,14 +8,12 @@ import People from "../components/sections/People"
 import ExtendedFam from "../components/sections/ExtendedFam"
 import WorkedWith from "../components/sections/WorkedWith"
 import Contact from "../components/sections/Contact"
-import WorkModal from "../components/WorkPage"
 import {
   getMostRecentAnimatedThumb,
   getClipsMobile,
   getClipsDesktop,
   getWorks,
 } from "../vimeo"
-import { useState, useEffect } from "react"
 
 export async function getStaticProps(context) {
   const clipsMobile = await getClipsMobile()
@@ -24,6 +22,11 @@ export async function getStaticProps(context) {
 
   for await (let video of videoList) {
     video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+  }
+
+  // TEMP
+  for (let step = 0; step < 7; step++) {
+    videoList.push(videoList[0])
   }
 
   // TODO: get active client list from somewhere?
@@ -42,21 +45,18 @@ export default function Home({
 }) {
   return (
     <>
-      {/* <NavBar /> */}
+      <NavBar />
       <main>
         {/* sections */}
         {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
         <Works videoList={videoList} thumbs={videoListThumbs} />
-        {/* <WhoWeAre /> */}
-        {/* <Foundation /> */}
-        {/* <WhatWeDo /> */}
-        {/* <People /> */}
-        {/* <ExtendedFam /> */}
+        <WhoWeAre />
+        <Foundation />
+        <WhatWeDo />
+        <People />
+        <ExtendedFam />
         <WorkedWith />
-        {/* <Contact /> */}
-
-        {/* modal logic */}
-        {/* <WorkModal /> */}
+        <Contact />
       </main>
     </>
   )

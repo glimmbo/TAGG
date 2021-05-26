@@ -1,10 +1,6 @@
 <script>
-  export let position;
-  export let href;
-
-  const handleClick = (e) => {
-    console.log(position, href);
-  };
+  export let position
+  export let href
 </script>
 
 <div id="ring" on:click={handleClick}>

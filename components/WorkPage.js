@@ -1,6 +1,12 @@
 import Link from "next/link"
 import Head from "next/head"
+import { NavBar } from "./Nav"
 import PoppedHeader from "./PoppedHeader"
+import styled from "styled-components"
+
+const Main = styled.main`
+  background-color: var(--black);
+`
 
 export default function WorkPage({ video }) {
   return (
@@ -9,8 +15,11 @@ export default function WorkPage({ video }) {
         <title>Video Title</title>
       </Head>
 
+      <NavBar />
+
+      {/* not working.. instatiatie player? */}
       {/* <iframe
-        src="https://player.vimeo.com/video/291998673"
+        src={`https://player.vimeo.com${video.uri}`}
         width="640"
         height="360"
         frameborder="0"
@@ -18,13 +27,9 @@ export default function WorkPage({ video }) {
         allowfullscreen
       ></iframe> */}
 
-      <PoppedHeader>{props.name}</PoppedHeader>
+      <PoppedHeader>{video.name}</PoppedHeader>
 
-      <p>{props.description}</p>
-
-      <Link href="/">
-        <a>Go back to home</a>
-      </Link>
+      <p>{video.description}</p>
     </main>
   )
 }

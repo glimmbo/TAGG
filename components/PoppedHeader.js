@@ -9,7 +9,7 @@ const Popped = styled.h2`
   text-shadow: -0.1em 0.1em var(--red);
   text-transform: uppercase;
   user-select: none;
-  z-index: 2;
+  z-index: 3;
 
   a {
     z-index: 3;
