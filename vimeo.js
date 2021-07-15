@@ -22,40 +22,36 @@ export const vimeoClient = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN)
  can read more at https://developer.vimeo.com/api/authentication#supported-scopes
 */
 
-const getToken = async () => {
-  const token = await new Promise((resolve, reject) => {
-    vimeoClient.generateClientCredentials(["public"], (err, response) => {
-      if (err) {
-        reject(err)
-      }
+// const getToken = async () => {
+//   const token = await new Promise((resolve, reject) => {
+//     vimeoClient.generateClientCredentials(["public"], (err, response) => {
+//       if (err) {
+//         reject(err)
+//       }
 
-      const token = response.access_token
-      //  Other useful information is included alongside the access token,
-      //  which you can dump out to see, or visit our API documentation.
+//       const token = response.access_token
+//       //  Other useful information is included alongside the access token,
+//       //  which you can dump out to see, or visit our API documentation.
 
-      const scopes = response.scope
-      //  We include the final scopes granted to the token. This is
-      //  important because the user, or API, might revoke scopes during
-      //  the authentication process.
+//       const scopes = response.scope
+//       //  We include the final scopes granted to the token. This is
+//       //  important because the user, or API, might revoke scopes during
+//       //  the authentication process.
 
-      console.log(scopes)
-      console.log(token)
-      resolve(token)
-    })
-  })
-  vimeoClient.setAccessToken(token)
-}
-getToken()
+//       console.log(scopes)
+//       console.log(token)
+//       resolve(token)
+//     })
+//   })
+//   vimeoClient.setAccessToken(token)
+// }
+// getToken()
 
 // featured-clips-9-16 showcase
 export const getClipsMobile = async (album_id = "8493940") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(
-      // `/users/${TAGG_ID}/albums/${album_id}/videos`,
-      {
-        headers: { ACCESS_TOKEN: getToken() },
-        path: `/users/${TAGG_ID}/albums/${album_id}/videos`,
-      },
+      `/users/${TAGG_ID}/albums/${album_id}/videos`,
       (error, body, status_code, headers) => {
         console.log("getClipsMobile:", status_code)
         if (error) {

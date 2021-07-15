@@ -16,9 +16,12 @@ import {
 } from "../vimeo"
 
 export async function getStaticProps(context) {
+  // Fetch all video content
   const clipsMobile = await getClipsMobile()
   const clipsDesktop = await getClipsDesktop()
   let videoList = await getWorks()
+
+  console.log(clipsMobile)
 
   for await (let video of videoList) {
     video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
