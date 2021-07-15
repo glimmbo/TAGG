@@ -78,7 +78,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   section {
-    border-top: 1px solid white;
+    /* border-top: 1px solid white; */
     min-height: 100vh;
     height: fit-content;
     padding: 5vh;
