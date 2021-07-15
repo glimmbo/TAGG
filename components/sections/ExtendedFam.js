@@ -8,31 +8,31 @@ import PoppedHeader from "../PoppedHeader"
 const team = {
   extended: [
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA.png",
       given: "CAT",
       sur: "MEDEIROS",
       role: "SALLUA",
     },
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_JeffZwicker-DirectorOfPhotography.png",
       given: "JEFF",
       sur: "ZWICKER",
       role: "Director of Photography",
     },
     {
-      head: "/images/rosterSample.png",
-      given: "JUSTIN",
-      sur: "RITCHIE",
-      role: "JUMBO",
+      head: "/images/extended-fam/ExtendedFam_WilliamSelviz - RENDRD.png",
+      given: "WILLIAM",
+      sur: "SELVIS",
+      role: "RENDRD",
     },
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_NickGrossman.png",
       given: "NICK",
-      sur: "GORSSMAN",
+      sur: "GROSSMAN",
       role: "Animator / VFX",
     },
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_CurtisHuisman - Sensored.png",
       given: "CURTIS",
       sur: "HUISMAN",
       role: "SENSORED",

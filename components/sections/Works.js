@@ -9,13 +9,17 @@ const WorksSection = styled.section``
 const List = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr;
   gap: 0px 0px;
   grid-template-areas:
-    ". ."
-    ". ."
-    ". ."
-    ". .";
+    "a ."
+    ". b"
+    "c ."
+    ". d"
+    "e ."
+    ". f"
+    "g ."
+    ". h";
 
   @media screen and (max-device-width: 411px) {
     display: flex;
@@ -40,13 +44,14 @@ const Work = styled.div`
 `
 
 export default function Works({ videoList }) {
+  const gridAreas = ["a", "b", "c", "d", "e", "f", "g", "h"]
   return (
     <WorksSection id="works">
       <PoppedHeader style={{ marginLeft: "4vw" }}>
         Featured Projects
       </PoppedHeader>
       {/* <RedStrokeHeader>Works</RedStrokeHeader> */}
-      <List>
+      <List style={{ height: `${videoList.length - 1 * 26}vh` }}>
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
           return (
@@ -55,7 +60,14 @@ export default function Works({ videoList }) {
               as={`/works/${videoId}`} // actual, generated url
               key={i}
             >
-              <Work key={i}>
+              <Work
+                key={i}
+                className={`${gridAreas[i]}`}
+                style={{
+                  gridArea: gridAreas[i],
+                  transform: `translateY(${i * -26}vh)`,
+                }}
+              >
                 <WorkThumb
                   images={video.pictures.sizes}
                   thumb={video.thumb}

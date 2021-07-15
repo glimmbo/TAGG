@@ -10,7 +10,7 @@ const Card = styled.div`
   .text {
     display: flex;
     flex-direction: column;
-    margin-right: 1%;
+    margin-right: 30%;
     z-index: 2;
   }
 
