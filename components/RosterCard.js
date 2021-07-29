@@ -4,6 +4,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: row;
   width: fit-content;
+  max-width: 33%;
   height: auto;
   z-index: 2;
 
@@ -12,33 +13,32 @@ const Card = styled.div`
     flex-direction: column;
     margin-right: 30%;
     z-index: 2;
+    filter: grayscale(100%);
+    transition: all 0.35s ease;
   }
 
   img {
-    height: 20vh;
+    height: 200px;
+    max-height: 30vh;
     transform: translate(5%, -25%);
+    transition: all 0.35s ease;
+    filter: grayscale(100%);
+  }
 
-    /* face cover, this plus image clip */
-    /* .image-container {
-      position: relative;
-      width: 200px;
-      height: 300px;
-    }
+  .image-container {
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+  }
 
-    .image-container .after {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: none;
-      color: #fff;
-    }
-
-    .image-container:hover .after {
-      display: block;
-      background: rgba(0, 0, 0, 0.6);
-    } */
+  .image-container .after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    opacity: 0.87;
   }
 
   h3 {
@@ -68,19 +68,37 @@ const Card = styled.div`
     letter-spacing: 25;
     transform: translateX(0.01em);
     max-width: 100%;
+    transition: all 0.35s ease;
   }
 
   :hover {
     p {
       opacity: 1;
     }
+
+    img {
+      filter: grayscale(0%);
+    }
+
+    .after {
+      display: block;
+      opacity: 0;
+      transform: translate(5%, -25%);
+    }
+
+    .text {
+      filter: grayscale(0%);
+    }
   }
 `
 
-export default function RosterCard({ given, sur, role, bio, head }) {
+export default function RosterCard({ given, sur, role, bio, head, mask }) {
   return (
     <Card className="wrap">
-      <img src={head} alt={`profile picture of ${given} ${sur}`} />
+      <div className="image-container">
+        <img src={head} alt={`profile picture of ${given} ${sur}`} />
+        <img src={mask} className="after"></img>
+      </div>
       <div className="text">
         <h3>{given}</h3>
         <h3>{sur}</h3>

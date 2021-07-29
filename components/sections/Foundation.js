@@ -30,7 +30,7 @@ export default function Foundation() {
       </RedStrokeHeader>
 
       <Grid>
-        <div class="text" style={{ gridArea: "a" }}>
+        <div className="text" style={{ gridArea: "a" }}>
           <PoppedHeader>LEAN. AGILE. FULLY DISTRIBUTED</PoppedHeader>
           <p>
             At our core, we're all about stories. Doesn't matter if it's
@@ -47,7 +47,7 @@ export default function Foundation() {
         </div>
 
         <div
-          class="text"
+          className="text"
           style={{ gridArea: "b", transform: "translateY(-7vh)" }}
         >
           <PoppedHeader>Small by intention, not by necessity</PoppedHeader>
@@ -65,7 +65,7 @@ export default function Foundation() {
         </div>
 
         <div
-          class="text"
+          className="text"
           style={{ gridArea: "c", transform: "translateY(-14vh)" }}
         >
           <PoppedHeader>PARTNERS &gt; CLIENTS</PoppedHeader>

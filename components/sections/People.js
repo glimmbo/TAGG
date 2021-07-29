@@ -10,6 +10,7 @@ const team = {
       role: "CEO + Executive Producer",
       bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
       head: "/images/leadership/Leadership_TroyAdamGordon -CEO.png",
+      mask: "/images/leadership/Leadership_TroyAdamGordon -CEO copy.png",
     },
     {
       given: "DAVE ‘DABS’",
@@ -17,6 +18,7 @@ const team = {
       role: "Chief Partnership Officer",
       bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
       head: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative....png",
+      mask: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative... copy.png",
     },
     {
       given: "ZAQIR",
@@ -24,6 +26,7 @@ const team = {
       role: "Advisor",
       bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
       head: "/images/leadership/Leadership_ZaqirVirani - Advisor.png",
+      mask: "/images/leadership/Leadership_ZaqirVirani - Advisor copy.png",
     },
   ],
 }
@@ -42,13 +45,14 @@ export default function People() {
     <section id="people">
       <RedStrokeHeader>People</RedStrokeHeader>
       <FlexBox>
-        {team.leadership.map(({ given, sur, role, bio, head }, i) => (
+        {team.leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}
             sur={sur}
             role={role}
             bio={bio}
             head={head}
+            mask={mask}
             key={i}
           ></RosterCard>
         ))}
