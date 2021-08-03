@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     --white: #f7f7f7;
     --dark: #1e1e1e;
     --black: #0d1219;
+    /* --scrollpos: 0; */
   }
 
   html, body {
