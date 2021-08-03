@@ -12,7 +12,7 @@ const team = {
       sur: "MEDEIROS",
       role: "SALLUA",
       head: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA.png",
-      mask: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA.png",
+      mask: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA copy.png",
     },
     {
       head: "/images/extended-fam/ExtendedFam_JeffZwicker-DirectorOfPhotography.png",
