@@ -5,21 +5,25 @@ export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: Consolas;
     src: url("/fonts/Consolas-Font/CONSOLA.ttf") format("truetype");
+    font-display: block; /* Fix flickering */
   }
-
+  
   /* h */
   @font-face {
     font-family: Montserrat;
     src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+    font-display: block; /* Fix flickering */
   }
   @font-face {
     font-family: Montserrat-Bold;
     src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+    font-display: block; /* Fix flickering */
   }
   @font-face {
     font-family: Montserrat-ExtraBold;
     src: url("/fonts/Montserrat/Montserrat-ExtraBold.ttf")
-      format("truetype");
+    format("truetype");
+    font-display: block; /* Fix flickering */
   }
 
   :root {
@@ -30,7 +34,7 @@ export const GlobalStyle = createGlobalStyle`
     --white: #f7f7f7;
     --dark: #1e1e1e;
     --black: #0d1219;
-    /* --scrollpos: 0; */
+    --scrollpos: 0;
   }
 
   html, body {

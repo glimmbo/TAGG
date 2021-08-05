@@ -38,7 +38,7 @@ const Card = styled.div`
     width: 100%;
     height: 100%;
     color: #fff;
-    opacity: 0.87;
+    opacity: 0.98;
   }
 
   h3 {
