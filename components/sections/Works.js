@@ -8,6 +8,7 @@ const WorksSection = styled.section``
 
 const List = styled.div`
   display: grid;
+  height: fit-content;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr;
   gap: 0px 0px;
@@ -50,8 +51,8 @@ export default function Works({ videoList }) {
       <PoppedHeader style={{ marginLeft: "4vw" }}>
         Featured Projects
       </PoppedHeader>
-      {/* <RedStrokeHeader>Works</RedStrokeHeader> */}
-      <List style={{ height: `${videoList.length - 1 * 26}vh` }}>
+      <RedStrokeHeader>Works</RedStrokeHeader>
+      <List>
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
           return (

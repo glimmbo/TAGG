@@ -1,3 +1,4 @@
+import { useRef, useEffect } from "react"
 import styled from "styled-components"
 
 const H1 = styled.h1`
@@ -18,5 +19,31 @@ const H1 = styled.h1`
 `
 
 export default function RedStrokeHeader({ children, style }) {
-  return <H1 style={style}>{children}</H1>
+  // alter an element's style with scrollY
+  const h1Ref = useRef()
+  // useEffect(() => {
+  //   let didScroll = false
+
+  //   const scrollInProgress = () => {
+  //     didScroll = true
+  //   }
+
+  //   const raf = () => {
+  //     if (didScroll) {
+  //       h1Ref.current.style.transform =
+  //         "translateX(" + window.scrollY / 100 + "%)"
+  //       // don't translate, just change X pos of each
+  //       didScroll = false
+  //     }
+  //     requestAnimationFrame(raf)
+  //   }
+
+  //   requestAnimationFrame(raf)
+  //   window.addEventListener("scroll", scrollInProgress)
+  // })
+  return (
+    <H1 style={style} ref={h1Ref}>
+      {children}
+    </H1>
+  )
 }

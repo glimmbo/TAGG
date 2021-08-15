@@ -83,7 +83,8 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   section {
-    border-top: 1px solid white;
-    margin-top: 10vh; /* nav height */
+    border: 1px solid white;
+    /* margin-top: 10vh; nav height */
+    min-height: 100vh;
   }
 `
