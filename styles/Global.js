@@ -83,10 +83,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   section {
-    /* border-top: 1px solid white; */
-    min-height: 100vh;
-    height: fit-content;
-    padding: 5vh;
+    border-top: 1px solid white;
     margin-top: 10vh; /* nav height */
   }
 `
