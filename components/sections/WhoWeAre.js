@@ -21,7 +21,7 @@ const Section = styled.section`
   .img {
     position: absolute;
     height: 100%;
-    transition: all 1500ms ease-in 500ms;
+    transition: all 1500ms ease-in 600ms;
     z-index: 0;
     /* add radial blur? */
     /* ::after {
@@ -50,7 +50,7 @@ const Section = styled.section`
     margin: 1em;
     margin-bottom: 15%;
     margin-top: auto;
-    transition: all 1500ms ease-in 500ms;
+    transition: all 1500ms ease-in 700ms;
   }
 `
 

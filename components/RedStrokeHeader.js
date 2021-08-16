@@ -6,7 +6,7 @@ const H1 = styled.h1`
   -webkit-text-stroke: 1px var(--red);
   background-color: transparent;
   font-family: Montserrat-Bold;
-  font-size: 33vh;
+  font-size: 20vh;
   letter-spacing: 0.05em;
   margin: 0;
   padding: 0;
@@ -16,6 +16,7 @@ const H1 = styled.h1`
   user-select: none;
   width: 100vw;
   z-index: 0;
+  overflow: hidden;
 `
 
 export default function RedStrokeHeader({ children, style }) {

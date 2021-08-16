@@ -14,8 +14,9 @@ const H1 = styled.h1`
   z-index: 1;
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px var(--white);
-  transition: all 2000ms ease-in;
+  transition: all 2000ms ease-in 100ms;
   font-size: 33vh;
+  overflow: hidden;
 
   @media screen and (max-width: 425px) {
     font-size: 14vh;
