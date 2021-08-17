@@ -25,9 +25,7 @@ const Grid = styled.div`
 export default function Foundation() {
   return (
     <section id="foundation">
-      <RedStrokeHeader style={{ transform: "translateX(-1vh)" }}>
-        foundation
-      </RedStrokeHeader>
+      <RedStrokeHeader>foundation</RedStrokeHeader>
 
       <Grid>
         <div className="text" style={{ gridArea: "a" }}>

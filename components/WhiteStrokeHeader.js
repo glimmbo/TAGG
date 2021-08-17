@@ -5,7 +5,7 @@ const H1 = styled.h1`
   font-family: Montserrat-Bold;
   letter-spacing: 0.1em;
   margin: 0;
-  opacity: ${({ inView }) => (inView ? ".05" : "1")};
+  opacity: ${({ inView }) => (inView ? ".1" : "1")};
   padding: 0;
   position: absolute;
   text-transform: uppercase;
@@ -16,7 +16,10 @@ const H1 = styled.h1`
   -webkit-text-stroke: 1px var(--white);
   transition: all 2000ms ease-in 100ms;
   overflow: hidden;
-  font-size: 33vh;
+  font-size: 30vh;
+  @media screen and (max-width: 425px) {
+    font-size: 15vh;
+  }
 `
 
 export default function WhiteStrokeHeader({ children, style, inView }) {
