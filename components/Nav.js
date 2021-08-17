@@ -19,14 +19,15 @@ const Spacer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  margin-right: 1vw;
 `
 
 export const NavBar = () => {
   return (
     <Nav>
       <Spacer>
-        <NavLink href="/#about">ABOUT</NavLink>
         <NavLink href="/#works">WORKS</NavLink>
+        <NavLink href="/#about">ABOUT</NavLink>
         <NavLink href="/#contact">CONTACT</NavLink>
       </Spacer>
     </Nav>

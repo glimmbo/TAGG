@@ -9,6 +9,7 @@ const Corners = styled.div`
     position: absolute;
     width: 6px;
     height: 6px;
+    opacity: ${({ active }) => (active ? 1 : 0)};
   }
 
   .top {
@@ -33,11 +34,11 @@ const Corners = styled.div`
 `
 export const ActiveCorners = ({ children, active }) => {
   return (
-    <Corners style={{ position: "relative" }}>
-      <div className="top left" style={{ opacity: active ? 1 : 0 }} />
-      <div className="top right" style={{ opacity: active ? 1 : 0 }} />
-      <div className="bottom left" style={{ opacity: active ? 1 : 0 }} />
-      <div className="bottom right" style={{ opacity: active ? 1 : 0 }} />
+    <Corners style={{ position: "relative" }} active={active}>
+      <div className="top left" />
+      <div className="top right" />
+      <div className="bottom left" />
+      <div className="bottom right" />
       {children}
     </Corners>
   )
