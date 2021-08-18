@@ -59,7 +59,7 @@ export default function ContactCard({ style }) {
         <p>
           #600 - 401 GEORGIA STREET
           <br />
-          VANCOUVER, CANADA
+          VANCOUVER, BC, CANADA
         </p>
       </a>
       <a href="tel:+17788198555">
