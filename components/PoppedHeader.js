@@ -5,7 +5,7 @@ const Popped = styled.h2`
   color: var(--lightgrey);
   font-family: Montserrat-Bold;
   letter-spacing: 50;
-  margin: 0;
+  margin: 1em 0;
   text-shadow: -0.1em 0.1em var(--red);
   text-transform: uppercase;
   user-select: none;
