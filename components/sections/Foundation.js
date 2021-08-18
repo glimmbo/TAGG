@@ -86,7 +86,12 @@ const SideScrollArrow = () => (
 export default function Foundation() {
   return (
     <ScrollXonMobile id="foundation">
-      <RedStrokeHeader transform="translateX(20%)">foundation</RedStrokeHeader>
+      <RedStrokeHeader
+        transform="translateX(13%)"
+        transformMobile="translateX(20%)"
+      >
+        foundation
+      </RedStrokeHeader>
       <SideScrollArrow
         src="/autoscroll-arrows/autoscroll_video-inactive.svg"
         height="120px"

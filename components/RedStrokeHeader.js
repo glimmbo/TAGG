@@ -1,9 +1,16 @@
 import { useRef, useEffect } from "react"
 import styled from "styled-components"
 
-const H1 = styled.h1`
-  ${({ transform }) => transform}
+const Frame = styled.div`
+  position: relative;
+  width: 100%;
+  transform: ${({ transform }) => transform};
+  @media screen and (max-width: 425px) {
+    transform: ${({ transformMobile }) => transformMobile};
+  }
+`
 
+const H1 = styled.h1`
   -webkit-text-fill-color: transparent;
   -webkit-text-stroke: 1px var(--red);
   background-color: transparent;
@@ -17,13 +24,18 @@ const H1 = styled.h1`
   user-select: none;
   z-index: 0;
   overflow: hidden;
-  font-size: 20vh;
+  font-size: 15vh;
   @media screen and (max-width: 425px) {
     font-size: 10vh;
   }
 `
 
-export default function RedStrokeHeader({ children, style }) {
+export default function RedStrokeHeader({
+  children,
+  style,
+  transform,
+  transformMobile,
+}) {
   // alter an element's style with scrollY
   const h1Ref = useRef()
   useEffect(() => {
@@ -35,7 +47,7 @@ export default function RedStrokeHeader({ children, style }) {
 
     const raf = () => {
       if (didScroll) {
-        console.log(window.scrollY)
+        // console.log(window.scrollY)
 
         // h1Ref.current.style.transform =
         //   "translateX(" + window.scrollY / 100 + " %)"
@@ -50,10 +62,8 @@ export default function RedStrokeHeader({ children, style }) {
     window.addEventListener("scroll", scrollInProgress)
   })
   return (
-    <div style={{ position: "relative", ...style }}>
-      <H1 style={style} ref={h1Ref}>
-        {children}
-      </H1>
-    </div>
+    <Frame transform={transform} transformMobile={transformMobile}>
+      <H1 ref={h1Ref}>{children}</H1>
+    </Frame>
   )
 }
