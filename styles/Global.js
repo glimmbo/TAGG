@@ -46,9 +46,6 @@ export const GlobalStyle = createGlobalStyle`
   html {
     height: 100%;
     overflow: auto;
-    /* this will hide the scrollbar in mozilla based browsers */
-    overflow: -moz-scrollbars-none;
-    overflow-x: hidden;
     background-color: var(--black);
     scroll-behavior: smooth;
   }
@@ -83,9 +80,11 @@ export const GlobalStyle = createGlobalStyle`
   }
   
   section {
-    /* border: 1px solid white; */
+    /* border-top: 1px solid white; */
     /* margin-top: 10vh; nav height */
     min-height: 100vh;
     overflow: hidden;
+    /* margin-top: 10vh; */
+    min-width: 100vw;
   }
 `

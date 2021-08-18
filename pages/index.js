@@ -15,25 +15,26 @@ import {
   getWorks,
 } from "../vimeo"
 import { useEffect } from "react"
+import RedStrokeHeader from "../components/RedStrokeHeader"
 
-// export async function getStaticProps(context) {
-// Fetch all video content
-// const clipsMobile = await getClipsMobile()
-// const clipsDesktop = await getClipsDesktop()
-// let videoList = await getWorks()
-// console.log(clipsMobile)
-// for await (let video of videoList) {
-//   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
-// }
-// TEMP
-// for (let step = 0; step < 7; step++) {
-//   videoList.push(videoList[0])
-// }
-// return {
-//   props: { videoList, clipsMobile, clipsDesktop },
-//   revalidate: 60, //min
-// }
-// }
+export async function getStaticProps(context) {
+  // Fetch all video content
+  const clipsMobile = await getClipsMobile()
+  const clipsDesktop = await getClipsDesktop()
+  let videoList = await getWorks()
+  console.log(clipsMobile)
+  for await (let video of videoList) {
+    video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+  }
+  // rack em up
+  for (let step = 0; step < 7; step++) {
+    videoList.push(videoList[0])
+  }
+  return {
+    props: { videoList, clipsMobile, clipsDesktop },
+    revalidate: 60, //min
+  }
+}
 
 export default function Home({
   videoList,
@@ -106,13 +107,14 @@ export default function Home({
     <>
       <NavBar />
       <main>
-        {/* sections */}
         {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
-        <section style={{ height: "200vh" }}></section>
-        {/* <Works videoList={videoList} thumbs={videoListThumbs} /> */}
+        <Works videoList={videoList} thumbs={videoListThumbs} />
+        {/* <section id="works" style={{ height: "100vh" }}>
+          <RedStrokeHeader>WORKS</RedStrokeHeader>
+        </section> */}
         <WhoWeAre />
         <Foundation />
-        <WhatWeDo />
+        {/* <WhatWeDo /> */}
         <People />
         <ExtendedFam />
         <WorkedWith />

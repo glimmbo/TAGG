@@ -4,11 +4,17 @@ import styled from "styled-components"
 import WorkThumb from "../WorkThumb"
 import PoppedHeader from "../PoppedHeader"
 
-const WorksSection = styled.section``
+const WorksSection = styled.section`
+  padding: "10%";
+  @media screen and (max-device-width: 425px) {
+    min-height: fit-content;
+    margin: 1em 0;
+  }
+`
 
 const List = styled.div`
   display: grid;
-  height: fit-content;
+  margin: 15% 0;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr;
   gap: 0px 0px;
@@ -22,10 +28,11 @@ const List = styled.div`
     "g ."
     ". h";
 
-  @media screen and (max-device-width: 411px) {
+  @media screen and (max-device-width: 425px) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    height: fit-content;
   }
 `
 
@@ -42,16 +49,25 @@ const Work = styled.div`
   :hover h3 {
     color: var(--red);
   }
+
+  @media screen and (max-device-width: 425px) {
+    margin: 4em 0em;
+  }
 `
 
 export default function Works({ videoList }) {
   const gridAreas = ["a", "b", "c", "d", "e", "f", "g", "h"]
   return (
     <WorksSection id="works">
+      <RedStrokeHeader
+        transform="translateX(30%)"
+        transformMobile="translateX(19%)"
+      >
+        Works
+      </RedStrokeHeader>
       <PoppedHeader style={{ marginLeft: "4vw" }}>
         Featured Projects
       </PoppedHeader>
-      <RedStrokeHeader>Works</RedStrokeHeader>
       <List>
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]

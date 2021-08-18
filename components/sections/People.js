@@ -43,7 +43,7 @@ const FlexBox = styled.div`
 export default function People() {
   return (
     <section id="people">
-      <RedStrokeHeader>People</RedStrokeHeader>
+      <RedStrokeHeader transform="translate(20%,20%)">People</RedStrokeHeader>
       <FlexBox>
         {team.leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard

@@ -8,12 +8,12 @@ const Thumb = styled.img`
 
   :hover {
     /* when mobile */
-    @media screen and (max-device-width: 411px) {
+    @media screen and (max-device-width: 425px) {
       content: url(${({ mobileSrc }) => mobileSrc});
     }
 
     /* when desktop */
-    @media screen and (min-device-width: 411px) {
+    @media screen and (min-device-width: 425px) {
       content: url(${({ desktopSrc }) => desktopSrc});
     }
   }

@@ -62,7 +62,11 @@ export default function RedStrokeHeader({
     window.addEventListener("scroll", scrollInProgress)
   })
   return (
-    <Frame transform={transform} transformMobile={transformMobile}>
+    <Frame
+      transform={transform}
+      transformMobile={transformMobile}
+      style={style}
+    >
       <H1 ref={h1Ref}>{children}</H1>
     </Frame>
   )
