@@ -1,34 +1,99 @@
 import styled from "styled-components"
 import RedStrokeHeader from "../RedStrokeHeader"
 import PoppedHeader from "../PoppedHeader"
+import Image from "next/dist/client/image"
 
-const Grid = styled.div`
-  transform: translateY(27vh);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 0px 0px;
-  grid-template-areas:
-    "a ."
-    ". b"
-    "c .";
-
-  & .text {
-    padding-left: 10vh;
-    padding-right: 10vh;
-  }
-
-  p {
+const ScrollXonMobile = styled.section`
+  position: relative;
+  @media screen and (max-width: 425px) {
+    overflow-x: scroll;
+    min-height: fit-content;
+    padding: 2em 0;
   }
 `
 
+export const Stagger = styled.div`
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-between;
+  max-height: 100vh;
+  transform: translateY(15%);
+
+  .text {
+    margin: 0 10vh;
+    flex: 1 1 auto;
+    max-width: 40%;
+  }
+  .text.two {
+    margin-top: 5%;
+  }
+  .text.three {
+    margin-top: 15%;
+  }
+
+  @media screen and (max-width: 425px) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    max-height: fit-content;
+    font-size: 0.8em;
+    width: 300vw;
+    min-height: "fit-content";
+
+    .text {
+      margin: 0;
+      padding: 1em 2em;
+      max-width: 90vw;
+    }
+    .text.two {
+      margin-top: 0;
+    }
+    .text.three {
+      margin-top: 0;
+    }
+
+    p {
+      font-size: 1em;
+      line-height: 1.15em;
+    }
+  }
+`
+
+const SidewaysAnimation = styled.div`
+  display: none;
+  position: absolute;
+  margin: 3em;
+  & > * img {
+  }
+  @media screen and (max-width: 425px) {
+    display: block;
+    position: absolute;
+    transform: rotate(-90deg);
+    fill: var(--red);
+    left: 50%;
+    top: 50%;
+    height: 120px;
+    width: 120px;
+  }
+`
+
+const SideScrollArrow = () => (
+  <SidewaysAnimation>
+    <img src="/autoscroll-arrows/autoscroll_video-inactive.svg" />
+  </SidewaysAnimation>
+)
+
 export default function Foundation() {
   return (
-    <section id="foundation">
-      <RedStrokeHeader>foundation</RedStrokeHeader>
-
-      <Grid>
-        <div className="text" style={{ gridArea: "a" }}>
+    <ScrollXonMobile id="foundation">
+      <RedStrokeHeader transform="translateX(20%)">foundation</RedStrokeHeader>
+      <SideScrollArrow
+        src="/autoscroll-arrows/autoscroll_video-inactive.svg"
+        height="120px"
+        width="120px"
+      ></SideScrollArrow>
+      <Stagger>
+        <div className="text">
           <PoppedHeader>LEAN. AGILE. FULLY DISTRIBUTED</PoppedHeader>
           <p>
             At our core, we're all about stories. Doesn't matter if it's
@@ -44,10 +109,7 @@ export default function Foundation() {
           </p>
         </div>
 
-        <div
-          className="text"
-          style={{ gridArea: "b", transform: "translateY(-7vh)" }}
-        >
+        <div className="text two">
           <PoppedHeader>Small by intention, not by necessity</PoppedHeader>
           <p>
             Cupidatat reprehenderit aute ut laborum fugiat aute esse. Enim in
@@ -62,10 +124,7 @@ export default function Foundation() {
           </p>
         </div>
 
-        <div
-          className="text"
-          style={{ gridArea: "c", transform: "translateY(-14vh)" }}
-        >
+        <div className="text three">
           <PoppedHeader>PARTNERS &gt; CLIENTS</PoppedHeader>
           <p>
             If you hear a good story you share it, you tell your friends who
@@ -77,7 +136,7 @@ export default function Foundation() {
             become.
           </p>
         </div>
-      </Grid>
-    </section>
+      </Stagger>
+    </ScrollXonMobile>
   )
 }
