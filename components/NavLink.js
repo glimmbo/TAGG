@@ -24,12 +24,6 @@ const StyledA = styled.a`
 export const NavLink = ({ href, children }) => {
   const { asPath } = useRouter()
 
-  Router.events.on("hashChangeStart", console.log(href, asPath))
-
-  console.log(asPath)
-  useEffect(() => console.log(href, asPath), [asPath])
-
-  console.log(href === asPath)
   return (
     <ActiveCorners active={href === asPath}>
       <StyledA href={href}>{children}</StyledA>

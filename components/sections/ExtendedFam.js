@@ -1,10 +1,7 @@
-import RedStrokeHeader from "../RedStrokeHeader"
+import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
-import PoppedHeader from "../PoppedHeader"
+import styled from "styled-components"
 
-// could GetStaticProps here for active roster
-
-// fetch team from X
 const team = {
   extended: [
     {
@@ -45,23 +42,54 @@ const team = {
   ],
 }
 
+const Grid = styled.div`
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10% 0px;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0 0%;
+    grid-template-areas:
+      ". . "
+      ". . "
+      ". . ";
+  }
+`
+
+const GridItem = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (max-width: 425px) {
+    width: 50vw;
+  }
+`
+
 export default function ExtendedFam() {
   return (
-    <section id="extended-fam">
-      <RedStrokeHeader>EXTENDED FAMILY</RedStrokeHeader>
-      <div style={{ display: "grid" }}>
+    <HomeSection id="extended-fam" header1="extended" header2="family">
+      <Grid>
         {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
-          <RosterCard
-            given={given}
-            sur={sur}
-            role={role}
-            bio={bio}
-            head={head}
-            mask={mask}
-            key={i}
-          ></RosterCard>
+          <GridItem>
+            <RosterCard
+              given={given}
+              sur={sur}
+              role={role}
+              bio={bio}
+              head={head}
+              mask={mask}
+              key={i}
+            ></RosterCard>
+          </GridItem>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </HomeSection>
   )
 }

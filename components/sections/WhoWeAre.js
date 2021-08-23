@@ -6,9 +6,11 @@ import { useInView } from "react-intersection-observer"
 const Section = styled.section`
   position: relative;
   padding: 0;
+  height: 100vh;
 
   .centerframe {
     position: absolute;
+    overflow: hidden;
     top: 0;
     left: 0;
     height: 100vh;
@@ -20,9 +22,11 @@ const Section = styled.section`
 
   .img {
     position: absolute;
+    overflow: hidden;
     height: 100%;
     transition: all 1500ms ease-in 600ms;
     z-index: 0;
+
     /* add radial blur? */
     /* ::after {
       content: ""; // ::before and ::after both require content

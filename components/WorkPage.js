@@ -5,20 +5,33 @@ import PoppedHeader from "./PoppedHeader"
 import styled from "styled-components"
 
 const Main = styled.main`
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
   background-color: var(--black);
+`
+const Content = styled.section`
+  margin: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 `
 
 export default function WorkPage({ video }) {
+  console.log(video)
   return (
-    <main>
+    <Main>
       <Head>
-        <title>Video Title</title>
+        <title>{video.title}</title>
       </Head>
-
       <NavBar />
-
-      {/* not working.. instatiatie player? */}
-      {/* <iframe
+      <Content>
+        {/* draft */}
+        <p>(video player in progress)</p>
+        <p>• will go to full screen in landscape on mobile</p>
+        <p>• can switch videos from left/right buttons</p>
+        {/* not working..  */}
+        {/* <iframe
         src={`https://player.vimeo.com${video.uri}`}
         width="640"
         height="360"
@@ -27,10 +40,12 @@ export default function WorkPage({ video }) {
         allowfullscreen
       ></iframe> */}
 
-      <PoppedHeader>{video.name}</PoppedHeader>
-
-      <p>{video.description}</p>
-    </main>
+        <PoppedHeader>{video.name}</PoppedHeader>
+        {/* draft */}
+        <p>• Client • Agency • Role</p>
+        <p>{video.description}</p>
+      </Content>
+    </Main>
   )
 }
 

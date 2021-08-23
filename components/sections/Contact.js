@@ -1,28 +1,11 @@
-import RedStrokeHeader from "../RedStrokeHeader"
+import HomeSection from "./HomeSection"
 import ContactCard from "../ContactCard"
+import styled from "styled-components"
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100%",
-      }}
-    >
-      <RedStrokeHeader
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
-        CONTACT
-      </RedStrokeHeader>
+    <HomeSection id="contact" header1="contact">
       <ContactCard />
-    </section>
+    </HomeSection>
   )
 }

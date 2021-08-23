@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import RedStrokeHeader from "../RedStrokeHeader"
+import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
 
 const team = {
@@ -34,16 +34,17 @@ const team = {
 const FlexBox = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
 
-  @media screen and (min-width: 600px) {
-    flex-direction: "column";
+  @media screen and (max-width: 425px) {
+    flex-direction: column;
+    min-height: fit-content;
   }
 `
 
 export default function People() {
   return (
-    <section id="people">
-      <RedStrokeHeader transform="translate(20%,20%)">People</RedStrokeHeader>
+    <HomeSection id="people" header1="people">
       <FlexBox>
         {team.leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
@@ -57,6 +58,6 @@ export default function People() {
           ></RosterCard>
         ))}
       </FlexBox>
-    </section>
+    </HomeSection>
   )
 }

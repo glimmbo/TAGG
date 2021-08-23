@@ -47,7 +47,7 @@ export const vimeoClient = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN)
 // }
 // getToken()
 
-// featured-clips-9-16 showcase
+// featured-clips-9-16 showcase for mobile carousel
 export const getClipsMobile = async (album_id = "8493940") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(
@@ -65,7 +65,7 @@ export const getClipsMobile = async (album_id = "8493940") => {
   return clipList
 }
 
-//  featured-clips-16-9 showcase
+//  featured-clips-16-9 showcase for desktop carousel
 export const getClipsDesktop = async (album_id = "8493934") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(

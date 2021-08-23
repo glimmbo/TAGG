@@ -1,15 +1,23 @@
 import { Carousel } from "react-responsive-carousel"
+import RedStrokeHeader from "../RedStrokeHeader"
+// const
 
 const ClipCarousel = ({ clipsMobile }) => {
   // console.log("CAROUSEL CLIPS", clipsMobile)
   // TODO modify carousel: frame, buttons,
   return (
-    <Carousel>
-      {clipsMobile?.map((clip) => {
-        // load a vimeo player with no controls, an overlay effect
-        return <div>{clip}</div>
-      })}
-    </Carousel>
+    // <Carousel>
+    //   {clipsMobile?.map((clip) => {
+    //     // load a vimeo player with no controls, an overlay effect
+    //     return <div>{clip}</div>
+    //   })}
+    // </Carousel>
+
+    // draft
+    <section style={{ height: "100vh", width: "100vw", paddingTop: "30vh" }}>
+      <RedStrokeHeader>CLIPS Carousel</RedStrokeHeader>
+      <p>(in progress)</p>
+    </section>
   )
 }
 

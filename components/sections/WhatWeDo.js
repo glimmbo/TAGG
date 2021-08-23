@@ -1,6 +1,6 @@
 import PoppedHeader from "../PoppedHeader"
 import RedStrokeHeader from "../RedStrokeHeader"
-import { Stagger } from "./Foundation"
+// import { Stagger } from "./Foundation"
 import styled from "styled-components"
 
 const TextBox = styled.div`

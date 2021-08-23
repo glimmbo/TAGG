@@ -1,20 +1,10 @@
-import RedStrokeHeader from "../RedStrokeHeader"
+import HomeSection from "./HomeSection"
 import Link from "next/link"
 import styled from "styled-components"
 import WorkThumb from "../WorkThumb"
-import PoppedHeader from "../PoppedHeader"
-
-const WorksSection = styled.section`
-  padding: "10%";
-  @media screen and (max-device-width: 425px) {
-    min-height: fit-content;
-    margin: 1em 0;
-  }
-`
 
 const List = styled.div`
   display: grid;
-  margin: 15% 0;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr;
   gap: 0px 0px;
@@ -27,6 +17,9 @@ const List = styled.div`
     ". f"
     "g ."
     ". h";
+  /* draft */
+  display: block;
+  max-width: 50%;
 
   @media screen and (max-device-width: 425px) {
     display: flex;
@@ -38,8 +31,9 @@ const List = styled.div`
 
 const Work = styled.div`
   display: initial;
+  min-height: fit-content;
   cursor: pointer;
-  padding: 5vh;
+  max-width: 50%;
 
   h3 {
     font-family: Montserrat-Bold;
@@ -51,23 +45,19 @@ const Work = styled.div`
   }
 
   @media screen and (max-device-width: 425px) {
-    margin: 4em 0em;
+    max-width: 100%;
   }
 `
 
 export default function Works({ videoList }) {
   const gridAreas = ["a", "b", "c", "d", "e", "f", "g", "h"]
   return (
-    <WorksSection id="works">
-      <RedStrokeHeader
-        transform="translateX(30%)"
-        transformMobile="translateX(19%)"
-      >
-        Works
-      </RedStrokeHeader>
-      <PoppedHeader style={{ marginLeft: "4vw" }}>
-        Featured Projects
-      </PoppedHeader>
+    <HomeSection id="works" header1="works">
+      {/* draft */}
+      <p>
+        (in progress, need to sort vimeo content, will be 2 staggered
+        columns/single column mobile)
+      </p>
       <List>
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
@@ -82,7 +72,6 @@ export default function Works({ videoList }) {
                 className={`${gridAreas[i]}`}
                 style={{
                   gridArea: gridAreas[i],
-                  transform: `translateY(${i * -26}vh)`,
                 }}
               >
                 <WorkThumb
@@ -99,6 +88,6 @@ export default function Works({ videoList }) {
           )
         })}
       </List>
-    </WorksSection>
+    </HomeSection>
   )
 }

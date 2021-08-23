@@ -2,16 +2,16 @@ import styled from "styled-components"
 
 const Card = styled.div`
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  position: relative;
   width: fit-content;
-  max-width: 33%;
   height: auto;
   z-index: 2;
+  padding: 0 1em;
 
   .text {
     display: flex;
     flex-direction: column;
-    margin-right: 30%;
     z-index: 2;
     filter: grayscale(100%);
     transition: all 0.35s ease;
@@ -20,7 +20,7 @@ const Card = styled.div`
   img {
     height: 200px;
     max-height: 30vh;
-    transform: translate(5%, -25%);
+    /* transform: translate(5%, -25%); */
     transition: all 0.35s ease;
     filter: grayscale(100%);
   }
@@ -29,6 +29,8 @@ const Card = styled.div`
     position: relative;
     width: fit-content;
     height: fit-content;
+    margin-top: -3%;
+    /* transform: */
   }
 
   .image-container .after {
@@ -83,7 +85,27 @@ const Card = styled.div`
     .after {
       display: block;
       opacity: 0;
-      transform: translate(5%, -25%);
+      /* transform: translate(5%, -25%); */
+    }
+
+    .text {
+      filter: grayscale(0%);
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    p {
+      opacity: 1;
+    }
+
+    img {
+      filter: grayscale(0%);
+    }
+
+    .after {
+      display: block;
+      opacity: 0;
+      /* transform: translate(5%, -25%); */
     }
 
     .text {
@@ -94,7 +116,7 @@ const Card = styled.div`
 
 export default function RosterCard({ given, sur, role, bio, head, mask }) {
   return (
-    <Card className="wrap">
+    <Card>
       <div className="image-container">
         <img src={head} alt={`profile picture of ${given} ${sur}`} />
         <img src={mask} className="after"></img>

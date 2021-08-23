@@ -1,3 +1,4 @@
+import Head from "next/head"
 import { NavBar } from "../components/Nav"
 import Carousel from "../components/elements/Carousel"
 import Works from "../components/sections/Works"
@@ -15,33 +16,27 @@ import {
   getWorks,
 } from "../vimeo"
 import { useEffect } from "react"
-import RedStrokeHeader from "../components/RedStrokeHeader"
 
+// Fetch all video content
 export async function getStaticProps(context) {
-  // Fetch all video content
+  // Carousel
   const clipsMobile = await getClipsMobile()
   const clipsDesktop = await getClipsDesktop()
+
+  // Works
+
   let videoList = await getWorks()
-  console.log(clipsMobile)
   for await (let video of videoList) {
     video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
   }
-  // rack em up
-  for (let step = 0; step < 7; step++) {
-    videoList.push(videoList[0])
-  }
+
   return {
     props: { videoList, clipsMobile, clipsDesktop },
     revalidate: 60, //min
   }
 }
 
-export default function Home({
-  videoList,
-  clipsMobile,
-  clipsDesktop,
-  videoListThumbs,
-}) {
+export default function Home({ videoList, clipsMobile, clipsDesktop }) {
   // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
   useEffect(() => {
     // The debounce function receives our function as a parameter
@@ -107,15 +102,14 @@ export default function Home({
     <>
       <NavBar />
       <main>
-        {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
-        <Works videoList={videoList} thumbs={videoListThumbs} />
-        {/* <section id="works" style={{ height: "100vh" }}>
-          <RedStrokeHeader>WORKS</RedStrokeHeader>
-        </section> */}
+        <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
+        <Works videoList={videoList} />
         <WhoWeAre />
         <Foundation />
         {/* <WhatWeDo /> */}
+        {/* <div style={{ height: "10vh" }}></div> */}
         <People />
+        {/* <div style={{ height: "10vh" }}></div> */}
         <ExtendedFam />
         <WorkedWith />
         <Contact />

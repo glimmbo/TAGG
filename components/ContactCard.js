@@ -2,8 +2,6 @@ import styled from "styled-components"
 import PoppedHeader from "./PoppedHeader"
 
 const CardStyles = styled.div`
-  margin: 1em;
-  padding: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;

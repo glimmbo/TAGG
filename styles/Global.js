@@ -27,7 +27,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   :root {
-    box-sizing: border-box;
     --red: #ed1a62;
     --grey: #bfbebf;
     --lightgrey: #e3e3e7;
@@ -41,24 +40,13 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     margin: 0;
     background-color: var(--black);
+    box-sizing: border-box;
   }
 
   html {
-    height: 100%;
     overflow: auto;
-    background-color: var(--black);
     scroll-behavior: smooth;
-  }
-
-
-  body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-
-  main {
-    
+    min-width: 100vw;
   }
 
   .body::-webkit-scrollbar {
@@ -79,12 +67,4 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   
-  section {
-    /* border-top: 1px solid white; */
-    /* margin-top: 10vh; nav height */
-    min-height: 100vh;
-    overflow: hidden;
-    /* margin-top: 10vh; */
-    min-width: 100vw;
-  }
 `
