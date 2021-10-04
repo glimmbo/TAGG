@@ -1,8 +1,9 @@
 import { GlobalStyle } from "../styles/Global"
-import FontFaceObserver from "fontfaceobserver"
+import Fonts from "../styles/Fonts"
 import Head from "next/head"
 
 function MyApp({ Component, pageProps }) {
+  Fonts()
   return (
     <>
       <Head>
