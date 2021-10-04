@@ -2,6 +2,7 @@ import { GlobalStyle } from "../styles/Global"
 import Fonts from "../styles/Fonts"
 import Head from "next/head"
 import { useEffect } from "react/cjs/react.development"
+import MyDocument from "./_document"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -36,7 +37,6 @@ function MyApp({ Component, pageProps }) {
           crossOrigin=""
         />
       </Head>
-      <GlobalStyle />
       <Component {...pageProps} />
     </>
   )

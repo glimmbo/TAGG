@@ -1,4 +1,3 @@
-import Head from "next/head"
 import { NavBar } from "../components/Nav"
 import Carousel from "../components/elements/Carousel"
 import Works from "../components/sections/Works"
@@ -16,6 +15,7 @@ import {
   getWorks,
 } from "../vimeo"
 import { useEffect } from "react"
+import { GlobalStyle } from "../styles/Global"
 
 // Fetch all video content
 export async function getStaticProps(context) {
@@ -100,6 +100,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
   // })
   return (
     <>
+      <GlobalStyle />
       <NavBar />
       <main>
         {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
