@@ -7,7 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     src: url("/fonts/Consolas-Font/CONSOLA.ttf") format("truetype");
     font-display: block; /* Fix flickering */
   }
-  
   /* h */
   @font-face {
     font-family: Montserrat;
