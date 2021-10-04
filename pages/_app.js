@@ -1,9 +1,12 @@
 import { GlobalStyle } from "../styles/Global"
 import Fonts from "../styles/Fonts"
 import Head from "next/head"
+import { useEffect } from "react/cjs/react.development"
 
 function MyApp({ Component, pageProps }) {
-  Fonts()
+  useEffect(() => {
+    Fonts()
+  })
   return (
     <>
       <Head>
