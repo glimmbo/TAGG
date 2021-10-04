@@ -3,12 +3,12 @@ import RedStrokeHeader from "../RedStrokeHeader"
 
 const Section = styled.section`
   min-height: 100vh;
-  /* height: fit-content; */
+  height: fit-content;
   min-width: 100vw;
   width: 100%;
-  margin-top: 5vh;
-  margin-bottom: 5vh;
-  overflow: hidden;
+  margin-top: 15vh;
+  /* margin-bottom: 10vh; */
+  /* overflow: hidden; */
   position: relative;
 
   display: flex;

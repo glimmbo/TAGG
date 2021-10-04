@@ -4,6 +4,7 @@ import PoppedHeader from "../PoppedHeader"
 
 export const Wrap = styled.div`
   display: grid;
+  max-width: 100%;
   padding: 40px 5%;
   margin-top: -45px;
   grid-template-columns: 1fr 1fr;
@@ -14,6 +15,7 @@ export const Wrap = styled.div`
     "b d";
   @media screen and (max-width: 425px) {
     display: block;
+    padding: 0 0;
     width: 100%;
   }
 `
@@ -27,7 +29,7 @@ export const Text = styled.div`
   }};
 
   @media screen and (max-width: 425px) {
-    padding: 2em;
+    padding: 2em 0;
     margin-top: 0;
     width: 100%;
     transform: none;

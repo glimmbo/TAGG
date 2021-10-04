@@ -18,8 +18,7 @@ const Card = styled.div`
   }
 
   img {
-    height: 200px;
-    max-height: 30vh;
+    width: 100%;
     /* transform: translate(5%, -25%); */
     transition: all 0.35s ease;
     filter: grayscale(100%);
@@ -54,7 +53,8 @@ const Card = styled.div`
   h4 {
     background-color: var(--red);
     color: var(--white);
-    margin: 0.15em;
+    width: fit-content;
+    margin: 0.15em 6px;
     padding: 0.2em 0.5em;
     transform: translateX(-0.7em);
     font-family: Montserrat-Bold;
