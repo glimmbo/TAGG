@@ -4,7 +4,8 @@ import PoppedHeader from "../PoppedHeader"
 
 export const Wrap = styled.div`
   display: grid;
-  padding: 5%;
+  padding: 40px 5%;
+  margin-top: -45px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-gap: 5% 10%;
@@ -22,10 +23,11 @@ export const Text = styled.div`
   margin-right: auto;
   grid-area: ${({ gridArea }) => gridArea};
   transform: ${({ gridArea }) => {
-    return gridArea === "c" || gridArea === "d" ? "translateY(50%)" : "0"
+    return gridArea === "c" || gridArea === "d" ? "translateY(60%)" : "0"
   }};
 
   @media screen and (max-width: 425px) {
+    padding: 2em;
     margin-top: 0;
     width: 100%;
     transform: none;

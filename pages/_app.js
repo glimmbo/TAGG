@@ -1,5 +1,5 @@
 import { GlobalStyle } from "../styles/Global"
-
+import FontFaceObserver from "fontfaceobserver"
 import Head from "next/head"
 
 function MyApp({ Component, pageProps }) {
