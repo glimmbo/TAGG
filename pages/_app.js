@@ -6,7 +6,7 @@ import { useEffect } from "react/cjs/react.development"
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     Fonts()
-  })
+  }, [])
   return (
     <>
       <Head>
