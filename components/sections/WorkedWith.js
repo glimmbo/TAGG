@@ -20,7 +20,7 @@ const MobileRowDesktopCol = styled.div`
 
 export default function WorkedWith() {
   return (
-    <HomeSection id="worked-with" header1="worked" header2="with">
+    <HomeSection id="worked-with" header="worked with">
       <MobileRowDesktopCol>
         <MobileColDesktopRow>
           <HoverLogo

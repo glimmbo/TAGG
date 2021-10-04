@@ -102,11 +102,11 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
     <>
       <NavBar />
       <main>
-        <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
+        {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
         <Works videoList={videoList} />
         <WhoWeAre />
         <Foundation />
-        {/* <WhatWeDo /> */}
+        <WhatWeDo />
         {/* <div style={{ height: "10vh" }}></div> */}
         <People />
         {/* <div style={{ height: "10vh" }}></div> */}

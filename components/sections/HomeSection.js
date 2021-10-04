@@ -3,28 +3,23 @@ import RedStrokeHeader from "../RedStrokeHeader"
 
 const Section = styled.section`
   min-height: 100vh;
-  height: fit-content;
+  /* height: fit-content; */
   min-width: 100vw;
   width: 100%;
-  margin-top: 10vh;
-  margin-bottom: 15vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
   overflow: hidden;
   position: relative;
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
-
-  @media screen and (max-width: 425px) {
-    display: block;
-  }
 `
 
 const Content = styled.div`
-  /* draft */
-  /* background-color: darkred; */
-  width: 100%;
-  margin: 5% 5%;
-  margin-top: 130px;
+  margin-top: -60px;
+  z-index: 1;
+  /* background-color: rgba(50, 150, 75, 0.1); */
 
   @media screen and (max-width: 425px) {
     width: initial;
@@ -33,15 +28,11 @@ const Content = styled.div`
   }
 `
 
-const HomeSection = ({ children, header1, header2, style }) => {
+const HomeSection = ({ id, children, header, sectionStyle }) => {
   return (
-    <Section>
-      <RedStrokeHeader>{header1}</RedStrokeHeader>
-      {header2 && (
-        <RedStrokeHeader transformDesktop="translate(0%, 170%)">
-          {header2}
-        </RedStrokeHeader>
-      )}
+    <Section id={id} style={sectionStyle}>
+      <RedStrokeHeader>{header}</RedStrokeHeader>
+      {/* {header2 && <RedStrokeHeader>{header2}</RedStrokeHeader>} */}
       <Content>{children}</Content>
     </Section>
   )

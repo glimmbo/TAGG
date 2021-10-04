@@ -44,7 +44,7 @@ const FlexBox = styled.div`
 
 export default function People() {
   return (
-    <HomeSection id="people" header1="people">
+    <HomeSection id="people" header="people">
       <FlexBox>
         {team.leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard

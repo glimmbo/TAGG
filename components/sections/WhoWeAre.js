@@ -24,7 +24,7 @@ const Section = styled.section`
     position: absolute;
     overflow: hidden;
     height: 100%;
-    transition: all 1500ms ease-in 600ms;
+    transition: all 1000ms ease-in;
     z-index: 0;
 
     /* add radial blur? */
@@ -67,7 +67,7 @@ const WhoWeAre = () => {
     <Section id="about" ref={ref}>
       <div className="centerframe">
         <img
-          src="/images/logo_altered.png"
+          src="/images/TAGG_webbanner5.png"
           id="logo"
           className={inView ? "img appear" : "img hidden"}
         />

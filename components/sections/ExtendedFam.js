@@ -43,7 +43,7 @@ const team = {
 }
 
 const Grid = styled.div`
-  width: 100vw;
+  width: 100%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -55,7 +55,7 @@ const Grid = styled.div`
   @media screen and (max-width: 425px) {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
-    gap: 0 0%;
+    gap: 5% 0%;
     grid-template-areas:
       ". . "
       ". . "
@@ -64,20 +64,23 @@ const Grid = styled.div`
 `
 
 const GridItem = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
   @media screen and (max-width: 425px) {
-    width: 50vw;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5% 0%;
+    grid-template-areas:
+      ". . "
+      ". . "
+      ". . ";
   }
 `
 
 export default function ExtendedFam() {
   return (
-    <HomeSection id="extended-fam" header1="extended" header2="family">
+    <HomeSection id="extended-fam" header="extended family">
       <Grid>
         {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
-          <GridItem>
+          <GridItem key={i}>
             <RosterCard
               given={given}
               sur={sur}
@@ -85,7 +88,6 @@ export default function ExtendedFam() {
               bio={bio}
               head={head}
               mask={mask}
-              key={i}
             ></RosterCard>
           </GridItem>
         ))}

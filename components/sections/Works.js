@@ -5,6 +5,7 @@ import WorkThumb from "../WorkThumb"
 
 const List = styled.div`
   display: grid;
+  padding: 5%;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr 1fr 0.5fr;
   gap: 0px 0px;
@@ -52,12 +53,7 @@ const Work = styled.div`
 export default function Works({ videoList }) {
   const gridAreas = ["a", "b", "c", "d", "e", "f", "g", "h"]
   return (
-    <HomeSection id="works" header1="works">
-      {/* draft */}
-      <p>
-        (in progress, need to sort vimeo content, will be 2 staggered
-        columns/single column mobile)
-      </p>
+    <HomeSection id="works" header="works">
       <List>
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]

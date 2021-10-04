@@ -2,33 +2,39 @@ import styled from "styled-components"
 import HomeSection from "./HomeSection"
 import PoppedHeader from "../PoppedHeader"
 
-const Wrap = styled.div`
+export const Wrap = styled.div`
   display: grid;
+  padding: 5%;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
-  grid-gap: 0em 5%;
+  grid-gap: 5% 10%;
   grid-template-areas:
     "a c"
     "b d";
   @media screen and (max-width: 425px) {
     display: block;
+    width: 100%;
   }
 `
 
-const Text = styled.div`
+export const Text = styled.div`
+  padding-bottom: 2em;
   margin-right: auto;
-  margin-top: ${({ mt }) => mt};
   grid-area: ${({ gridArea }) => gridArea};
+  transform: ${({ gridArea }) => {
+    return gridArea === "c" || gridArea === "d" ? "translateY(50%)" : "0"
+  }};
 
   @media screen and (max-width: 425px) {
     margin-top: 0;
-    max-width: 100%;
+    width: 100%;
+    transform: none;
   }
 `
 
 export default function Foundation() {
   return (
-    <HomeSection id="foundation" header1="foundation" maxH="100px">
+    <HomeSection id="foundation" header="foundation">
       <Wrap>
         <Text gridArea="a">
           <PoppedHeader>LEAN. AGILE. FULLY DISTRIBUTED</PoppedHeader>
@@ -61,7 +67,7 @@ export default function Foundation() {
           </p>
         </Text>
 
-        <Text mt="30%" gridArea="c">
+        <Text mt="50%" gridArea="c">
           <PoppedHeader className="dropped">PARTNERS &gt; CLIENTS</PoppedHeader>
           <p>
             If you hear a good story you share it, you tell your friends who
