@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
   /* p */
   @font-face {
     font-family: Consolas;
-    src: url("/fonts/Consolas-Font/CONSOLA.ttf") format("truetype");
+    src: url("/fonts/ConsolasFont/CONSOLA.ttf") format("truetype");
     font-display: block; /* Fix flickering */
   }
   /* h */

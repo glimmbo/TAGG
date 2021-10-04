@@ -1,6 +1,6 @@
 const Fonts = () => {
   const linkConsolas = document.createElement("link")
-  linkConsolas.href = "/fonts/Consolas-Font/CONSOLA.ttf"
+  linkConsolas.href = "/fonts/ConsolasFont/CONSOLA.ttf"
   linkConsolas.rel = "stylesheet"
   document.head.appendChild(linkConsolas)
   const consolas = new FontFaceObserver("Consolas")

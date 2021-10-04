@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }) {
         <link rel="stylesheet" href="/fonts/fonts.css" />
         <link
           rel="preload"
-          href="/fonts/Consolas-Font/CONSOLA.ttf"
+          href="/fonts/ConsolasFont/CONSOLA.ttf"
           as="font"
           crossOrigin=""
         />
