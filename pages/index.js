@@ -1,48 +1,5 @@
-import { vimeoClient, TAGG_ID } from "../vimeo"
-
-// This function gets called at build time on server-side.
-// It may be called again, on a serverless function, if
-// revalidation is enabled and a new request comes in
-// at most once every hour
-export async function getStaticProps(context) {
-  // fetch carousel clips
-  let carouselclips = []
-
-  // fetch list of works videos
-  const videolist = await new Promise((resolve, reject) => {
-    vimeoClient.request(
-      {
-        method: "GET",
-        path: `/users/${TAGG_ID}/videos`,
-        userId: TAGG_ID,
-      },
-      (error, body, status_code, headers) => {
-        // console.log("error", error)
-        // console.log("body", body)
-        // console.log("status_code", status_code)
-        // console.log("headers", headers)
-
-        if (error) {
-          console.error(error)
-          reject(error)
-        }
-
-        resolve(body.data)
-      },
-    )
-  })
-
-  // fetch clients
-  const clients = ["dude1", "dude2"]
-
-  // pass to props below
-  return {
-    props: { carouselclips, videolist, clients },
-    revalidate: 3600,
-  }
-}
-
 import { NavBar } from "../components/Nav"
+import Carousel from "../components/elements/Carousel"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
 import Foundation from "../components/sections/Foundation"
@@ -51,26 +8,112 @@ import People from "../components/sections/People"
 import ExtendedFam from "../components/sections/ExtendedFam"
 import WorkedWith from "../components/sections/WorkedWith"
 import Contact from "../components/sections/Contact"
-import WorkModal from "../components/WorkModal"
+import {
+  getMostRecentAnimatedThumb,
+  getClipsMobile,
+  getClipsDesktop,
+  getWorks,
+} from "../vimeo"
+import { useEffect } from "react"
+import { GlobalStyle } from "../styles/Global"
 
-export default function Home({ carouselclips, videolist, team, clients }) {
+// Fetch all video content
+export async function getStaticProps(context) {
+  // Carousel
+  const clipsMobile = await getClipsMobile()
+  const clipsDesktop = await getClipsDesktop()
+
+  // Works
+
+  let videoList = await getWorks()
+  for await (let video of videoList) {
+    video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+  }
+
+  return {
+    props: { videoList, clipsMobile, clipsDesktop },
+    revalidate: 60, //min
+  }
+}
+
+export default function Home({ videoList, clipsMobile, clipsDesktop }) {
+  // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
+  useEffect(() => {
+    // The debounce function receives our function as a parameter
+    const debounce = (fn) => {
+      // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+      let frame
+
+      // The debounce function returns a new function that can receive a variable number of arguments
+      return (...params) => {
+        // If the frame variable has been defined, clear it now, and queue for next frame
+        if (frame) {
+          cancelAnimationFrame(frame)
+        }
+
+        // Queue our function call for the next frame
+        frame = requestAnimationFrame(() => {
+          // Call our function and pass any params we received
+          fn(...params)
+        })
+      }
+    }
+
+    // Reads out the scroll position and stores it in the data attribute
+    // so we can use it in our stylesheets
+    const storeScroll = () => {
+      // console.log(window.scrollY)
+      let perc =
+        (window.scrollY / (document.body.clientHeight - window.innerHeight)) *
+        100
+      document.documentElement.setAttribute("style", `--scrollpos: ${perc}`)
+    }
+
+    // Listen for new scroll events, here we debounce our `storeScroll` function
+    document.addEventListener("scroll", debounce(storeScroll), {
+      passive: true,
+    })
+
+    // Update scroll position for first time
+    // storeScroll()
+  }, [])
+
+  // alter an element's style with scrollY
+  // useEffect(() => {
+  //   let didScroll = false
+  //   let paralaxTitles = document.querySelectorAll(".paralax-title")
+
+  //   const scrollInProgress = () => {
+  //     didScroll = true
+  //   }
+
+  //   const raf = () => {
+  //     if (didScroll) {
+  //       // do something here
+  //       didScroll = false
+  //     }
+  //     requestAnimationFrame(raf)
+  //   }
+
+  //   requestAnimationFrame(raf)
+  //   window.addEventListener("scroll", scrollInProgress)
+  // })
   return (
     <>
+      <GlobalStyle />
       <NavBar />
       <main>
-        {/* sections */}
-        {/* <Carousel carouselclips={carouselclips} onWatch /> */}
-        {/* <Works videolist={videolist} /> */}
+        {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
+        <Works videoList={videoList} />
         <WhoWeAre />
-        {/* <Foundation /> */}
-        {/* <WhatWeDo /> */}
-        {/* <People /> */}
-        {/* <ExtendedFam /> */}
-        {/* <WorkedWith /> */}
-        {/* <Contact /> */}
-
-        {/* modal logic */}
-        {/* <WorkModal /> */}
+        <Foundation />
+        <WhatWeDo />
+        {/* <div style={{ height: "10vh" }}></div> */}
+        <People />
+        {/* <div style={{ height: "10vh" }}></div> */}
+        <ExtendedFam />
+        <WorkedWith />
+        <Contact />
       </main>
     </>
   )

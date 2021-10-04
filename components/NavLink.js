@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useRouter } from "next/router"
+import { useRouter, Router } from "next/router"
 import styled from "styled-components"
 import { ActiveCorners } from "./elements/ActiveCorners"
 
@@ -12,6 +12,8 @@ const StyledA = styled.a`
   background-color: transparent;
   font-family: Montserrat;
   font-size: 1.1em;
+  margin-right: 2vw;
+  margin-left: 2vw;
 
   :hover {
     color: var(--lightgrey);
@@ -20,25 +22,11 @@ const StyledA = styled.a`
 `
 
 export const NavLink = ({ href, children }) => {
-  const router = useRouter()
-  const [currentPath, setCurrentPath] = useState("")
-  useEffect(() => setCurrentPath(router.pathname), [])
+  const { asPath } = useRouter()
 
   return (
-    <ActiveCorners active={currentPath === href}>
+    <ActiveCorners active={href === asPath}>
       <StyledA href={href}>{children}</StyledA>
     </ActiveCorners>
   )
 }
-
-// function MyComp() {
-//   const router = useRouter()
-//   const [currentPath, setCurrentPath] = useState("")
-//   useEffect(() => setCurrentPath(router.pathname), [])
-
-//   return (
-//     <a className={currentPath === "/some-path" ? "currentCSS" : "defaultCSS"}>
-//       Some link
-//     </a>
-//   )
-// }

@@ -2,8 +2,6 @@ import styled from "styled-components"
 import PoppedHeader from "./PoppedHeader"
 
 const CardStyles = styled.div`
-  margin: 1em;
-  padding: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,7 +54,11 @@ export default function ContactCard({ style }) {
         <PoppedHeader>info@taggcreative.com</PoppedHeader>
       </a>
       <a href="https://goo.gl/maps/UpXhwBtRVMsxHuo78">
-        <p>#600 - 401 GEORGIA STREET, VANCOUVER, CANADA</p>
+        <p>
+          #600 - 401 GEORGIA STREET
+          <br />
+          VANCOUVER, BC, CANADA
+        </p>
       </a>
       <a href="tel:+17788198555">
         <p>778.819.8555</p>

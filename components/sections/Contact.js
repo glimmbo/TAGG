@@ -1,12 +1,14 @@
-import RedStrokeHeader from "../RedStrokeHeader"
+import HomeSection from "./HomeSection"
 import ContactCard from "../ContactCard"
+
 export default function Contact() {
   return (
-    <section id="contact">
-      <RedStrokeHeader style={{ transform: "translateY(19vh)" }}>
-        CONTACT
-      </RedStrokeHeader>
-      <ContactCard style={{ transform: "translateY(42vh)" }} />
-    </section>
+    <HomeSection
+      id="contact"
+      header="contact"
+      sectionStyle={{ maxHeight: "100vh" }}
+    >
+      <ContactCard />
+    </HomeSection>
   )
 }

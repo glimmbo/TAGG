@@ -4,54 +4,48 @@ export const GlobalStyle = createGlobalStyle`
   /* p */
   @font-face {
     font-family: Consolas;
-    src: url("/fonts/Consolas-Font/CONSOLA.ttf") format("truetype");
+    src: url("/fonts/ConsolasFont/CONSOLA.ttf") format("truetype");
+    font-display: block; /* Fix flickering */
   }
-
   /* h */
   @font-face {
     font-family: Montserrat;
     src: url("/fonts/Montserrat/Montserrat-Regular.ttf") format("truetype");
+    font-display: block; /* Fix flickering */
   }
   @font-face {
     font-family: Montserrat-Bold;
     src: url("/fonts/Montserrat/Montserrat-Bold.ttf") format("truetype");
+    font-display: block; /* Fix flickering */
   }
   @font-face {
     font-family: Montserrat-ExtraBold;
     src: url("/fonts/Montserrat/Montserrat-ExtraBold.ttf")
-      format("truetype");
+    format("truetype");
+    font-display: block; /* Fix flickering */
   }
 
   :root {
-    box-sizing: border-box;
     --red: #ed1a62;
     --grey: #bfbebf;
     --lightgrey: #e3e3e7;
     --white: #f7f7f7;
     --dark: #1e1e1e;
     --black: #0d1219;
+    --scrollpos: 0;
   }
 
   html, body {
     padding: 0;
     margin: 0;
     background-color: var(--black);
+    box-sizing: border-box;
   }
 
   html {
-    height: 100%;
     overflow: auto;
-    /* this will hide the scrollbar in mozilla based browsers */
-    overflow: -moz-scrollbars-none;
-    overflow-x: hidden;
-    background-color: var(--black);
-  }
-
-
-  body {
-    min-height: 100%;
-    margin: 0;
-    padding: 0;
+    scroll-behavior: smooth;
+    min-width: 100vw;
   }
 
   .body::-webkit-scrollbar {
@@ -64,6 +58,7 @@ export const GlobalStyle = createGlobalStyle`
     font-size: 18px;
     line-height: 25px;
     letter-spacing: 25;
+    z-index: 5;
   }
 
   a {
@@ -71,7 +66,4 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   
-  section {
-    height: 100vh;
-  }
 `

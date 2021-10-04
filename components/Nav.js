@@ -7,11 +7,11 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   height: 10vh;
-  justify-content: flex-end;
+  justify-content: space-between;
   position: fixed;
   top: 0;
   width: 100vw;
-  z-index: 2;
+  z-index: 20;
   font-weight: 300;
 `
 
@@ -19,17 +19,25 @@ const Spacer = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  margin-right: 4vw;
-  width: 25vw;
+  margin-right: 1vw;
+`
+
+const Logo = styled.img`
+  height: 10vh;
+  filter: invert(20%) sepia(45%) saturate(6941%) hue-rotate(329deg)
+    brightness(95%) contrast(94%);
 `
 
 export const NavBar = () => {
   return (
     <Nav>
+      <a href="#" style={{ margin: "10px", marginTop: "40px" }}>
+        <Logo src="/images/taggSpray.png" />
+      </a>
       <Spacer>
-        <NavLink href="#about">ABOUT</NavLink>
-        <NavLink href="#works">WORKS</NavLink>
-        <NavLink href="#contact">CONTACT</NavLink>
+        <NavLink href="/#works">WORKS</NavLink>
+        <NavLink href="/#about">ABOUT</NavLink>
+        <NavLink href="/#contact">CONTACT</NavLink>
       </Spacer>
     </Nav>
   )

@@ -1,38 +1,40 @@
-import RedStrokeHeader from "../RedStrokeHeader"
+import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
-import PoppedHeader from "../PoppedHeader"
+import styled from "styled-components"
 
-// could GetStaticProps here for active roster
-
-// fetch team from X
 const team = {
   extended: [
     {
-      head: "/images/rosterSample.png",
       given: "CAT",
       sur: "MEDEIROS",
       role: "SALLUA",
+      head: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA.png",
+      mask: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA copy.png",
     },
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_JeffZwicker-DirectorOfPhotography.png",
+      mask: "/images/extended-fam/ExtendedFam_JeffZwicker-DirectorOfPhotography copy.png",
       given: "JEFF",
       sur: "ZWICKER",
       role: "Director of Photography",
     },
     {
-      head: "/images/rosterSample.png",
-      given: "JUSTIN",
-      sur: "RITCHIE",
-      role: "JUMBO",
+      head: "/images/extended-fam/ExtendedFam_WilliamSelviz - RENDRD.png",
+      mask: "/images/extended-fam/ExtendedFam_WilliamSelviz - RENDRD copy.png",
+      given: "WILLIAM",
+      sur: "SELVIS",
+      role: "RENDRD",
     },
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_NickGrossman.png",
+      mask: "/images/extended-fam/ExtendedFam_NickGrossman copy.png",
       given: "NICK",
-      sur: "GORSSMAN",
+      sur: "GROSSMAN",
       role: "Animator / VFX",
     },
     {
-      head: "/images/rosterSample.png",
+      head: "/images/extended-fam/ExtendedFam_CurtisHuisman - Sensored.png",
+      mask: "/images/extended-fam/ExtendedFam_CurtisHuisman - Sensored copy.png",
       given: "CURTIS",
       sur: "HUISMAN",
       role: "SENSORED",
@@ -40,22 +42,56 @@ const team = {
   ],
 }
 
+const Grid = styled.div`
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10% 0px;
+  grid-template-areas:
+    ". . ."
+    ". . .";
+
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5% 0%;
+    grid-template-areas:
+      ". . "
+      ". . "
+      ". . ";
+  }
+`
+
+const GridItem = styled.div`
+  @media screen and (max-width: 425px) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 5% 0%;
+    grid-template-areas:
+      ". . "
+      ". . "
+      ". . ";
+  }
+`
+
 export default function ExtendedFam() {
   return (
-    <section id="extended-fam">
-      <RedStrokeHeader>EXTENDED FAMILY</RedStrokeHeader>
-      <div style={{ display: "grid" }}>
-        {team.extended.map(({ given, sur, role, bio, head }, i) => (
-          <RosterCard
-            given={given}
-            sur={sur}
-            role={role}
-            bio={bio}
-            head={head}
-            key={i}
-          ></RosterCard>
+    <HomeSection id="extended-fam" header="extended family">
+      <Grid>
+        {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
+          <GridItem key={i}>
+            <RosterCard
+              given={given}
+              sur={sur}
+              role={role}
+              bio={bio}
+              head={head}
+              mask={mask}
+            ></RosterCard>
+          </GridItem>
         ))}
-      </div>
-    </section>
+      </Grid>
+    </HomeSection>
   )
 }

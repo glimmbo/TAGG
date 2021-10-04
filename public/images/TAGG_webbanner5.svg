@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.3.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 1920 1080" style="enable-background:new 0 0 1920 1080;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;}
+	.st1{display:inline;}
+	.st2{fill:#0D1219;}
+	.st3{filter:url(#Adobe_OpacityMaskFilter);}
+	.st4{mask:url(#SVGID_1_);fill:url(#SVGID_2_);}
+	.st5{filter:url(#Adobe_OpacityMaskFilter_1_);}
+	.st6{opacity:0.23;mask:url(#SVGID_3_);fill:url(#SVGID_4_);}
+	.st7{opacity:0.55;fill:url(#SVGID_5_);}
+	.st8{opacity:0.46;fill:url(#SVGID_6_);}
+	.st9{opacity:0.46;fill:url(#SVGID_7_);}
+	.st10{opacity:0.55;fill:url(#SVGID_8_);}
+	.st11{opacity:0.55;fill:url(#SVGID_9_);}
+	.st12{opacity:0.55;fill:url(#SVGID_10_);}
+	.st13{opacity:0.55;fill:url(#SVGID_11_);}
+	.st14{opacity:0.73;fill:url(#SVGID_12_);}
+	.st15{fill:url(#SVGID_13_);}
+	.st16{filter:url(#Adobe_OpacityMaskFilter_2_);}
+	.st17{opacity:0.73;mask:url(#SVGID_14_);fill:url(#SVGID_15_);}
+</style>
+<g id="Background" class="st0">
+	<g class="st1">
+		<rect y="-21.5" class="st2" width="1920" height="1101.5"/>
+	</g>
+</g>
+<g id="Ourter_faint_glow">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="445.7" y="25.7" width="1028.6" height="1028.6">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="445.7" y="25.7" width="1028.6" height="1028.6" id="SVGID_1_">
+		<g class="st3">
+			<g>
+				
+					<image style="overflow:visible;" width="3297" height="2981" xlink:href="2FC54678BE5C2A64.png"  transform="matrix(0.48 0 0 0.48 221.0671 -143.4153)">
+				</image>
+			</g>
+		</g>
+	</mask>
+	<radialGradient id="SVGID_2_" cx="960" cy="540" r="514.2848" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#EE1960;stop-opacity:0.4"/>
+		<stop  offset="0.9238" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st4" cx="960" cy="540" r="514.3"/>
+	<text transform="matrix(1 0 0 1 2039.084 540)" style="fill:#FFFFFF; font-family:'MyriadPro-Regular'; font-size:72px;">THIS IS THE ONE</text>
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_1_" filterUnits="userSpaceOnUse" x="445.7" y="25.7" width="1028.6" height="1028.6">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="445.7" y="25.7" width="1028.6" height="1028.6" id="SVGID_3_">
+		<g class="st5">
+			<g>
+				
+					<image style="overflow:visible;" width="3297" height="2981" xlink:href="2FC54678BE5C2A65.png"  transform="matrix(0.48 0 0 0.48 221.0671 -143.4153)">
+				</image>
+			</g>
+		</g>
+	</mask>
+	<radialGradient id="SVGID_4_" cx="960" cy="540" r="514.2848" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#EE1960;stop-opacity:0.4"/>
+		<stop  offset="0.9238" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st6" cx="960" cy="540" r="514.3"/>
+</g>
+<g id="Layer_1">
+	<radialGradient id="SVGID_5_" cx="1101.726" cy="551.4414" r="91.5294" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.8"/>
+		<stop  offset="0.4555" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="0.9985" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st7" cx="1101.7" cy="551.4" r="91.5"/>
+	
+		<radialGradient id="SVGID_6_" cx="-1120.6682" cy="-245.7336" r="91.5294" gradientTransform="matrix(0.5289 -0.3493 0.7039 1.0658 1813.7734 549.2935)" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="0.3414" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="1" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<path class="st8" d="M1096.5,646.9c35.6,53.9,42.8,111.9,16,129.5c-26.7,17.7-77.3-11.7-112.8-65.6c-35.6-53.9-42.8-111.9-16-129.5
+		C1010.4,563.6,1060.9,593,1096.5,646.9z"/>
+	
+		<radialGradient id="SVGID_7_" cx="-2786.8569" cy="-1352.8683" r="91.5294" gradientTransform="matrix(0.2646 -0.576 1.1606 0.5331 3127.6816 -439.4318)" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="0.4555" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="1" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<path class="st9" d="M844.4,391.7c58.7,27,95.4,72.4,82,101.5c-13.4,29.1-71.8,30.9-130.4,3.9c-58.7-27-95.4-72.4-82-101.5
+		C727.3,366.5,785.7,364.7,844.4,391.7z"/>
+	<radialGradient id="SVGID_8_" cx="916.848" cy="405.4892" r="91.5294" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.8"/>
+		<stop  offset="0.4555" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="0.9985" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st10" cx="916.8" cy="405.5" r="91.5"/>
+	<radialGradient id="SVGID_9_" cx="1079.5631" cy="620.5715" r="105.4816" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.8"/>
+		<stop  offset="0.4555" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="0.9985" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st11" cx="1079.6" cy="620.6" r="105.5"/>
+	
+		<radialGradient id="SVGID_10_" cx="2874.3884" cy="302.3817" r="105.4816" gradientTransform="matrix(0.6003 0.7997 -0.5211 0.3912 -724.1912 -1779.2433)" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.8"/>
+		<stop  offset="0.3316" style="stop-color:#EE1960;stop-opacity:0.5"/>
+		<stop  offset="0.9985" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<path class="st12" d="M907.2,722.2c-30.4,22.8-83.3,3.5-118.3-43.1c-35-46.6-38.7-102.8-8.4-125.6c30.4-22.8,83.3-3.5,118.3,43.1
+		C933.8,643.2,937.5,699.4,907.2,722.2z"/>
+	<radialGradient id="SVGID_11_" cx="843.8337" cy="464.4359" r="98.6531" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#EE1960;stop-opacity:0.8"/>
+		<stop  offset="0.2583" style="stop-color:#EE1960;stop-opacity:0.8"/>
+		<stop  offset="0.9985" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st13" cx="843.8" cy="464.4" r="98.7"/>
+	<g>
+		<g>
+			<path d="M1217.1,426.7c1.5,0,1.5-2.4,0-2.4C1215.5,424.4,1215.5,426.7,1217.1,426.7L1217.1,426.7z"/>
+		</g>
+	</g>
+	<radialGradient id="SVGID_12_" cx="967.3981" cy="539.3285" r="201.6551" gradientUnits="userSpaceOnUse">
+		<stop  offset="2.930737e-03" style="stop-color:#000000"/>
+		<stop  offset="7.048633e-02" style="stop-color:#1F030D"/>
+		<stop  offset="0.2189" style="stop-color:#700C2D"/>
+		<stop  offset="0.4345" style="stop-color:#EE1960"/>
+		<stop  offset="1" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st14" cx="967.4" cy="539.3" r="201.7"/>
+	<radialGradient id="SVGID_13_" cx="960" cy="544.8815" r="201.6551" gradientUnits="userSpaceOnUse">
+		<stop  offset="0" style="stop-color:#000000"/>
+		<stop  offset="5.077733e-02" style="stop-color:#150209;stop-opacity:0.9639"/>
+		<stop  offset="0.1562" style="stop-color:#4D081F;stop-opacity:0.889"/>
+		<stop  offset="0.3058" style="stop-color:#A51143;stop-opacity:0.7827"/>
+		<stop  offset="0.4222" style="stop-color:#EE1960;stop-opacity:0.7"/>
+		<stop  offset="1" style="stop-color:#EE1960;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st15" cx="960" cy="544.9" r="201.7"/>
+</g>
+<g id="Layer_2">
+	
+		<image style="overflow:visible;opacity:0.65;" width="696" height="701" xlink:href="2FC54678BE5C2A63.png"  transform="matrix(0.48 0 0 0.48 799.9471 371.1447)">
+	</image>
+</g>
+<g id="highlights">
+	
+		<image style="overflow:visible;opacity:0.88;" width="671" height="675" xlink:href="2FC54678BE5C2A6C.png"  transform="matrix(0.48 0 0 0.48 806.1871 377.3847)">
+	</image>
+</g>
+<g id="grain">
+	<defs>
+		<filter id="Adobe_OpacityMaskFilter_2_" filterUnits="userSpaceOnUse" x="742.4" y="320.6" width="449.4" height="449.4">
+			<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+		</filter>
+	</defs>
+	<mask maskUnits="userSpaceOnUse" x="742.4" y="320.6" width="449.4" height="449.4" id="SVGID_14_">
+		<g class="st16">
+			<g>
+				
+					<image style="overflow:visible;" width="1493" height="1522" xlink:href="2FC54678BE5C2A6F.png"  transform="matrix(0.48 0 0 0.48 605.0671 231.9447)">
+				</image>
+			</g>
+		</g>
+	</mask>
+	<radialGradient id="SVGID_15_" cx="967.1074" cy="545.2905" r="224.7017" gradientUnits="userSpaceOnUse">
+		<stop  offset="1.467427e-03" style="stop-color:#000000;stop-opacity:0"/>
+		<stop  offset="2.389906e-02" style="stop-color:#0F0206;stop-opacity:4.167700e-02"/>
+		<stop  offset="0.1333" style="stop-color:#520921;stop-opacity:0.2449"/>
+		<stop  offset="0.2371" style="stop-color:#890E37;stop-opacity:0.4378"/>
+		<stop  offset="0.3325" style="stop-color:#B51349;stop-opacity:0.615"/>
+		<stop  offset="0.4177" style="stop-color:#D41656;stop-opacity:0.7733"/>
+		<stop  offset="0.4897" style="stop-color:#E7185D;stop-opacity:0.907"/>
+		<stop  offset="0.5397" style="stop-color:#EE1960"/>
+		<stop  offset="1" style="stop-color:#000000;stop-opacity:0"/>
+	</radialGradient>
+	<circle class="st17" cx="967.1" cy="545.3" r="224.7"/>
+</g>
+<g id="Layer_8">
+</g>
+<g id="TAGG">
+	
+		<image style="overflow:visible;" width="541" height="559" xlink:href="2FC54678BE5C2A6D.png"  transform="matrix(0.7305 0 0 0.7305 762.4019 346.6982)">
+	</image>
+</g>
+</svg>
