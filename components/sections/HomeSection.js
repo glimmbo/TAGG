@@ -29,10 +29,25 @@ const Content = styled.div`
 `
 
 const HomeSection = ({ id, children, header, sectionStyle }) => {
+  let adjusted
+  if (header === "works") {
+    adjusted = (
+      <span>
+        wor<span style={{ letterSpacing: "24px" }}>ks</span>
+      </span>
+    )
+  } else if (header === "extended family") {
+    adjusted = (
+      <span>
+        <span style={{ letterSpacing: "24px " }}>ex</span>tended family
+      </span>
+    )
+  } else {
+    adjusted = header
+  }
   return (
     <Section id={id} style={sectionStyle}>
-      <RedStrokeHeader>{header}</RedStrokeHeader>
-      {/* {header2 && <RedStrokeHeader>{header2}</RedStrokeHeader>} */}
+      <RedStrokeHeader>{adjusted}</RedStrokeHeader>
       <Content>{children}</Content>
     </Section>
   )

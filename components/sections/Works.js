@@ -51,6 +51,7 @@ const Work = styled.div`
 `
 
 export default function Works({ videoList }) {
+  // this should be templated to index, not letters
   const gridAreas = ["a", "b", "c", "d", "e", "f", "g", "h"]
   return (
     <HomeSection id="works" header="works">
@@ -72,7 +73,7 @@ export default function Works({ videoList }) {
               >
                 <WorkThumb
                   images={video.pictures.sizes}
-                  thumb={video.thumb}
+                  thumb={video?.thumb}
                   key={i}
                 />
                 <h3>{video.name}</h3>

@@ -23,6 +23,8 @@ const WorkThumb = ({ images, thumb }) => {
   const imageSrc = images[3].link
   const mobileSizeGif = thumb?.sizes[1].link
   const desktopSizeGif = thumb?.sizes[2].link
+
+  // in case of error code 1504 on getAnimatedThumbs.. show static
   return (
     <Thumb
       staticSrc={imageSrc}

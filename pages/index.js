@@ -19,16 +19,17 @@ import { GlobalStyle } from "../styles/Global"
 
 // Fetch all video content
 export async function getStaticProps(context) {
-  // Carousel
-  const clipsMobile = await getClipsMobile()
-  const clipsDesktop = await getClipsDesktop()
+  // const clipsMobile = await getClipsMobile()
+  const clipsMobile = []
+  // const clipsDesktop = await getClipsDesktop()
+  const clipsDesktop = []
 
-  // Works
+  // let videoList = await getWorks()
+  let videoList = []
 
-  let videoList = await getWorks()
-  for await (let video of videoList) {
-    video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
-  }
+  // for await (let video of videoList) {
+  //   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+  // }
 
   return {
     props: { videoList, clipsMobile, clipsDesktop },
@@ -108,9 +109,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         <WhoWeAre />
         <Foundation />
         <WhatWeDo />
-        {/* <div style={{ height: "10vh" }}></div> */}
         <People />
-        {/* <div style={{ height: "10vh" }}></div> */}
         <ExtendedFam />
         <WorkedWith />
         <Contact />

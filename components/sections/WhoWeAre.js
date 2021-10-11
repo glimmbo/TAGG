@@ -26,18 +26,6 @@ const Section = styled.section`
     height: 100%;
     transition: all 1000ms ease-in;
     z-index: 0;
-
-    /* add radial blur? */
-    /* ::after {
-      content: ""; // ::before and ::after both require content
-      position: absolute;
-      display: block;
-      top: 0;
-      left: 0;
-      height: 100%;
-      width: 100%;
-      background: radial-gradient(transparent, var(--black));
-    } */
   }
   .hidden {
     opacity: 0.01;
@@ -52,7 +40,7 @@ const Section = styled.section`
 
   .textpos {
     margin: 1em;
-    margin-bottom: 15%;
+    margin-bottom: 5%;
     margin-top: auto;
     transition: all 1500ms ease-in 700ms;
   }

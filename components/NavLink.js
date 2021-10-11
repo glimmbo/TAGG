@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useRouter, Router } from "next/router"
+// import { useRouter, Router } from "next/router"
 import styled from "styled-components"
 import { ActiveCorners } from "./elements/ActiveCorners"
 
@@ -22,10 +22,15 @@ const StyledA = styled.a`
 `
 
 export const NavLink = ({ href, children }) => {
-  const { asPath } = useRouter()
+  const [active, setActive] = useState(false)
+  useEffect(() => {
+    window?.addEventListener("hashchange", (ev) => {
+      setActive(ev.newURL.split("#")[1] === href.split("#")[1])
+    })
+  }, [])
 
   return (
-    <ActiveCorners active={href === asPath}>
+    <ActiveCorners active={active}>
       <StyledA href={href}>{children}</StyledA>
     </ActiveCorners>
   )
