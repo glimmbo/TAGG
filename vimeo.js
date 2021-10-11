@@ -48,6 +48,7 @@ export const vimeoClient = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN)
 // getToken()
 
 // featured-clips-9-16 showcase for mobile carousel
+// https://vimeo.com/manage/showcases/8493940/info
 export const getClipsMobile = async (album_id = "8493940") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(
@@ -65,7 +66,8 @@ export const getClipsMobile = async (album_id = "8493940") => {
   return clipList
 }
 
-//  featured-clips-16-9 showcase for desktop carousel
+// featured-clips-16-9 showcase for desktop carousel
+// https://vimeo.com/manage/showcases/8493934/info
 export const getClipsDesktop = async (album_id = "8493934") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(
@@ -85,6 +87,7 @@ export const getClipsDesktop = async (album_id = "8493934") => {
 }
 
 // featured-works showcase
+// https://vimeo.com/manage/showcases/8478566/info
 export const getWorks = async (album_id = "8478566") => {
   const videoList = await new Promise((resolve, reject) => {
     vimeoClient.request(
@@ -128,7 +131,9 @@ export const getWork = async (id) => {
 // Thumbnails:
 // Create a new set: Go to the advanced settings of a video from vimeo.com to create
 // The site will use the most recently created thumbnail.
+// https://vimeo.com/blog/post/how-to-turn-your-videos-into-gifs/
 export const getMostRecentAnimatedThumb = async (uri) => {
+  console.log(uri)
   const gifs = await new Promise((resolve, reject) => {
     vimeoClient.request(
       {

@@ -7,7 +7,6 @@ function MyApp({ Component, pageProps }) {
         <title>TAGG Creative</title>
         <meta name="description" content="Make good content" />
         <link rel="icon" href="images/favicon/favicon.ico" />
-        <link rel="stylesheet" href="/fonts/fonts.css" />
         <link
           rel="preload"
           href="/fonts/ConsolasFont/CONSOLA.ttf"

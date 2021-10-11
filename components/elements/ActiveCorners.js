@@ -10,6 +10,7 @@ const Corners = styled.div`
     width: 6px;
     height: 6px;
     opacity: ${({ active }) => (active ? 1 : 0)};
+    transition: all 300ms ease-in;
   }
 
   .top {
