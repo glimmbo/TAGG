@@ -23,7 +23,7 @@ const Spacer = styled.div`
 `
 
 const Logo = styled.img`
-  height: 10vh;
+  height: 50px;
   filter: invert(20%) sepia(45%) saturate(6941%) hue-rotate(329deg)
     brightness(95%) contrast(94%);
 `
@@ -31,7 +31,7 @@ const Logo = styled.img`
 export const NavBar = () => {
   return (
     <Nav>
-      <a href="#" style={{ margin: "10px", marginTop: "40px" }}>
+      <a href="#" style={{ marginLeft: "10px", marginTop: "10px" }}>
         <Logo src="/images/taggSpray.png" />
       </a>
       <Spacer>
