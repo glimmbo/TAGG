@@ -33,13 +33,13 @@ const HomeSection = ({ id, children, header, sectionStyle }) => {
   if (header === "works") {
     adjusted = (
       <span>
-        wor<span style={{ letterSpacing: "24px" }}>ks</span>
+        wor<span style={{ letterSpacing: "0.15em" }}>ks</span>
       </span>
     )
   } else if (header === "extended family") {
     adjusted = (
       <span>
-        <span style={{ letterSpacing: "24px " }}>ex</span>tended family
+        <span style={{ letterSpacing: "0.15em " }}>ex</span>tended family
       </span>
     )
   } else {

@@ -26,7 +26,6 @@ export async function getStaticProps(context) {
 
   // let videoList = await getWorks()
   let videoList = []
-
   // for await (let video of videoList) {
   //   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
   // }
