@@ -43,44 +43,40 @@ export default function Foundation() {
         <Text gridArea="a">
           <PoppedHeader>LEAN. AGILE. FULLY DISTRIBUTED</PoppedHeader>
           <p>
-            At our core, we're all about stories. Doesn't matter if it's
-            commercials, print or pre-roll if there isn't a narrative beating
-            life into the spot, it's just an empty box.
+            Different places. Different people. All at the top of their game and
+            curated on a per-project basis.
             <br />
             <br />
-            This is what we're infatuated with. Not just because we're
-            filmmakers at heart, not because we still read comic books, but
-            because we're human. Stories are a big part of that; They can make
-            you laugh until you cry, stir up conversation, debate, or even rock
-            your very foundation of perception.
+            We have a network of over 60,000 creative partners across the world,
+            all available on-demand and ready to make it work.
           </p>
         </Text>
 
         <Text gridArea="b">
           <PoppedHeader>Small by intention, not by necessity</PoppedHeader>
           <p>
-            Cupidatat reprehenderit aute ut laborum fugiat aute esse. Enim in
-            magna duis officia mollit do eu est velit Lorem.
-            <br />
-            <br />
-            Cillum dolore veniam non in aliquip laborum aute ut elit do do. Do
-            voluptate minim ut reprehenderit laboris amet et sunt laboris
-            nostrud exercitation labore reprehenderit consequat. Proident non
-            sunt sunt sit anim ex officia velit. Non aute nostrud excepteur
-            consequat.
+            Having a centralized direction keeps the creative consistent, the
+            communication crystal clear and the quality high. No game of
+            telephone——everyone on our team is within earshot.
           </p>
         </Text>
 
         <Text mt="50%" gridArea="c">
           <PoppedHeader className="dropped">PARTNERS &gt; CLIENTS</PoppedHeader>
           <p>
-            If you hear a good story you share it, you tell your friends who
-            texts her friend who posts about it online.
+            Think{" "}
+            <span style={{ fontStyle: "italic" }}>
+              same team, different office
+            </span>
+            . Just because we aren’t in the same place, doesn’t mean we can’t
+            build a relationship like we are.
             <br />
             <br />
-            Tell the right story to the right audience and they’re hooked -
-            that's why we love stories. They’re who we are and what our clients
-            become.
+            It’s simple——when we have each other’s back we’ll make better
+            content together.
+            <br />
+            <br />
+            We also expect an invite to your christmas party… Just kidding.
           </p>
         </Text>
       </Wrap>

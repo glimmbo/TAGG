@@ -7,7 +7,7 @@ const team = {
     {
       given: "TROY ADAM",
       sur: "GORDON",
-      role: "CEO + Executive Producer",
+      role: "CEO, EXECUTIVE PRODUCER",
       bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
       head: "/images/leadership/Leadership_TroyAdamGordon -CEO.png",
       mask: "/images/leadership/Leadership_TroyAdamGordon -CEO copy.png",
@@ -15,7 +15,7 @@ const team = {
     {
       given: "DAVE ‘DABS’",
       sur: "JOHNSON",
-      role: "Chief Partnership Officer",
+      role: "CHIEF CREATIVE & PARTNERSHIP OFFICER",
       bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
       head: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative....png",
       mask: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative... copy.png",
@@ -23,7 +23,7 @@ const team = {
     {
       given: "ZAQIR",
       sur: "VIRANI",
-      role: "Advisor",
+      role: "ADVISOR",
       bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
       head: "/images/leadership/Leadership_ZaqirVirani - Advisor.png",
       mask: "/images/leadership/Leadership_ZaqirVirani - Advisor copy.png",

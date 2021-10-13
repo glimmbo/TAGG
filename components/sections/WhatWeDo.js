@@ -17,7 +17,7 @@ export default function WhatWeDo() {
           </p>
         </Text>
         <Text gridArea="b">
-          <PoppedHeader>Conceptualization</PoppedHeader>
+          <PoppedHeader>Creative</PoppedHeader>
           <p>
             This is the incubation process. We determine the end goal of your
             video and implement all the necessary tools to achieve it. This
@@ -35,7 +35,7 @@ export default function WhatWeDo() {
           </p>
         </Text>
         <Text gridArea="d">
-          <PoppedHeader>Post Production</PoppedHeader>
+          <PoppedHeader>Post</PoppedHeader>
           <p>
             To maximize the consistency between the concept and end product, all
             of our editing is done in-house. Other post-production services such

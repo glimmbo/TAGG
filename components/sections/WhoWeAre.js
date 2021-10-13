@@ -83,11 +83,17 @@ const WhoWeAre = () => {
 
       <div className="centerframe">
         <div className={inView ? "textpos appear" : "textpos hidden"}>
-          <PoppedHeader>WE ARE TAGG</PoppedHeader>
+          <PoppedHeader>A VIDEO-FIRST CREATIVE AGENCY</PoppedHeader>
           <p>
-            Born digital advertising tailored for social networks. <br /> We
-            take our clients' brand and translate it into something interesting
-            and shareable.
+            We solve creative problems with video. It’s not an afterthought,
+            it’s not the cherry on top, it’s the whole motherf%^$ing sundae.
+            <br />
+            <br />
+            It doesn’t matter whether that’s a slick TVC spot, a docu-style
+            brand story, or a UGC campaign shot exclusively on iPhone.
+            <br />
+            <br />
+            No tool, style, or deliverable is out of the picture.
           </p>
         </div>
       </div>
