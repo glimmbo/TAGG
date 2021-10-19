@@ -4,6 +4,7 @@ const Corners = styled.div`
   position: relative;
   background-color: transparent;
   display: flex;
+  margin: 0 0.5em;
 
   .top,
   .bottom {
