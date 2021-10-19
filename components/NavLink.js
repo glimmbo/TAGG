@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
-// import { useRouter, Router } from "next/router"
 import styled from "styled-components"
 import { ActiveCorners } from "./elements/ActiveCorners"
+import { useRouter } from "next/router"
 
 const StyledA = styled.a`
   text-decoration: none;
@@ -14,6 +14,11 @@ const StyledA = styled.a`
   font-size: 1.1em;
   margin-right: 0.5em;
   margin-left: 0.5em;
+  user-select: none;
+
+  @media screen and (max-width: 425px) {
+    margin: 0;
+  }
 
   :hover {
     color: var(--lightgrey);
@@ -23,11 +28,11 @@ const StyledA = styled.a`
 
 export const NavLink = ({ href, children }) => {
   const [active, setActive] = useState(false)
+  const router = useRouter()
+
   useEffect(() => {
-    window?.addEventListener("hashchange", (ev) => {
-      setActive(ev.newURL.split("#")[1] === href.split("#")[1])
-    })
-  }, [])
+    setActive(router.asPath === href)
+  }, [router])
 
   return (
     <ActiveCorners active={active}>

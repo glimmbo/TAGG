@@ -2,6 +2,8 @@ import styled from "styled-components"
 import WhiteStrokeHeader from "../WhiteStrokeHeader"
 import PoppedHeader from "../PoppedHeader"
 import { useInView } from "react-intersection-observer"
+import { useEffect } from "react/cjs/react.development"
+import { useRouter } from "next/router"
 
 const Section = styled.section`
   position: relative;
@@ -47,9 +49,15 @@ const Section = styled.section`
 `
 
 const WhoWeAre = () => {
-  const { ref, inView } = useInView({
-    threshold: [0.5],
-  })
+  const { ref, inView, entry } = useInView(0.5)
+  const router = useRouter()
+
+  useEffect(() => {
+    // push new hash when in view
+    if (inView && window) {
+      router.push(`/#about`)
+    }
+  }, [inView])
 
   return (
     <Section id="about" ref={ref}>

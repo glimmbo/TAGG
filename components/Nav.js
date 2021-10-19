@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { NavLink } from "./NavLink"
+import { useInView } from "react-intersection-observer"
 
 const Nav = styled.nav`
   align-items: center;

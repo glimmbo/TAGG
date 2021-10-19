@@ -104,14 +104,14 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
       <NavBar />
       <main>
         {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
-        <Works videoList={videoList} />
-        <WhoWeAre />
-        <Foundation />
-        <WhatWeDo />
-        <People />
-        <ExtendedFam />
-        <WorkedWith />
-        <Contact />
+        <Works videoList={videoList} id="works" />
+        <WhoWeAre id="about" />
+        <Foundation id="foundation" />
+        <WhatWeDo id="whatwedo" />
+        <People id="people" />
+        <ExtendedFam id="extended-fam" />
+        <WorkedWith id="worked-with" />
+        <Contact id="contact" />
       </main>
     </>
   )

@@ -1,5 +1,8 @@
 import styled from "styled-components"
 import RedStrokeHeader from "../RedStrokeHeader"
+import { useInView } from "react-intersection-observer"
+import { useEffect } from "react/cjs/react.development"
+import { useRouter } from "next/router"
 
 const Section = styled.section`
   min-height: 100vh;
@@ -29,6 +32,22 @@ const Content = styled.div`
 `
 
 const HomeSection = ({ id, children, header, sectionStyle }) => {
+  const { ref, inView, entry } = useInView({
+    threshold: [0.5, 0],
+    trackVisibility: true,
+    delay: 300,
+  })
+  const router = useRouter()
+
+  if (["works", "about", "contact"].includes(id)) {
+    useEffect(() => {
+      // push new hash when in view
+      if (inView && window) {
+        router.push(`/#${id}`)
+      }
+    }, [inView])
+  }
+
   let adjusted
   if (header === "works") {
     adjusted = (
@@ -46,7 +65,7 @@ const HomeSection = ({ id, children, header, sectionStyle }) => {
     adjusted = header
   }
   return (
-    <Section id={id} style={sectionStyle}>
+    <Section id={id} style={sectionStyle} ref={ref}>
       <RedStrokeHeader>{adjusted}</RedStrokeHeader>
       <Content>{children}</Content>
     </Section>
