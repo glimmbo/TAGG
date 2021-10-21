@@ -18,23 +18,23 @@ import { useEffect } from "react"
 import { GlobalStyle } from "../styles/Global"
 
 // Fetch all video content
-export async function getStaticProps(context) {
-  // const clipsMobile = await getClipsMobile()
-  const clipsMobile = []
-  // const clipsDesktop = await getClipsDesktop()
-  const clipsDesktop = []
+// export async function getStaticProps(context) {
+//   // const clipsMobile = await getClipsMobile()
+//   const clipsMobile = []
+//   // const clipsDesktop = await getClipsDesktop()
+//   const clipsDesktop = []
 
-  // let videoList = await getWorks()
-  let videoList = []
-  // for await (let video of videoList) {
-  //   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
-  // }
+//   // let videoList = await getWorks()
+//   let videoList = []
+//   // for await (let video of videoList) {
+//   //   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+//   // }
 
-  return {
-    props: { videoList, clipsMobile, clipsDesktop },
-    revalidate: 60, //min
-  }
-}
+//   return {
+//     props: { videoList, clipsMobile, clipsDesktop },
+//     revalidate: 60, //min
+//   }
+// }
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
   // // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
