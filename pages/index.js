@@ -37,46 +37,46 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
-  // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
-  useEffect(() => {
-    // The debounce function receives our function as a parameter
-    const debounce = (fn) => {
-      // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-      let frame
+  // // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
+  // useEffect(() => {
+  //   // The debounce function receives our function as a parameter
+  //   const debounce = (fn) => {
+  //     // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+  //     let frame
 
-      // The debounce function returns a new function that can receive a variable number of arguments
-      return (...params) => {
-        // If the frame variable has been defined, clear it now, and queue for next frame
-        if (frame) {
-          cancelAnimationFrame(frame)
-        }
+  //     // The debounce function returns a new function that can receive a variable number of arguments
+  //     return (...params) => {
+  //       // If the frame variable has been defined, clear it now, and queue for next frame
+  //       if (frame) {
+  //         cancelAnimationFrame(frame)
+  //       }
 
-        // Queue our function call for the next frame
-        frame = requestAnimationFrame(() => {
-          // Call our function and pass any params we received
-          fn(...params)
-        })
-      }
-    }
+  //       // Queue our function call for the next frame
+  //       frame = requestAnimationFrame(() => {
+  //         // Call our function and pass any params we received
+  //         fn(...params)
+  //       })
+  //     }
+  //   }
 
-    // Reads out the scroll position and stores it in the data attribute
-    // so we can use it in our stylesheets
-    const storeScroll = () => {
-      // console.log(window.scrollY)
-      let perc =
-        (window.scrollY / (document.body.clientHeight - window.innerHeight)) *
-        100
-      document.documentElement.setAttribute("style", `--scrollpos: ${perc}`)
-    }
+  //   // Reads out the scroll position and stores it in the data attribute
+  //   // so we can use it in our stylesheets
+  //   const storeScroll = () => {
+  //     // console.log(window.scrollY)
+  //     let perc =
+  //       (window.scrollY / (document.body.clientHeight - window.innerHeight)) *
+  //       100
+  //     document.documentElement.setAttribute("style", `--scrollpos: ${perc}`)
+  //   }
 
-    // Listen for new scroll events, here we debounce our `storeScroll` function
-    document.addEventListener("scroll", debounce(storeScroll), {
-      passive: true,
-    })
+  //   // Listen for new scroll events, here we debounce our `storeScroll` function
+  //   document.addEventListener("scroll", debounce(storeScroll), {
+  //     passive: true,
+  //   })
 
-    // Update scroll position for first time
-    // storeScroll()
-  }, [])
+  //   // Update scroll position for first time
+  //   // storeScroll()
+  // }, [])
 
   // alter an element's style with scrollY
   // useEffect(() => {

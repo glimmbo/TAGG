@@ -7,11 +7,8 @@ import { useRouter } from "next/router"
 const Section = styled.section`
   min-height: 100vh;
   height: fit-content;
-  min-width: 100vw;
   width: 100%;
   margin-top: 15vh;
-  /* margin-bottom: 10vh; */
-  /* overflow: hidden; */
   position: relative;
 
   display: flex;
@@ -22,7 +19,6 @@ const Section = styled.section`
 const Content = styled.div`
   margin-top: -60px;
   z-index: 1;
-  /* background-color: rgba(50, 150, 75, 0.1); */
 
   @media screen and (max-width: 425px) {
     width: initial;
