@@ -51,7 +51,7 @@ const team = {
 export default function ExtendedFam() {
   return (
     <HomeSection id="extended-fam" header="extended family">
-      <StaggerBox marginTop="-30%">
+      <StaggerBox marginTop="-200px">
         {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}

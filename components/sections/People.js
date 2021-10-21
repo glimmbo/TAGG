@@ -76,7 +76,7 @@ export const StaggerBox = styled.div`
 export default function People() {
   return (
     <HomeSection id="people" header="people">
-      <StaggerBox marginTop="-40%">
+      <StaggerBox marginTop="-300px">
         {leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}
