@@ -1,6 +1,7 @@
 import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
 import styled from "styled-components"
+import { StaggerBox } from "./People"
 
 const team = {
   extended: [
@@ -47,56 +48,21 @@ const team = {
   ],
 }
 
-const Grid = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: 10% 0px;
-  grid-template-areas:
-    ". . ."
-    ". . .";
-
-  @media screen and (max-width: 425px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 5% 0%;
-    grid-template-areas:
-      ". . "
-      ". . "
-      ". . ";
-  }
-`
-
-const GridItem = styled.div`
-  @media screen and (max-width: 425px) {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 5% 0%;
-    grid-template-areas:
-      ". . "
-      ". . "
-      ". . ";
-  }
-`
-
 export default function ExtendedFam() {
   return (
     <HomeSection id="extended-fam" header="extended family">
-      <Grid>
+      <StaggerBox marginTop="-30%">
         {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
-          <GridItem key={i}>
-            <RosterCard
-              given={given}
-              sur={sur}
-              role={role}
-              bio={bio}
-              head={head}
-              mask={mask}
-            ></RosterCard>
-          </GridItem>
+          <RosterCard
+            given={given}
+            sur={sur}
+            role={role}
+            bio={bio}
+            head={head}
+            mask={mask}
+          />
         ))}
-      </Grid>
+      </StaggerBox>
     </HomeSection>
   )
 }
