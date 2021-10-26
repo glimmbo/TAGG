@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 const Thumb = styled.img`
   max-width: 100%;
-  /* min-height: fit-content; */
+
   /* static image */
   content: url(${({ staticSrc }) => staticSrc});
 

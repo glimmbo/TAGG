@@ -18,20 +18,17 @@ import { GlobalStyle } from "../styles/Global"
 
 // Fetch all video content
 export async function getStaticProps(context) {
-  // const clipsMobile = await getClipsMobile()
-  const clipsMobile = []
-  // const clipsDesktop = await getClipsDesktop()
-  const clipsDesktop = []
+  const clipsMobile = await getClipsMobile()
+  const clipsDesktop = await getClipsDesktop()
 
-  // let videoList = await getWorks()
-  let videoList = []
-  // for await (let video of videoList) {
-  //   video["thumb"] = await getMostRecentAnimatedThumb(video?.uri)
-  // }
+  let videoList = await getWorks()
+  for await (let video of videoList) {
+    video["thumb"] = await getMostRecentAnimatedThumb(video?.uri)
+  }
 
   return {
     props: { videoList, clipsMobile, clipsDesktop },
-    revalidate: 60, //min
+    // revalidate: 60, // (sec) hovering thumbs causes revalidate?
   }
 }
 

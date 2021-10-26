@@ -121,11 +121,7 @@ export const getWork = async (id) => {
           reject(error)
         }
 
-        if (!body === undefined) {
-          resolve(JSON.parse(JSON.stringify(body)))
-        } else {
-          resolve(null)
-        }
+        resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
   })
@@ -153,17 +149,14 @@ export const getMostRecentAnimatedThumb = async (uri) => {
           reject(error)
         }
 
-        if (!body === undefined) {
-          resolve(JSON.parse(JSON.stringify(body)))
-        } else {
-          resolve(null)
-        }
+        resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
   })
 
-  // return most recent
-  return gifs?.data?.sort(
+  const mostRecent = gifs?.sort(
     (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,
   )[0]
+
+  return mostRecent
 }
