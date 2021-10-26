@@ -120,8 +120,9 @@ export default function RosterCard({ given, sur, role, bio, head, mask }) {
         <img src={mask} className="after"></img>
       </div>
       <div className="text">
-        <h3>{given}</h3>
-        <h3>{sur}</h3>
+        <h3>
+          {given}&nbsp;{sur}
+        </h3>
         <h4>{role}</h4>
         {bio && <p>{bio}</p>}
       </div>

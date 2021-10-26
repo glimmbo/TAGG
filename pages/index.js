@@ -14,7 +14,6 @@ import {
   getClipsDesktop,
   getWorks,
 } from "../vimeo"
-import { useEffect } from "react"
 import { GlobalStyle } from "../styles/Global"
 
 // Fetch all video content
@@ -27,7 +26,7 @@ export async function getStaticProps(context) {
   // let videoList = await getWorks()
   let videoList = []
   // for await (let video of videoList) {
-  //   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
+  //   video["thumb"] = await getMostRecentAnimatedThumb(video?.uri)
   // }
 
   return {

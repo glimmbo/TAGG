@@ -14,6 +14,10 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  & svg {
+    transform: translateY(-20px);
+  }
 `
 
 const Content = styled.div`
@@ -27,7 +31,13 @@ const Content = styled.div`
   }
 `
 
-const HomeSection = ({ id, children, header, sectionStyle }) => {
+const HomeSection = ({
+  id,
+  children,
+  header,
+  HeaderComponent,
+  sectionStyle,
+}) => {
   const { ref, inView, entry } = useInView({
     threshold: [0.5, 0],
     trackVisibility: true,
@@ -60,9 +70,10 @@ const HomeSection = ({ id, children, header, sectionStyle }) => {
   } else {
     adjusted = header
   }
+
   return (
     <Section id={id} style={sectionStyle} ref={ref}>
-      <RedStrokeHeader>{adjusted}</RedStrokeHeader>
+      <HeaderComponent inView={inView} />
       <Content>{children}</Content>
     </Section>
   )
