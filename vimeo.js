@@ -114,14 +114,16 @@ export const getWork = async (id) => {
         path: `/videos/${id}`,
         userId: TAGG_ID,
       },
-      (error, body, status_code, headers) => {
+      (err, json, status_code) => {
         console.log("getWork:", status_code)
-        if (error) {
-          console.error(error)
-          reject(error)
-        }
+        err ? reject(err) : resolve(json)
+        // console.log(err, json)
+        // if (error) {
+        //   console.error(error)
+        //   reject(error)
+        // }
 
-        resolve(JSON.parse(JSON.stringify(body?.data)))
+        // resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
   })

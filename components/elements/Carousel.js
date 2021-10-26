@@ -1,6 +1,5 @@
 import { Carousel } from "react-responsive-carousel"
 import RedStrokeHeader from "../RedStrokeHeader"
-// const
 
 const ClipCarousel = ({ clipsMobile }) => {
   // console.log("CAROUSEL CLIPS", clipsMobile)
