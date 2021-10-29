@@ -2,7 +2,7 @@ import styled from "styled-components"
 import WhiteStrokeHeader from "../WhiteStrokeHeader"
 import PoppedHeader from "../PoppedHeader"
 import { useInView } from "react-intersection-observer"
-import { useEffect } from "react/cjs/react.development"
+import { useEffect } from "react"
 import { useRouter } from "next/router"
 
 const Section = styled.section`
