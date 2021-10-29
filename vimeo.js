@@ -114,14 +114,16 @@ export const getWork = async (id) => {
         path: `/videos/${id}`,
         userId: TAGG_ID,
       },
-      (error, body, status_code, headers) => {
+      (err, json, status_code) => {
         console.log("getWork:", status_code)
-        if (error) {
-          console.error(error)
-          reject(error)
-        }
+        err ? reject(err) : resolve(json)
+        // console.log(err, json)
+        // if (error) {
+        //   console.error(error)
+        //   reject(error)
+        // }
 
-        resolve(JSON.parse(JSON.stringify(body)))
+        // resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
   })
@@ -143,18 +145,20 @@ export const getMostRecentAnimatedThumb = async (uri) => {
       },
       (error, body, status_code, headers) => {
         console.log("getAnimatedThumbs:", status_code)
+
         if (error) {
           console.error(error)
           reject(error)
         }
 
-        resolve(JSON.parse(JSON.stringify(body)))
+        resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
   })
 
-  // return most recent
-  return gifs.data.sort(
+  const mostRecent = gifs?.sort(
     (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,
   )[0]
+
+  return mostRecent
 }

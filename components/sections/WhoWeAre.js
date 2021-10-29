@@ -2,6 +2,8 @@ import styled from "styled-components"
 import WhiteStrokeHeader from "../WhiteStrokeHeader"
 import PoppedHeader from "../PoppedHeader"
 import { useInView } from "react-intersection-observer"
+import { useEffect } from "react"
+import { useRouter } from "next/router"
 
 const Section = styled.section`
   position: relative;
@@ -47,9 +49,15 @@ const Section = styled.section`
 `
 
 const WhoWeAre = () => {
-  const { ref, inView } = useInView({
-    threshold: [0.5],
-  })
+  const { ref, inView, entry } = useInView(0.5)
+  const router = useRouter()
+
+  useEffect(() => {
+    // push new hash when in view
+    if (inView && window) {
+      router.push(`/#about`)
+    }
+  }, [inView])
 
   return (
     <Section id="about" ref={ref}>
@@ -83,11 +91,17 @@ const WhoWeAre = () => {
 
       <div className="centerframe">
         <div className={inView ? "textpos appear" : "textpos hidden"}>
-          <PoppedHeader>WE ARE TAGG</PoppedHeader>
+          <PoppedHeader>A VIDEO-FIRST CREATIVE AGENCY</PoppedHeader>
           <p>
-            Born digital advertising tailored for social networks. <br /> We
-            take our clients' brand and translate it into something interesting
-            and shareable.
+            We solve creative problems with video. It’s not an afterthought,
+            it’s not the cherry on top, it’s the whole motherf%^$ing sundae.
+            <br />
+            <br />
+            It doesn’t matter whether that’s a slick TVC spot, a docu-style
+            brand story, or a UGC campaign shot exclusively on iPhone.
+            <br />
+            <br />
+            No tool, style, or deliverable is out of the picture.
           </p>
         </div>
       </div>

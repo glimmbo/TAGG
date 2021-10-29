@@ -24,7 +24,7 @@ const CardStyles = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    padding: 2em 5em;
+    margin: 2em 5em;
   }
 
   #icons svg {

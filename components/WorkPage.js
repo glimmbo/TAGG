@@ -1,4 +1,3 @@
-import Link from "next/link"
 import Head from "next/head"
 import { NavBar } from "./Nav"
 import PoppedHeader from "./PoppedHeader"
@@ -20,7 +19,7 @@ const Content = styled.section`
 export default function WorkPage({ video }) {
   console.log(video)
   return (
-    <Main>
+    <>
       <Head>
         <title>{video.title}</title>
       </Head>
@@ -45,7 +44,7 @@ export default function WorkPage({ video }) {
         <p>• Client • Agency • Role</p>
         <p>{video.description}</p>
       </Content>
-    </Main>
+    </>
   )
 }
 

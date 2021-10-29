@@ -15,18 +15,13 @@ const H1 = styled.h1`
   margin: 0;
   padding: 0;
   width: 100%;
-  /* position: absolute; */
   user-select: none;
   z-index: 0;
   font-size: 10em;
-  /* transform: ${({ transformDesktop }) => transformDesktop}; */
 
   @media screen and (max-width: 425px) {
-    position: relative;
     font-size: 3em;
     margin-bottom: 10%;
-    transform: translate(0px, 0px);
-    transform: ${({ transformMobile }) => transformMobile};
   }
 `
 

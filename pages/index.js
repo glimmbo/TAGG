@@ -1,5 +1,6 @@
 import { NavBar } from "../components/Nav"
-import Carousel from "../components/elements/Carousel"
+import { VideoCarousel } from "../components/elements/Carousel"
+import { Player } from "../components/elements/Player"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
 import Foundation from "../components/sections/Foundation"
@@ -14,8 +15,8 @@ import {
   getClipsDesktop,
   getWorks,
 } from "../vimeo"
-import { useEffect } from "react"
 import { GlobalStyle } from "../styles/Global"
+import HomeSection from "../components/sections/HomeSection"
 
 // Fetch all video content
 export async function getStaticProps(context) {
@@ -24,60 +25,59 @@ export async function getStaticProps(context) {
   // const clipsDesktop = await getClipsDesktop()
   const clipsDesktop = []
 
-  // let videoList = await getWorks()
-  let videoList = []
-
-  // for await (let video of videoList) {
-  //   video["thumb"] = await getMostRecentAnimatedThumb(video.uri)
-  // }
+  // let videoList = []
+  let videoList = await getWorks()
+  for await (let video of videoList) {
+    video["thumb"] = await getMostRecentAnimatedThumb(video?.uri)
+  }
 
   return {
     props: { videoList, clipsMobile, clipsDesktop },
-    revalidate: 60, //min
+    // revalidate: 60, // (sec) hovering thumbs causes revalidate?
   }
 }
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
-  // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
-  useEffect(() => {
-    // The debounce function receives our function as a parameter
-    const debounce = (fn) => {
-      // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-      let frame
+  // // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
+  // useEffect(() => {
+  //   // The debounce function receives our function as a parameter
+  //   const debounce = (fn) => {
+  //     // This holds the requestAnimationFrame reference, so we can cancel it if we wish
+  //     let frame
 
-      // The debounce function returns a new function that can receive a variable number of arguments
-      return (...params) => {
-        // If the frame variable has been defined, clear it now, and queue for next frame
-        if (frame) {
-          cancelAnimationFrame(frame)
-        }
+  //     // The debounce function returns a new function that can receive a variable number of arguments
+  //     return (...params) => {
+  //       // If the frame variable has been defined, clear it now, and queue for next frame
+  //       if (frame) {
+  //         cancelAnimationFrame(frame)
+  //       }
 
-        // Queue our function call for the next frame
-        frame = requestAnimationFrame(() => {
-          // Call our function and pass any params we received
-          fn(...params)
-        })
-      }
-    }
+  //       // Queue our function call for the next frame
+  //       frame = requestAnimationFrame(() => {
+  //         // Call our function and pass any params we received
+  //         fn(...params)
+  //       })
+  //     }
+  //   }
 
-    // Reads out the scroll position and stores it in the data attribute
-    // so we can use it in our stylesheets
-    const storeScroll = () => {
-      // console.log(window.scrollY)
-      let perc =
-        (window.scrollY / (document.body.clientHeight - window.innerHeight)) *
-        100
-      document.documentElement.setAttribute("style", `--scrollpos: ${perc}`)
-    }
+  //   // Reads out the scroll position and stores it in the data attribute
+  //   // so we can use it in our stylesheets
+  //   const storeScroll = () => {
+  //     // console.log(window.scrollY)
+  //     let perc =
+  //       (window.scrollY / (document.body.clientHeight - window.innerHeight)) *
+  //       100
+  //     document.documentElement.setAttribute("style", `--scrollpos: ${perc}`)
+  //   }
 
-    // Listen for new scroll events, here we debounce our `storeScroll` function
-    document.addEventListener("scroll", debounce(storeScroll), {
-      passive: true,
-    })
+  //   // Listen for new scroll events, here we debounce our `storeScroll` function
+  //   document.addEventListener("scroll", debounce(storeScroll), {
+  //     passive: true,
+  //   })
 
-    // Update scroll position for first time
-    // storeScroll()
-  }, [])
+  //   // Update scroll position for first time
+  //   // storeScroll()
+  // }, [])
 
   // alter an element's style with scrollY
   // useEffect(() => {
@@ -104,15 +104,16 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
       <GlobalStyle />
       <NavBar />
       <main>
-        {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
-        <Works videoList={videoList} />
-        <WhoWeAre />
-        <Foundation />
-        <WhatWeDo />
-        <People />
-        <ExtendedFam />
-        <WorkedWith />
-        <Contact />
+        {/* <Player clipDesktop={clipsDesktop[0].embed.html} /> */}
+        {/* <VideoCarousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
+        <Works videoList={videoList} id="works" />
+        <WhoWeAre id="about" />
+        <Foundation id="foundation" />
+        <WhatWeDo id="whatwedo" />
+        <People id="people" />
+        <ExtendedFam id="extended-fam" />
+        <WorkedWith id="worked-with" />
+        <Contact id="contact" />
       </main>
     </>
   )

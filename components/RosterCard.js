@@ -4,10 +4,10 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   position: relative;
-  width: fit-content;
   height: auto;
   z-index: 2;
   padding: 0 1em;
+  max-width: 500px; // image width
 
   .text {
     display: flex;
@@ -85,7 +85,6 @@ const Card = styled.div`
     .after {
       display: block;
       opacity: 0;
-      /* transform: translate(5%, -25%); */
     }
 
     .text {
@@ -105,7 +104,6 @@ const Card = styled.div`
     .after {
       display: block;
       opacity: 0;
-      /* transform: translate(5%, -25%); */
     }
 
     .text {
@@ -122,8 +120,9 @@ export default function RosterCard({ given, sur, role, bio, head, mask }) {
         <img src={mask} className="after"></img>
       </div>
       <div className="text">
-        <h3>{given}</h3>
-        <h3>{sur}</h3>
+        <h3>
+          {given}&nbsp;{sur}
+        </h3>
         <h4>{role}</h4>
         {bio && <p>{bio}</p>}
       </div>
