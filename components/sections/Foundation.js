@@ -6,7 +6,7 @@ import { AnimatedHeader } from "../elements/AnimatedHeader"
 export const Wrap = styled.div`
   display: grid;
   max-width: 100%;
-  padding: 40px 5%;
+  padding: 40px 5%; // TODO: should be roughly 130px at Laptop L
   margin-top: -45px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;

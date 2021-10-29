@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import { NavLink } from "./NavLink"
-import { useInView } from "react-intersection-observer"
 
 const Nav = styled.nav`
   align-items: center;
@@ -32,7 +31,7 @@ const Logo = styled.img`
 export const NavBar = () => {
   return (
     <Nav>
-      <a href="#" style={{ marginLeft: "10px", marginTop: "10px" }}>
+      <a href="#" style={{ marginLeft: "40px", marginTop: "40px" }}>
         <Logo src="/images/taggSpray.png" />
       </a>
       <Spacer>

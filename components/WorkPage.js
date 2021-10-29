@@ -19,7 +19,7 @@ const Content = styled.section`
 export default function WorkPage({ video }) {
   console.log(video)
   return (
-    <Main>
+    <>
       <Head>
         <title>{video.title}</title>
       </Head>
@@ -44,7 +44,7 @@ export default function WorkPage({ video }) {
         <p>• Client • Agency • Role</p>
         <p>{video.description}</p>
       </Content>
-    </Main>
+    </>
   )
 }
 

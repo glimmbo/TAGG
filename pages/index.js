@@ -1,5 +1,6 @@
 import { NavBar } from "../components/Nav"
-import Carousel from "../components/elements/Carousel"
+import { VideoCarousel } from "../components/elements/Carousel"
+import { Player } from "../components/elements/Player"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
 import Foundation from "../components/sections/Foundation"
@@ -15,12 +16,16 @@ import {
   getWorks,
 } from "../vimeo"
 import { GlobalStyle } from "../styles/Global"
+import HomeSection from "../components/sections/HomeSection"
 
 // Fetch all video content
 export async function getStaticProps(context) {
-  const clipsMobile = await getClipsMobile()
-  const clipsDesktop = await getClipsDesktop()
+  // const clipsMobile = await getClipsMobile()
+  const clipsMobile = []
+  // const clipsDesktop = await getClipsDesktop()
+  const clipsDesktop = []
 
+  // let videoList = []
   let videoList = await getWorks()
   for await (let video of videoList) {
     video["thumb"] = await getMostRecentAnimatedThumb(video?.uri)
@@ -99,7 +104,8 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
       <GlobalStyle />
       <NavBar />
       <main>
-        {/* <Carousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
+        {/* <Player clipDesktop={clipsDesktop[0].embed.html} /> */}
+        {/* <VideoCarousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} /> */}
         <Works videoList={videoList} id="works" />
         <WhoWeAre id="about" />
         <Foundation id="foundation" />

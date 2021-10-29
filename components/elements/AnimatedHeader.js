@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useMemo } from "react"
 
 // inconsistently working, with no errors 😖
 
@@ -9,6 +9,7 @@ const AnimatedSVG = styled.div`
   @keyframes lineDraw {
     to {
       stroke-dashoffset: 0;
+      stroke-opacity: 1;
     }
   }
 
@@ -19,6 +20,8 @@ const AnimatedSVG = styled.div`
     stroke: var(--red);
     fill: var(--black);
     width: 100%;
+    stroke-opacity: 0;
+    transition: stroke-opacity 0.5s ease-in-out;
 
     ${({ lengths }) => {
       return lengths.map(
@@ -27,7 +30,8 @@ const AnimatedSVG = styled.div`
             & g path:nth-child(${i + 1}) {
               stroke-dasharray: ${length};
               stroke-dashoffset: ${length};
-              animation: lineDraw 1.5s ease-in-out forwards;
+              animation: lineDraw 2s ease-in-out forwards;
+              animation-delay: 0.2s;
               /* if want iteration 1, will need to do it
               with separate IntersectionObserver in HomeSection */
             }
@@ -37,7 +41,8 @@ const AnimatedSVG = styled.div`
   }
 `
 
-export const AnimatedHeader = ({ children, id, width, extraCSS }) => {
+export const AnimatedHeader = ({ children, id, width, extraCSS, inView }) => {
+  // inView is a prop that triggers a render...
   const [lengths, setLengths] = useState([])
 
   useEffect(() => {
@@ -48,7 +53,7 @@ export const AnimatedHeader = ({ children, id, width, extraCSS }) => {
         return Math.round(path.getTotalLength())
       }),
     )
-  }, [])
+  }, [inView])
 
   return (
     <AnimatedSVG id={id} lengths={lengths} width={width} extraCSS={extraCSS}>

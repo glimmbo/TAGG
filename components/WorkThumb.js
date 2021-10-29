@@ -18,6 +18,14 @@ const Thumb = styled.img`
     }
   }
 `
+const Frame = styled.div`
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  border-radius: 5px;
+  border: 1px solid var(--red);
+  width: 100%;
+  height: 100%;
+`
 
 const WorkThumb = ({ images, thumb }) => {
   const imageSrc = images[3].link
@@ -26,11 +34,13 @@ const WorkThumb = ({ images, thumb }) => {
 
   // in case of error code 1504 on getAnimatedThumbs.. show static
   return (
-    <Thumb
-      staticSrc={imageSrc}
-      desktopSrc={desktopSizeGif}
-      mobileSrc={mobileSizeGif}
-    />
+    <Frame>
+      <Thumb
+        staticSrc={imageSrc}
+        desktopSrc={desktopSizeGif}
+        mobileSrc={mobileSizeGif}
+      />
+    </Frame>
   )
 }
 
