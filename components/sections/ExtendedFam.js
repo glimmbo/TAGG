@@ -1,6 +1,6 @@
 import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
-import { StaggerBox } from "./People"
+import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { css } from "styled-components"
 

@@ -2,7 +2,7 @@ import HomeSection from "./HomeSection"
 import Link from "next/link"
 import styled from "styled-components"
 import WorkThumb from "../WorkThumb"
-import { StaggerBox } from "./People"
+import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 
 const Work = styled.div`
@@ -80,7 +80,7 @@ export default function Works({ videoList }) {
         </AnimatedHeader>
       )}
     >
-      <StaggerBox>
+      <StaggerBox marginTop="-100px">
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
           return (
@@ -96,9 +96,6 @@ export default function Works({ videoList }) {
                   key={i}
                 />
                 <h3>{video.name}</h3>
-                {/* TODO: use video.groups (Production, Post-Prodution, etc) */}
-                {/* or, just have separately saved videos and use description */}
-                <p>{video.description}</p>
               </Work>
             </Link>
           )

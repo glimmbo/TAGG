@@ -9,7 +9,6 @@ export default function Contact() {
       HeaderComponent={() => (
         <AnimatedHeader id="contact-header">
           <svg
-            // caveat: changing these dimensions requires new path.getTotalLength()...
             width="1015.402"
             height="144.804"
             viewBox="0 0 1015.402 144.804"

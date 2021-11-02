@@ -1,4 +1,5 @@
-import { NavBar } from "../components/Nav"
+import { useState, useEffect, useRef, forwardRef } from "react"
+import { NavBar } from "../components/NavBar"
 import { VideoCarousel } from "../components/elements/Carousel"
 import { Player } from "../components/elements/Player"
 import Works from "../components/sections/Works"
@@ -15,8 +16,6 @@ import {
   getClipsDesktop,
   getWorks,
 } from "../vimeo"
-import { GlobalStyle } from "../styles/Global"
-import HomeSection from "../components/sections/HomeSection"
 
 // Fetch all video content
 export async function getStaticProps(context) {
@@ -38,70 +37,70 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
-  // // have a reactive css variable "--scrollpos" from 0 (top) to 100 (bottom)
-  // useEffect(() => {
-  //   // The debounce function receives our function as a parameter
-  //   const debounce = (fn) => {
-  //     // This holds the requestAnimationFrame reference, so we can cancel it if we wish
-  //     let frame
+  // const worksRef = useRef(null)
+  // const aboutRef = useRef(null)
+  // const foundationRef = useRef(null)
+  // const whatwedoRef = useRef(null)
+  // const peopleRef = useRef(null)
+  // const extendedfamRef = useRef(null)
+  // const workedwithRef = useRef(null)
+  // const contactRef = useRef(null)
 
-  //     // The debounce function returns a new function that can receive a variable number of arguments
-  //     return (...params) => {
-  //       // If the frame variable has been defined, clear it now, and queue for next frame
-  //       if (frame) {
-  //         cancelAnimationFrame(frame)
+  // const sectionRefs = [
+  //   { section: "works", ref: worksRef },
+  //   { section: "about", ref: aboutRef },
+  //   { section: "foundation", ref: foundationRef },
+  //   { section: "whatwedo", ref: whatwedoRef },
+  //   { section: "people", ref: peopleRef },
+  //   { section: "extendedfam", ref: extendedfamRef },
+  //   { section: "workedwith", ref: workedwithRef },
+  //   { section: "contact", ref: contactRef },
+  // ]
+
+  // const getDimensions = (ele) => {
+  //   const { height } = ele?.getBoundingClientRect()
+  //   const offsetTop = ele?.offsetTop
+  //   const offsetBottom = offsetTop + height
+
+  //   return {
+  //     height,
+  //     offsetTop,
+  //     offsetBottom,
+  //   }
+  // }
+
+  // const [visibleSection, setVisibleSection] = useState()
+  // const navRef = useRef(null)
+
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const { height: navHeight } = getDimensions(navRef.current)
+  //     const scrollPosition = window.scrollY + navHeight
+
+  //     console.log(scrollPosition)
+
+  //     const selected = sectionRefs.find(({ section, ref }) => {
+  //       const ele = ref.current
+  //       if (ele) {
+  //         const { offsetBottom, offsetTop } = getDimensions(ele)
+  //         return scrollPosition > offsetTop && scrollPosition < offsetBottom
   //       }
+  //     })
 
-  //       // Queue our function call for the next frame
-  //       frame = requestAnimationFrame(() => {
-  //         // Call our function and pass any params we received
-  //         fn(...params)
-  //       })
+  //     if (selected && selected.section !== visibleSection) {
+  //       console.log(selected)
+  //       setVisibleSection(selected.section)
   //     }
   //   }
 
-  //   // Reads out the scroll position and stores it in the data attribute
-  //   // so we can use it in our stylesheets
-  //   const storeScroll = () => {
-  //     // console.log(window.scrollY)
-  //     let perc =
-  //       (window.scrollY / (document.body.clientHeight - window.innerHeight)) *
-  //       100
-  //     document.documentElement.setAttribute("style", `--scrollpos: ${perc}`)
+  //   window.addEventListener("scroll", handleScroll)
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll)
   //   }
+  // }, [visibleSection])
 
-  //   // Listen for new scroll events, here we debounce our `storeScroll` function
-  //   document.addEventListener("scroll", debounce(storeScroll), {
-  //     passive: true,
-  //   })
-
-  //   // Update scroll position for first time
-  //   // storeScroll()
-  // }, [])
-
-  // alter an element's style with scrollY
-  // useEffect(() => {
-  //   let didScroll = false
-  //   let paralaxTitles = document.querySelectorAll(".paralax-title")
-
-  //   const scrollInProgress = () => {
-  //     didScroll = true
-  //   }
-
-  //   const raf = () => {
-  //     if (didScroll) {
-  //       // do something here
-  //       didScroll = false
-  //     }
-  //     requestAnimationFrame(raf)
-  //   }
-
-  //   requestAnimationFrame(raf)
-  //   window.addEventListener("scroll", scrollInProgress)
-  // })
   return (
     <>
-      <GlobalStyle />
       <NavBar />
       <main>
         {/* <Player clipDesktop={clipsDesktop[0].embed.html} /> */}

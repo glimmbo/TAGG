@@ -26,14 +26,8 @@ const StyledA = styled.a`
   }
 `
 
-export const NavLink = ({ href, children }) => {
-  const [active, setActive] = useState(false)
-  const router = useRouter()
-
-  useEffect(() => {
-    setActive(router.asPath === href)
-  }, [router])
-
+export const NavLink = ({ href, children, active }) => {
+  console.log(`Navlink ${href} active:`, active)
   return (
     <ActiveCorners active={active}>
       <StyledA href={href}>{children}</StyledA>

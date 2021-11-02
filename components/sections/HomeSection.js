@@ -39,6 +39,7 @@ const HomeSection = ({
   HeaderComponent,
   sectionStyle,
 }) => {
+  // header inview is still triggered by section inview?...🤔
   const {
     ref: refSection,
     inView: inViewSection,
@@ -46,31 +47,18 @@ const HomeSection = ({
   } = useInView({
     threshold: [0.5],
     trackVisibility: true,
-    delay: 300,
+    delay: 100,
   })
-
-  const {
-    ref: refHeader,
-    inView: inViewHeader,
-    entry: entryHeader,
-  } = useInView({
-    threshold: [0, 1],
-    trackVisibility: true,
-    triggerOnce: true,
-  })
-
-  useEffect(() => {
-    console.log(inViewHeader, entryHeader?.target)
-  }, [inViewHeader])
 
   const router = useRouter()
 
-  useEffect(() => {
-    // push new hash when in view
-    if (inViewSection && window) {
-      router.push(`/#${id}`)
-    }
-  }, [inViewSection])
+  // https://github.com/vercel/next.js/pull/27195 (no scroll on hash push)
+  // useEffect(() => {
+  //   // push new hash when in view
+  //   if (inViewSection && window) {
+  //     router.replace(`/#${id}`, `/#${id}`, { shallow: true })
+  //   }
+  // }, [inViewSection])
 
   let adjusted
   if (header === "works") {
@@ -91,7 +79,7 @@ const HomeSection = ({
 
   return (
     <Section id={id} style={sectionStyle} ref={refSection}>
-      <HeaderComponent inView={inViewHeader} ref={refHeader} />
+      <HeaderComponent />
       <Content>{children}</Content>
     </Section>
   )

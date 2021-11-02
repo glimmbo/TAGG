@@ -44,20 +44,21 @@ const Section = styled.section`
     margin: 1em;
     margin-bottom: 5%;
     margin-top: auto;
-    transition: all 1500ms ease-in 700ms;
+    transition: all 1.5s ease-in 0.3s;
   }
 `
 
 const WhoWeAre = () => {
-  const { ref, inView, entry } = useInView(0.5)
+  const { ref, inView, entry } = useInView({ threshold: 0.5 })
   const router = useRouter()
 
-  useEffect(() => {
-    // push new hash when in view
-    if (inView && window) {
-      router.push(`/#about`)
-    }
-  }, [inView])
+  // https://github.com/vercel/next.js/pull/27195 (no scroll on hash push)
+  // useEffect(() => {
+  //   // push new hash when in view
+  //   if (inView && window) {
+  //     router.replace(`/#about`, `/#about`, { shallow: true })
+  //   }
+  // }, [inView])
 
   return (
     <Section id="about" ref={ref}>

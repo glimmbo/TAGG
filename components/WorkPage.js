@@ -1,19 +1,34 @@
 import Head from "next/head"
-import { NavBar } from "./Nav"
+import { NavBar } from "./NavBar"
 import PoppedHeader from "./PoppedHeader"
 import styled from "styled-components"
+import { FullPlayer } from "./elements/Player"
+import { DividerWithArrows } from "./elements/DividerWithArrows"
 
-const Main = styled.main`
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden;
-  background-color: var(--black);
-`
 const Content = styled.section`
-  margin: 10%;
+  overflow: hidden;
+  margin-top: 10vh;
+  background-color: var(--black);
+  width: 100%;
+  max-width: 100vw;
+  margin: auto;
+  margin-top: 10vh; /* for the navbar */
   display: flex;
   flex-direction: column;
-  justify-content: center;
+`
+const SmallRedHeader = styled.h1`
+  text-transform: uppercase;
+  font-size: 1rem;
+  color: var(--red);
+  user-select: none;
+  font-family: Consolas, sans-serif;
+  font-weight: 700;
+`
+const Flex = styled.div`
+  display: flex;
+  flex-direction: row;
+  width: 25%;
+  justify-content: space-between;
 `
 
 export default function WorkPage({ video }) {
@@ -25,23 +40,27 @@ export default function WorkPage({ video }) {
       </Head>
       <NavBar />
       <Content>
-        {/* draft */}
-        <p>(video player in progress)</p>
-        <p>• will go to full screen in landscape on mobile</p>
-        <p>• can switch videos from left/right buttons</p>
-        {/* not working..  */}
-        {/* <iframe
-        src={`https://player.vimeo.com${video.uri}`}
-        width="640"
-        height="360"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-      ></iframe> */}
-
+        <FullPlayer uri={video.uri} />
+        {/* type (ie music video) */}
         <PoppedHeader>{video.name}</PoppedHeader>
-        {/* draft */}
-        <p>• Client • Agency • Role</p>
+        <Flex>
+          <div>
+            <SmallRedHeader>Client</SmallRedHeader>
+            <p>client</p>
+          </div>
+          <div>
+            <SmallRedHeader>Agency</SmallRedHeader>
+            <p>agency</p>
+          </div>
+          <div>
+            <SmallRedHeader>Role</SmallRedHeader>
+            <p>role</p>
+          </div>
+        </Flex>
+        <DividerWithArrows>
+          <div className="arrow left" />
+          <div className="arrow right" />
+        </DividerWithArrows>
         <p>{video.description}</p>
       </Content>
     </>

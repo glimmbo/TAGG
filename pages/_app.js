@@ -1,4 +1,5 @@
 import Head from "next/head"
+import { GlobalStyle } from "../styles/global"
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -32,6 +33,7 @@ function MyApp({ Component, pageProps }) {
           crossOrigin=""
         />
       </Head>
+      <GlobalStyle />
       <Component {...pageProps} />
     </>
   )
