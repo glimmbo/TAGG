@@ -45,26 +45,25 @@ const WorkPageModal = ({ video }) => {
   }, [])
 
   return (
-    <>
-      <Modal
-        isOpen={true} // The modal should always be shown on page load, it is the 'page'
-        onRequestClose={() => router.push("/#works")}
-        contentLabel="Work modal"
-        shouldCloseOnEsc={true}
-        style={{
-          content: {
-            backgroundColor: "var(--black)",
-            border: "none",
-            borderRadius: 0,
-            margin: 0,
-            padding: 0,
-            inset: 0,
-          },
-        }}
-      >
-        <WorkPage video={video} />
-      </Modal>
-    </>
+    <Modal
+      isOpen={true} // The modal should always be shown on page load, it is the 'page'
+      onRequestClose={() => router.push("/#works")}
+      contentLabel="Work modal"
+      shouldCloseOnEsc={true}
+      style={{
+        content: {
+          backgroundColor: "var(--black)",
+          border: "none",
+          borderRadius: 0,
+          margin: 0,
+          padding: 0,
+          inset: 0,
+          maxWidth: "100vw",
+        },
+      }}
+    >
+      <WorkPage video={video} />
+    </Modal>
   )
 }
 

@@ -18,6 +18,7 @@ const Thumb = styled.img`
     }
   }
 `
+
 const Frame = styled.div`
   position: relative;
   background-color: rgba(0, 0, 0, 0);
@@ -28,11 +29,12 @@ const Frame = styled.div`
 `
 
 const WorkThumb = ({ images, thumb }) => {
-  const imageSrc = images[3].link
+  const imageSrc = images[3]?.link
   const mobileSizeGif = thumb?.sizes[1].link
   const desktopSizeGif = thumb?.sizes[2].link
 
   // in case of error code 1504 on getAnimatedThumbs.. show static
+  // need to load gif before render to avoid flickering?
   return (
     <Frame>
       <Thumb
