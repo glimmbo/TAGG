@@ -7,6 +7,18 @@ const TriangleButton = styled.div`
   border-radius: 5%;
   position: relative;
   margin-bottom: -1px;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: var(--lightgrey);
+  }
+  &:active {
+    background-color: var(--red);
+    ::after {
+      border-left: 2px solid var(--white);
+      border-bottom: 2px solid var(--white);
+    }
+  }
   &::after {
     content: "";
     position: absolute;
@@ -18,6 +30,7 @@ const TriangleButton = styled.div`
     border-bottom: 2px solid var(--red);
     transform: ${({ left, right }) =>
       left ? "rotate(45deg)" : right ? "rotate(-135deg)" : "rotate(0deg)"};
+    transition: all 0.2s ease-in-out;
   }
 `
 
