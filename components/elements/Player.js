@@ -7,15 +7,7 @@ export const FullPlayer = ({ uri }) => {
   // "https://player.vimeo.com/video/{video_id}"
   const url = `https://player.vimeo.com/video/${uri?.split("/")[2]}`
 
-  return (
-    <VimeoPlayer
-      url={url}
-      // url={`https://player.vimeo.com/video/571461797?h=bab93d82f1&amp;title=0&amp;byline=0&amp;portrait=0&amp;speed=0&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=211877" width="3840" height="2160" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="TGS - Under Armour.mp4`}
-      width={"100%"}
-      // height={"100%"}
-      controls
-    />
-  )
+  return <VimeoPlayer url={url} width={"100%"} height={"100%"} controls />
 }
 
 export const ClipPlayer = ({ uri }) => {
