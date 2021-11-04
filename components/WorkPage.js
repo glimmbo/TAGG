@@ -15,6 +15,9 @@ const Content = styled.section`
   margin-top: 10vh; /* for the navbar */
   display: flex;
   flex-direction: column;
+
+  padding: 10%;
+
   box-sizing: border-box;
   & * {
     box-sizing: border-box;
@@ -29,15 +32,17 @@ const SmallRedHeader = styled.h3`
   font-weight: 700;
 `
 const Flex = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
-  width: 25%;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  margin-bottom: -2em;
 `
 
 const Credit = styled.div`
-  margin: 0 1em;
-  margin-bottom: -2em;
+  height: fit-content;
+  margin: 1em;
 
   h3 {
     margin: 0;
@@ -60,16 +65,17 @@ export default function WorkPage({ video }) {
       <Content>
         <FullPlayer uri={video.uri} />
         {/* type? (ie music video) */}
-        <PoppedHeader>{video.name}</PoppedHeader>
+        <PoppedHeader style={{ marginTop: "2em" }}>{video.name}</PoppedHeader>
         <Flex>
-          {Object.entries(desc).map(([key, value]) => {
-            return (
-              <Credit key={key}>
-                <SmallRedHeader>{key}</SmallRedHeader>
-                <p>{value}</p>
-              </Credit>
-            )
-          })}
+          {desc &&
+            Object.entries(desc).map(([key, value]) => {
+              return (
+                <Credit key={key}>
+                  <SmallRedHeader>{key}</SmallRedHeader>
+                  <p>{value}</p>
+                </Credit>
+              )
+            })}
         </Flex>
         {/* how to get urls to cycle.. */}
         <DividerWithArrows

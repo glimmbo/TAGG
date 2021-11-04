@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 const TriangleButton = styled.div`
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   border: 1px solid var(--lightgrey);
   border-radius: 5%;
   position: relative;
