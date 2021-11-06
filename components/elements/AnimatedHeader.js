@@ -12,13 +12,6 @@ const AnimatedSVG = styled.div`
     }
   }
 
-  @keyframes undraw {
-    to {
-      stroke-dashoffset: ${({ length }) => length};
-      stroke-opacity: 0;
-    }
-  }
-
   svg {
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px var(--red);
@@ -39,8 +32,8 @@ const AnimatedSVG = styled.div`
               stroke-dasharray: ${length};
               stroke-dashoffset: ${length};
               animation: ${({ inView, entry }) =>
-                inView && entry?.intersectionRatio > 0.5 ? `draw` : `undraw`};
-              animation-duration: 2.5s;
+                inView && entry?.intersectionRatio > 0.5 ? `draw` : ``};
+              animation-duration: 2s;
               animation-timing-function: ease-in-out;
               animation-direction: normal;
               animation-fill-mode: forwards;
@@ -61,6 +54,7 @@ export const AnimatedHeader = ({ children, id, width, extraCSS }) => {
     entry: entryHeader,
   } = useInView({
     threshold: 1, // fully in view
+    triggerOnce: true,
   })
 
   useEffect(() => {

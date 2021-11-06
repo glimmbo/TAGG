@@ -32,10 +32,9 @@ const SmallRedHeader = styled.h3`
   font-weight: 700;
 `
 const Flex = styled.div`
-  width: 100%;
+  width: calc(100% - 80px); /* TriangleButtonx2 */
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
   flex-wrap: wrap;
   margin-bottom: -2em;
 `
