@@ -1,6 +1,6 @@
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { useEffect, useState } from "react/cjs/react.development"
+import { useEffect, useState } from "react"
 import { ClipSlide } from "./Player"
 import styled from "styled-components"
 import { useMediaQuery } from "react-responsive"
