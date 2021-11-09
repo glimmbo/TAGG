@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-const TriangleButton = styled.div`
+export const TriangleButton = styled.div`
   height: 40px;
   width: 40px;
   border: 1px solid var(--lightgrey);

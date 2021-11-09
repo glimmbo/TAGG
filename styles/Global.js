@@ -48,6 +48,10 @@ export const GlobalStyle = createGlobalStyle`
     min-width: 100vw;
   }
 
+  html * {
+    box-sizing: border-box;
+  }
+
   .body::-webkit-scrollbar {
     display: none;
   }
