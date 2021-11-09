@@ -15,8 +15,15 @@ const Content = styled.section`
   margin-top: 10vh; /* for the navbar */
   display: flex;
   flex-direction: column;
+
+  padding: 10%;
+
+  box-sizing: border-box;
+  & * {
+    box-sizing: border-box;
+  }
 `
-const SmallRedHeader = styled.h1`
+const SmallRedHeader = styled.h3`
   text-transform: uppercase;
   font-size: 1rem;
   color: var(--red);
@@ -25,14 +32,29 @@ const SmallRedHeader = styled.h1`
   font-weight: 700;
 `
 const Flex = styled.div`
+  width: calc(100% - 80px); /* TriangleButtonx2 */
   display: flex;
   flex-direction: row;
-  width: 25%;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: -2em;
+`
+
+const Credit = styled.div`
+  height: fit-content;
+  margin: 1em;
+
+  h3 {
+    margin: 0;
+  }
+
+  p {
+    margin: 0;
+  }
 `
 
 export default function WorkPage({ video }) {
-  console.log(video)
+  const desc = JSON.parse(video?.description)
+
   return (
     <>
       <Head>
@@ -41,33 +63,38 @@ export default function WorkPage({ video }) {
       <NavBar />
       <Content>
         <FullPlayer uri={video.uri} />
-        {/* type (ie music video) */}
-        <PoppedHeader>{video.name}</PoppedHeader>
+        {/* type? (ie music video) */}
+        <PoppedHeader style={{ marginTop: "2em" }}>{video.name}</PoppedHeader>
         <Flex>
-          <div>
-            <SmallRedHeader>Client</SmallRedHeader>
-            <p>client</p>
-          </div>
-          <div>
-            <SmallRedHeader>Agency</SmallRedHeader>
-            <p>agency</p>
-          </div>
-          <div>
-            <SmallRedHeader>Role</SmallRedHeader>
-            <p>role</p>
-          </div>
+          {desc &&
+            Object.entries(desc).map(([key, value]) => {
+              return (
+                <Credit key={key}>
+                  <SmallRedHeader>{key}</SmallRedHeader>
+                  <p>{value}</p>
+                </Credit>
+              )
+            })}
         </Flex>
-        <DividerWithArrows>
-          <div className="arrow left" />
-          <div className="arrow right" />
-        </DividerWithArrows>
-        <p>{video.description}</p>
+        {/* how to get urls to cycle.. */}
+        <DividerWithArrows
+          onLeft={() => console.log("router.push(left?)")}
+          onRight={() => console.log("router.push(right?)")}
+        />
       </Content>
     </>
   )
 }
 
-/*
+// let description = {
+//   "Client": "Teekay",
+//   "Agency": "TAGG Creative",
+//   "Graphic Design": "Sallua",
+//   "VFX/Animation": "RENDRD",
+//   "Virtual Production": "Jumbo",
+// }
+
+/* Vimeo reference
 {
   "uri": "/videos/291998673",
   "name": "TroyBoi - Tour Promo",
