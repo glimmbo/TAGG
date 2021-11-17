@@ -1,10 +1,8 @@
 import styled, { css } from "styled-components"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
 
 const AnimatedSVG = styled.div`
-  /* width: ${({ width }) => width}; */
-
   @keyframes draw {
     to {
       stroke-dashoffset: 0;
@@ -26,14 +24,14 @@ const AnimatedSVG = styled.div`
 
     ${({ lengths }) => {
       return lengths.map(
-        (length, i) =>
+        ({ length, duration }, i) =>
           css`
             & g path:nth-child(${i + 1}) {
               stroke-dasharray: ${length};
               stroke-dashoffset: ${length};
               animation: ${({ inView, entry }) =>
                 inView && entry?.intersectionRatio > 0.5 ? `draw` : ``};
-              animation-duration: 2s;
+              animation-duration: ${duration};
               animation-timing-function: ease-in-out;
               animation-direction: normal;
               animation-fill-mode: forwards;
@@ -47,6 +45,7 @@ const AnimatedSVG = styled.div`
 export const AnimatedHeader = ({ children, id, width, extraCSS }) => {
   // inView is a prop that triggers a render...
   const [lengths, setLengths] = useState([])
+  const widthRef = useRef(null)
 
   const {
     ref: refHeader,
@@ -58,28 +57,43 @@ export const AnimatedHeader = ({ children, id, width, extraCSS }) => {
   })
 
   useEffect(() => {
+    console.log(widthRef.current.style.width)
     const nodes = Array.from(document?.querySelectorAll(`#${id} path`))
+    let avgLength
 
     setLengths(
-      nodes?.map((path, i) => {
-        return Math.round(path.getTotalLength())
+      nodes?.map((path, i, arr) => {
+        // Shorter path length = faster completion ∴ longer duration for shorter lengths
+        const length = Math.round(path?.getTotalLength())
+
+        // Average length of all paths
+        avgLength = Math.round(
+          arr.reduce(
+            (acc, curr) => acc + Math.round(curr?.getTotalLength()),
+            0,
+          ) / arr.length,
+        )
+
+        const duration = `2s` // nope..
+        return { length, duration }
       }),
     )
   }, [])
 
   return (
     lengths && (
-      <AnimatedSVG
-        id={id}
-        lengths={lengths}
-        width={width}
-        // extraCSS={extraCSS}
-        ref={refHeader}
-        inView={inViewHeader}
-        entry={entryHeader}
-      >
-        {children}
-      </AnimatedSVG>
+      <div ref={widthRef}>
+        <AnimatedSVG
+          id={id}
+          lengths={lengths}
+          // extraCSS={extraCSS}
+          ref={refHeader}
+          inView={inViewHeader}
+          entry={entryHeader}
+        >
+          {children}
+        </AnimatedSVG>
+      </div>
     )
   )
 }

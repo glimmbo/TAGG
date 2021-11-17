@@ -5,10 +5,10 @@ import { useEffect } from "react"
 import { useRouter } from "next/router"
 
 const Section = styled.section`
-  min-height: 100vh;
+  /* min-height: 100vh; */
   height: fit-content;
   width: 100%;
-  margin-top: 15vh;
+  /* margin-top: 15vh; */
   position: relative;
 
   display: flex;

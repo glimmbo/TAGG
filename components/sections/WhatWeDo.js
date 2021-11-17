@@ -70,6 +70,7 @@ export default function WhatWeDo() {
           </svg>
         </AnimatedHeader>
       )}
+      sectionStyle={{ marginBottom: "15vh" }}
     >
       <Wrap>
         <Text gridArea="a">

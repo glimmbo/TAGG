@@ -11,12 +11,12 @@ const Content = styled.section`
   background-color: var(--black);
   width: 100%;
   max-width: 100vw;
+  /* max-height: 100vh; */
   margin: auto;
-  margin-top: 10vh; /* for the navbar */
+  /* margin-top: 10vh; for the navbar */
   display: flex;
   flex-direction: column;
-
-  padding: 10%;
+  padding: 5%;
 
   box-sizing: border-box;
   & * {
@@ -52,7 +52,7 @@ const Credit = styled.div`
   }
 `
 
-export default function WorkPage({ video }) {
+export default function WorkPage({ video, onLeft, onRight }) {
   const desc = JSON.parse(video?.description)
 
   return (
@@ -60,7 +60,8 @@ export default function WorkPage({ video }) {
       <Head>
         <title>{video.title}</title>
       </Head>
-      <NavBar />
+      {/* <NavBar /> */}
+      {/* TODO: close button instead of navbar */}
       <Content>
         <FullPlayer uri={video.uri} />
         {/* type? (ie music video) */}
@@ -86,7 +87,7 @@ export default function WorkPage({ video }) {
   )
 }
 
-// let description = {
+// JSON vimeo desc =  {
 //   "Client": "Teekay",
 //   "Agency": "TAGG Creative",
 //   "Graphic Design": "Sallua",

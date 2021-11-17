@@ -64,7 +64,7 @@ export default function Contact() {
           </svg>
         </AnimatedHeader>
       )}
-      sectionStyle={{ maxHeight: "100vh" }}
+      sectionStyle={{ minHeight: "80vh", maxHeight: "100vh" }}
     >
       <ContactCard />
     </HomeSection>

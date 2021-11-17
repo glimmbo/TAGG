@@ -22,7 +22,8 @@ const Frame = styled.section`
   & .carousel {
     background-color: darkolivegreen;
     border: 10px solid var(--red);
-    max-width: 100%;
+    min-width: 100%;
+    min-height: 100%;
   }
   & .slide {
     display: flex;
@@ -100,13 +101,15 @@ const ClipCarousel = ({ clipsMobile, clipsDesktop }) => {
   }
 
   // useMediaQuery to choose mobile/desktop
+  // problem: desktop urls are fine, mobile urls cause use of oembed, 404
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
-  const selectedClips = isMobile ? [...clipsMobile] : [...clipsDesktop]
+  const selectedClips = isMobile ? clipsMobile : clipsDesktop
+
+  // console.table(selectedClips[0].embed)
 
   return (
     <Frame>
       <Carousel
-        // height="1024px" // nope...
         width="100%"
         infiniteLoop
         // showIndicators={false}
@@ -125,7 +128,7 @@ const ClipCarousel = ({ clipsMobile, clipsDesktop }) => {
         // )}
         swipeable={isMobile}
       >
-        {clipsDesktop.map((clip, i) => {
+        {selectedClips.map((clip, i) => {
           return (
             <ClipSlide uri={clip.uri} isSelected={selectedClip == i} key={i} />
           )
