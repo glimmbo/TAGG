@@ -9,7 +9,6 @@ const leadership = [
     given: "TROY ADAM",
     sur: "GORDON",
     role: "CEO, Executive Producer",
-    bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
     head: "/images/leadership/Leadership_TroyAdamGordon -CEO.png",
     mask: "/images/leadership/Leadership_TroyAdamGordon -CEO copy.png",
   },
@@ -17,7 +16,6 @@ const leadership = [
     given: "DAVE ‘DABS’",
     sur: "JOHNSON",
     role: "Chief Partnership Officer",
-    bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
     head: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative....png",
     mask: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative... copy.png",
   },
@@ -25,7 +23,6 @@ const leadership = [
     given: "ZAQIR",
     sur: "VIRANI",
     role: "Strategic Advisor",
-    bio: "Velit irure pariatur dolor occaecat nisi aute sint. Dolore in sint sunt Lorem aliquip excepteur est consectetur culpa et ea. Nostrud enim do minim eiusmod veniam sunt voluptate ut cillum eiusmod. Ullamco eiusmod ut cupidatat nisi excepteur est et fugiat sint est velit.",
     head: "/images/leadership/Leadership_ZaqirVirani - Advisor.png",
     mask: "/images/leadership/Leadership_ZaqirVirani - Advisor copy.png",
   },
@@ -89,7 +86,7 @@ export default function People() {
         </AnimatedHeader>
       )}
     >
-      <StaggerBox marginTop="-300px">
+      <StaggerBox marginTop="-100px">
         {leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}

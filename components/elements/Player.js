@@ -3,11 +3,41 @@ import VimeoPlayer from "react-player/vimeo"
 import parse from "html-react-parser"
 import styled from "styled-components"
 
+const EmbedContainer = styled.div`
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  min-width: 100%;
+
+  & iframe,
+  & object,
+  & embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+`
+
 export const FullPlayer = ({ uri }) => {
   // "https://player.vimeo.com/video/{video_id}"
   const url = `https://player.vimeo.com/video/${uri?.split("/")[2]}`
 
-  return <VimeoPlayer url={url} width={"100%"} height={"100%"} controls />
+  return (
+    <EmbedContainer>
+      <VimeoPlayer
+        url={url}
+        width="1024px"
+        height="768px"
+        controls
+        config={{
+          vimeo: { playerOptions: { color: "#ed1a62", playsinline: false } },
+        }}
+      />
+    </EmbedContainer>
+  )
 }
 
 const Scanlines = styled.div`
@@ -43,7 +73,7 @@ const Scanlines = styled.div`
     bottom: 0;
     left: 0;
     z-index: 1;
-    background: linear-gradient(to bottom, transparent 50%, #1e1e1ead 51%);
+    background: linear-gradient(to bottom, transparent 50%, #1e1e1e4d 51%);
     background-size: 100% 5px;
     animation: scanlines 1s steps(30) infinite;
   }
@@ -70,17 +100,21 @@ const Scanlines = styled.div`
 
 export const ClipSlide = ({ uri, isSelected }) => {
   const url = `https://player.vimeo.com/video/${uri?.split("/")[2]}`
-
+  console.log(url)
   return (
     <Scanlines>
       <VimeoPlayer
         width="100%"
-        height="1000px"
         url={url}
         playing={isSelected}
         loop
         muted
         controls={false}
+        config={{
+          vimeo: {
+            playerOptions: { background: true },
+          },
+        }}
       />
     </Scanlines>
   )

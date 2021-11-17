@@ -9,6 +9,7 @@ const Section = styled.section`
   position: relative;
   padding: 0;
   height: 100vh;
+  margin-bottom: 5vh;
 
   .centerframe {
     position: absolute;
@@ -46,10 +47,17 @@ const Section = styled.section`
     margin-top: auto;
     transition: all 1.5s ease-in 0.3s;
   }
+
+  p {
+    text-align: center;
+  }
 `
 
 const WhoWeAre = () => {
-  const { ref, inView, entry } = useInView({ threshold: 0.5 })
+  const { ref, inView, entry } = useInView({
+    threshold: 0.5,
+    triggerOnce: true,
+  })
   const router = useRouter()
 
   // https://github.com/vercel/next.js/pull/27195 (no scroll on hash push)
@@ -97,10 +105,8 @@ const WhoWeAre = () => {
             We solve creative problems with video. It’s not an afterthought,
             it’s not the cherry on top, it’s the whole motherf%^$ing sundae.
             <br />
-            <br />
             It doesn’t matter whether that’s a slick TVC spot, a docu-style
             brand story, or a UGC campaign shot exclusively on iPhone.
-            <br />
             <br />
             No tool, style, or deliverable is out of the picture.
           </p>
