@@ -1,21 +1,24 @@
 import styled from "styled-components"
 
-const Thumb = styled.img`
-  max-width: 100%;
-
-  /* static image */
-  content: url(${({ staticSrc }) => staticSrc});
+const Image = styled.img`
+  width: 100%;
+  border-radius: 5px;
+  transition: opacity 0.2s ease-in-out;
 
   :hover {
-    /* when mobile */
-    @media screen and (max-device-width: 425px) {
-      content: url(${({ mobileSrc }) => mobileSrc});
-    }
+    opacity: 0;
+  }
+`
 
-    /* when desktop */
-    @media screen and (min-device-width: 425px) {
-      content: url(${({ desktopSrc }) => desktopSrc});
-    }
+const Gif = styled.img`
+  position: absolute;
+  width: 100%;
+  border-radius: 5px;
+  transition: opacity 0.1s ease-in-out;
+
+  opacity: 0;
+  :hover {
+    opacity: 1;
   }
 `
 
@@ -25,7 +28,6 @@ const Frame = styled.div`
   border-radius: 5px;
   border: 1px solid var(--red);
   width: 100%;
-  height: 100%;
 `
 
 const WorkThumb = ({ images, thumb }) => {
@@ -37,11 +39,8 @@ const WorkThumb = ({ images, thumb }) => {
   // need to load gif before render to avoid flickering?
   return (
     <Frame>
-      <Thumb
-        staticSrc={imageSrc}
-        desktopSrc={desktopSizeGif}
-        mobileSrc={mobileSizeGif}
-      />
+      <Gif src={desktopSizeGif} alt={imageSrc} />
+      <Image src={imageSrc} />
     </Frame>
   )
 }
