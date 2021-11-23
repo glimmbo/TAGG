@@ -105,6 +105,7 @@ export const ClipSlide = ({ uri, isSelected }) => {
     <Scanlines>
       <VimeoPlayer
         width="100%"
+        height="80vh"
         url={url}
         playing={isSelected}
         loop

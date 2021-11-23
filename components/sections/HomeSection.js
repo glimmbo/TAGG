@@ -1,8 +1,7 @@
 import styled from "styled-components"
-import { useInView } from "react-intersection-observer"
-import { useEffect } from "react"
-import { useRouter } from "next/router"
-import whyTho from "../hooks/whyTho"
+// import { useInView } from "react-intersection-observer"
+// import { useEffect } from "react"
+// import { useRouter } from "next/router"
 
 const Section = styled.section`
   min-height: fit-content;
@@ -32,7 +31,6 @@ const Content = styled.div`
 `
 
 const HomeSection = (props) => {
-  whyTho("HomeSection", props)
   const { id, children, HeaderComponent, sectionStyle } = props
 
   // const {
@@ -45,7 +43,7 @@ const HomeSection = (props) => {
   //   delay: 100,
   // })
 
-  const router = useRouter()
+  // const router = useRouter()
 
   // https://github.com/vercel/next.js/pull/27195 (no scroll on hash push)
   // useEffect(() => {
