@@ -7,6 +7,7 @@ export const Wrap = styled.div`
   display: grid;
   max-width: 100%;
   padding: 40px 5%; // TODO: should be roughly 130px at Laptop L
+  padding-bottom: 0;
   margin-top: -45px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
@@ -42,6 +43,7 @@ export default function Foundation() {
     <HomeSection
       id="foundation"
       header="foundation"
+      sectionStyle={{ marginBottom: 0 }}
       HeaderComponent={() => (
         <AnimatedHeader id="foundation-header">
           <svg

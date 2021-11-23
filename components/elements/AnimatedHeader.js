@@ -1,8 +1,10 @@
 import styled, { css } from "styled-components"
-import { useEffect, useState, useRef } from "react"
 import { useInView } from "react-intersection-observer"
+import { svgPathProperties } from "svg-path-properties"
 
 const AnimatedSVG = styled.div`
+  width: 100%;
+  padding: 0 1em;
   @keyframes draw {
     to {
       stroke-dashoffset: 0;
@@ -20,80 +22,49 @@ const AnimatedSVG = styled.div`
     stroke-opacity: 0;
     transition: stroke-opacity 1s ease-in-out;
 
-    /* ${({ extraCSS }) => extraCSS} */
-
     ${({ lengths }) => {
-      return lengths.map(
-        ({ length, duration }, i) =>
-          css`
-            & g path:nth-child(${i + 1}) {
-              stroke-dasharray: ${length};
-              stroke-dashoffset: ${length};
-              animation: ${({ inView, entry }) =>
-                inView && entry?.intersectionRatio > 0.5 ? `draw` : ``};
-              animation-duration: ${duration};
-              animation-timing-function: ease-in-out;
-              animation-direction: normal;
-              animation-fill-mode: forwards;
-            }
-          `,
-      )
+      if (lengths) {
+        return lengths.map(
+          (length, i) =>
+            css`
+              & g path:nth-child(${i + 1}) {
+                stroke-dasharray: ${length};
+                stroke-dashoffset: ${length};
+                animation: ${({ inView }) => (inView ? `draw` : ``)};
+                animation-duration: 2s;
+                animation-timing-function: ease-in-out;
+                animation-direction: normal;
+                animation-fill-mode: forwards;
+              }
+            `,
+        )
+      }
     }}
   }
 `
 
-export const AnimatedHeader = ({ children, id, width, extraCSS }) => {
-  // inView is a prop that triggers a render...
-  const [lengths, setLengths] = useState([])
-  const widthRef = useRef(null)
+export const AnimatedHeader = (props) => {
+  const { children, id } = props
 
-  const {
-    ref: refHeader,
-    inView: inViewHeader,
-    entry: entryHeader,
-  } = useInView({
+  const { ref: refHeader, inView: inViewHeader } = useInView({
     threshold: 1, // fully in view
-    triggerOnce: true,
+    // triggerOnce: true,
   })
 
-  useEffect(() => {
-    console.log(widthRef.current.style.width)
-    const nodes = Array.from(document?.querySelectorAll(`#${id} path`))
-    let avgLength
-
-    setLengths(
-      nodes?.map((path, i, arr) => {
-        // Shorter path length = faster completion ∴ longer duration for shorter lengths
-        const length = Math.round(path?.getTotalLength())
-
-        // Average length of all paths
-        avgLength = Math.round(
-          arr.reduce(
-            (acc, curr) => acc + Math.round(curr?.getTotalLength()),
-            0,
-          ) / arr.length,
-        )
-
-        const duration = `2s` // nope..
-        return { length, duration }
-      }),
-    )
-  }, [])
+  const lengths = children.props.children.props.children.map((path) => {
+    return Math.round(new svgPathProperties(path.props.d).getTotalLength())
+  })
 
   return (
     lengths && (
-      <div ref={widthRef}>
-        <AnimatedSVG
-          id={id}
-          lengths={lengths}
-          // extraCSS={extraCSS}
-          ref={refHeader}
-          inView={inViewHeader}
-          entry={entryHeader}
-        >
-          {children}
-        </AnimatedSVG>
-      </div>
+      <AnimatedSVG
+        id={id}
+        lengths={lengths}
+        ref={refHeader}
+        inView={inViewHeader}
+      >
+        {children}
+      </AnimatedSVG>
     )
   )
 }

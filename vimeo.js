@@ -117,13 +117,6 @@ export const getWork = async (id) => {
       (err, json, status_code) => {
         console.log("getWork:", status_code)
         err ? reject(err) : resolve(json)
-        // console.log(err, json)
-        // if (error) {
-        //   console.error(error)
-        //   reject(error)
-        // }
-
-        // resolve(JSON.parse(JSON.stringify(body?.data)))
       },
     )
   })
@@ -135,7 +128,6 @@ export const getWork = async (id) => {
 // The site will use the most recently created thumbnail.
 // https://vimeo.com/blog/post/how-to-turn-your-videos-into-gifs/
 export const getMostRecentAnimatedThumb = async (uri) => {
-  console.log(uri)
   const gifs = await new Promise((resolve, reject) => {
     vimeoClient.request(
       {

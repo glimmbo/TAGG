@@ -9,7 +9,7 @@ import { TriangleButton } from "../elements/DividerWithArrows"
 // scanline effect plucked from: https://codepen.io/meduzen/pen/zxbwRV?editors=0100
 
 const Frame = styled.section`
-  height: 100vh;
+  height: 100%;
   width: 100vw;
   display: flex;
   justify-content: center;

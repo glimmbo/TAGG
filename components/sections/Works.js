@@ -20,10 +20,6 @@ const Work = styled.div`
   :hover h3 {
     color: var(--red);
   }
-
-  @media screen and (max-device-width: 425px) {
-    max-width: 100%;
-  }
 `
 
 export default function Works({ videoList }) {
