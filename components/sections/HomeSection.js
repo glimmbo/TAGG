@@ -1,14 +1,13 @@
 import styled from "styled-components"
-import RedStrokeHeader from "../RedStrokeHeader"
 import { useInView } from "react-intersection-observer"
 import { useEffect } from "react"
 import { useRouter } from "next/router"
+import whyTho from "../hooks/whyTho"
 
 const Section = styled.section`
-  /* min-height: 100vh; */
-  height: fit-content;
+  min-height: fit-content;
   width: 100%;
-  /* margin-top: 15vh; */
+  margin: 5vh 0;
   position: relative;
 
   display: flex;
@@ -32,23 +31,19 @@ const Content = styled.div`
   }
 `
 
-const HomeSection = ({
-  id,
-  children,
-  header,
-  HeaderComponent,
-  sectionStyle,
-}) => {
-  // header inview is still triggered by section inview?...🤔
-  const {
-    ref: refSection,
-    inView: inViewSection,
-    entry: entrySection,
-  } = useInView({
-    threshold: [0.5],
-    trackVisibility: true,
-    delay: 100,
-  })
+const HomeSection = (props) => {
+  whyTho("HomeSection", props)
+  const { id, children, HeaderComponent, sectionStyle } = props
+
+  // const {
+  //   ref: refSection,
+  //   inView: inViewSection,
+  //   entry: entrySection,
+  // } = useInView({
+  //   threshold: [0.5],
+  //   trackVisibility: true,
+  //   delay: 100,
+  // })
 
   const router = useRouter()
 
@@ -60,25 +55,8 @@ const HomeSection = ({
   //   }
   // }, [inViewSection])
 
-  let adjusted
-  if (header === "works") {
-    adjusted = (
-      <span>
-        wor<span style={{ letterSpacing: "0.15em" }}>ks</span>
-      </span>
-    )
-  } else if (header === "extended family") {
-    adjusted = (
-      <span>
-        <span style={{ letterSpacing: "0.15em " }}>ex</span>tended family
-      </span>
-    )
-  } else {
-    adjusted = header
-  }
-
   return (
-    <Section id={id} style={sectionStyle} ref={refSection}>
+    <Section id={id} style={sectionStyle}>
       <HeaderComponent />
       <Content>{children}</Content>
     </Section>

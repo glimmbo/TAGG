@@ -99,6 +99,7 @@ export default function WorkedWith() {
           </svg>
         </AnimatedHeader>
       )}
+      sectionStyle={{ marginTop: "25vh" }}
     >
       <Flow>
         {/* offset spacer */}
