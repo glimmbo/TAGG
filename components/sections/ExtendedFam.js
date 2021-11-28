@@ -76,6 +76,8 @@ export default function ExtendedFam() {
                 d="M 44.8 140 L 44.8 26.4 L 0 26.4 L 0 0 L 122 0 L 122 26.4 L 77.2 26.4 L 77.2 140 L 44.8 140 Z"
                 id="0"
                 vectorEffect="non-scaling-stroke"
+                style={{ transform: "translateX(-5px)" }}
+                style={{ transform: "translateX(-5px)" }}
               />
               <path
                 d="M 235.4 0 L 267.8 0 L 267.8 140 L 235.4 140 L 235.4 82.6 L 171.8 82.6 L 171.8 140 L 139.4 140 L 139.4 0 L 171.8 0 L 171.8 55.2 L 235.4 55.2 L 235.4 0 Z"
@@ -86,6 +88,7 @@ export default function ExtendedFam() {
                 d="M 333.2 114 L 409.4 114 L 409.4 140 L 301 140 L 301 0 L 406.8 0 L 406.8 26 L 333.2 26 L 333.2 56.4 L 398.2 56.4 L 398.2 81.6 L 333.2 81.6 L 333.2 114 Z"
                 id="2"
                 vectorEffect="non-scaling-stroke"
+                style={{ transform: "translateX(-7px)" }}
               />
               <path
                 d="M 597.6 26 L 524.2 26 L 524.2 63 L 589 63 L 589 89 L 524.2 89 L 524.2 140 L 491.8 140 L 491.8 0 L 597.6 0 L 597.6 26 Z"
@@ -101,6 +104,7 @@ export default function ExtendedFam() {
                 d="M 924.8 140 L 894.4 140 L 894.2 56 L 853 125.2 L 838.4 125.2 L 797.4 57.8 L 797.4 140 L 767 140 L 767 0 L 793.8 0 L 846.2 87 L 897.8 0 L 924.4 0 L 924.8 140 Z"
                 id="6"
                 vectorEffect="non-scaling-stroke"
+                style={{ transform: "translateX(5px)" }}
               />
             </g>
           </svg>

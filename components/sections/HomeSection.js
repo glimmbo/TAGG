@@ -4,9 +4,10 @@ import styled from "styled-components"
 // import { useRouter } from "next/router"
 
 const Section = styled.section`
+  /* background-color: darkslateblue; */
   min-height: fit-content;
   width: 100%;
-  margin: 5vh 0;
+  margin: 25vh 0;
   position: relative;
 
   display: flex;
@@ -31,7 +32,7 @@ const Content = styled.div`
 `
 
 const HomeSection = (props) => {
-  const { id, children, HeaderComponent, sectionStyle } = props
+  const { id, children, HeaderComponent, sectionStyle, contentStyle } = props
 
   // const {
   //   ref: refSection,
@@ -56,7 +57,7 @@ const HomeSection = (props) => {
   return (
     <Section id={id} style={sectionStyle}>
       <HeaderComponent />
-      <Content>{children}</Content>
+      <Content style={contentStyle}>{children}</Content>
     </Section>
   )
 }

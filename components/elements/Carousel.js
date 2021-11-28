@@ -18,9 +18,10 @@ const Frame = styled.section`
   position: relative;
   overflow: hidden;
   padding: 10vh 2% 2% 2%;
+  margin-top: 0.5em;
 
   & .carousel {
-    background-color: darkolivegreen;
+    /* background-color: darkolivegreen; */
     border: 10px solid var(--red);
     min-width: 100%;
     min-height: 100%;

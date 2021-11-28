@@ -13,6 +13,7 @@ const Nav = styled.nav`
   width: 100vw;
   z-index: 20;
   font-weight: 300;
+  padding: 0 1em;
 
   background: linear-gradient(var(--black), transparent);
 
@@ -22,6 +23,7 @@ const Nav = styled.nav`
 
   #logo {
     margin-left: 1em;
+    margin-top: 1em;
 
     @media screen and (max-width: 425px) {
       margin-left: 15px;

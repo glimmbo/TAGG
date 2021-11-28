@@ -9,7 +9,7 @@ export default function Contact() {
       HeaderComponent={() => (
         <AnimatedHeader id="contact-header">
           <svg
-            width="1015.402"
+            width="1015.402" // this will be off by the translations below
             height="144.804"
             viewBox="0 0 1015.402 144.804"
             xmlns="http://www.w3.org/2000/svg"
@@ -44,6 +44,7 @@ export default function Contact() {
                 d="M 514.802 142.402 L 514.802 28.802 L 470.002 28.802 L 470.002 2.402 L 592.002 2.402 L 592.002 28.802 L 547.202 28.802 L 547.202 142.402 L 514.802 142.402 Z"
                 id="3"
                 vectorEffect="non-scaling-stroke"
+                style={{ transform: "translateX(7px)" }}
               />
               <path
                 d="M 714.002 142.402 L 701.602 112.402 L 636.602 112.402 L 624.202 142.402 L 591.002 142.402 L 653.402 2.402 L 685.402 2.402 L 748.002 142.402 L 714.002 142.402 Z M 647.002 87.802 L 691.402 87.802 L 669.202 34.202 L 647.002 87.802 Z"
@@ -59,6 +60,7 @@ export default function Contact() {
                 d="M 938.202 142.402 L 938.202 28.802 L 893.402 28.802 L 893.402 2.402 L 1015.402 2.402 L 1015.402 28.802 L 970.602 28.802 L 970.602 142.402 L 938.202 142.402Z"
                 id="6"
                 vectorEffect="non-scaling-stroke"
+                style={{ transform: "translateX(15px)" }}
               />
             </g>
           </svg>
