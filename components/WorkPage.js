@@ -1,5 +1,4 @@
 import Head from "next/head"
-import { NavBar } from "./NavBar"
 import PoppedHeader from "./PoppedHeader"
 import styled from "styled-components"
 import { FullPlayer } from "./elements/Player"
@@ -13,7 +12,6 @@ const Content = styled.section`
   max-width: 100vw;
   /* max-height: 100vh; */
   margin: auto;
-  /* margin-top: 10vh; for the navbar */
   display: flex;
   flex-direction: column;
   padding: 5%;
@@ -38,6 +36,44 @@ const Flex = styled.div`
   flex-wrap: wrap;
   margin-bottom: -2em;
 `
+const CloseButton = styled.div`
+  position: absolute;
+  right: 32px;
+  top: 32px;
+  width: 32px;
+  height: 32px;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 15px;
+    content: "";
+    height: 33px;
+    width: 2px;
+    background-color: var(--grey);
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      background-color: var(--white);
+    }
+  }
+
+  &:active {
+    &::before,
+    &::after {
+      background-color: var(--red);
+    }
+  }
+`
 
 const Credit = styled.div`
   height: fit-content;
@@ -52,7 +88,7 @@ const Credit = styled.div`
   }
 `
 
-export default function WorkPage({ video, onLeft, onRight }) {
+export default function WorkPage({ video, onLeft, onRight, onClose }) {
   const desc = JSON.parse(video?.description)
 
   return (
@@ -60,11 +96,9 @@ export default function WorkPage({ video, onLeft, onRight }) {
       <Head>
         <title>{video.title}</title>
       </Head>
-      {/* <NavBar /> */}
-      {/* TODO: close button instead of navbar */}
       <Content>
+        <CloseButton onClick={() => console.log("close")} />
         <FullPlayer uri={video.uri} />
-        {/* type? (ie music video) */}
         <PoppedHeader style={{ marginTop: "2em" }}>{video.name}</PoppedHeader>
         <Flex>
           {desc &&

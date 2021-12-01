@@ -8,6 +8,7 @@ export const TriangleButton = styled.div`
   position: relative;
   margin-bottom: -1px;
   transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
 
   &:hover {
     background-color: var(--lightgrey);
@@ -23,7 +24,7 @@ export const TriangleButton = styled.div`
     content: "";
     position: absolute;
     top: 35%;
-    left: 35%;
+    left: ${({ left }) => (left ? "40%" : "30%")};
     width: 25%;
     height: 25%;
     border-left: 2px solid var(--red);

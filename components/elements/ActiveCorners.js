@@ -39,9 +39,9 @@ const Corners = styled.div`
     justify-self: right;
   }
 `
-export const ActiveCorners = ({ children, active }) => {
+export const ActiveCorners = ({ children, active, style }) => {
   return (
-    <Corners active={active}>
+    <Corners active={active} style={style}>
       <div className="top left" />
       <div className="top right" />
       <div className="bottom left" />

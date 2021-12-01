@@ -9,7 +9,8 @@ import { TriangleButton } from "../elements/DividerWithArrows"
 // scanline effect plucked from: https://codepen.io/meduzen/pen/zxbwRV?editors=0100
 
 const Frame = styled.section`
-  height: 100%;
+  position: relative;
+  height: 91vh;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -21,7 +22,6 @@ const Frame = styled.section`
   margin-top: 0.5em;
 
   & .carousel {
-    /* background-color: darkolivegreen; */
     border: 10px solid var(--red);
     min-width: 100%;
     min-height: 100%;
@@ -32,17 +32,15 @@ const Frame = styled.section`
     align-items: center;
     position: relative;
     overflow: hidden; // only to animate the unique scanline
-
-    background-color: darkslateblue;
   }
 `
 
 const Dot = styled.div`
   border-radius: 100%;
-  height: 15px;
-  width: 15px;
-  margin: 5px;
-  border: 1px solid var(--lightgrey);
+  height: 12px;
+  width: 12px;
+  margin: 5px 0;
+  outline: 1px solid var(--lightgrey);
   z-index: 10;
   position: relative;
   display: flex;
@@ -59,13 +57,6 @@ const Dot = styled.div`
       isActive ? "var(--red)" : "transparent"};
   }
 
-  /* dots too small to click... */
-  /* :hover {
-    ::after {
-      background-color: var(--lightgrey);
-    }
-  } */
-
   :active {
     ::after {
       background-color: var(--red);
@@ -73,14 +64,39 @@ const Dot = styled.div`
   }
 `
 
-const Controls = ({ children, next, prev }) => {
-  // custom overlay controls and positioning
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  padding: 10vh 2% 2% 2%;
+  margin-top: 0.5em;
+  z-index: 10;
+`
+
+const ButtonStack = styled.div`
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 8% 8%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`
+
+const Controls = ({ next, prev, selected, selectedClips }) => {
   return (
-    <div>
-      <Dot />
-      <TriangleButton right />
-      {children}
-    </div>
+    <Overlay>
+      <ButtonStack>
+        {selectedClips &&
+          selectedClips?.map((clip, i) => (
+            <Dot key={i} isActive={selected == i} />
+          ))}
+        <TriangleButton left onClick={prev} style={{ marginTop: "10px" }} />
+        <TriangleButton right onClick={next} />
+      </ButtonStack>
+    </Overlay>
   )
 }
 
@@ -91,50 +107,49 @@ const ClipCarousel = ({ clipsMobile, clipsDesktop }) => {
 
   const [selectedClip, setSelectedClip] = useState(0)
 
-  const next = () => {
-    console.log("next")
-    setSelectedClip(selectedClip + 1)
-  }
-
-  const prev = () => {
-    console.log("prev")
-    setSelectedClip(setSelectedClip - 1)
-  }
-
-  // useMediaQuery to choose mobile/desktop
-  // problem: desktop urls are fine, mobile urls cause use of oembed, 404
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   const selectedClips = isMobile ? clipsMobile : clipsDesktop
 
-  // console.table(selectedClips[0].embed)
+  const next = () => {
+    const next =
+      selectedClip + 1 > selectedClips.length - 1 ? 0 : selectedClip + 1
+    setSelectedClip(next)
+  }
+
+  const prev = () => {
+    const prev =
+      selectedClip - 1 < 0 ? selectedClips.length - 1 : selectedClip - 1
+    setSelectedClip(prev)
+  }
 
   return (
     <Frame>
       <Carousel
         width="100%"
-        infiniteLoop
-        // showIndicators={false}
-        // showArrows={false}
+        height="100%"
+        // infiniteLoop
+        selectedItem={selectedClip}
+        showIndicators={false}
+        showArrows={false}
         showThumbs={false}
         showStatus={false}
-        // renderIndicator={({ onClickHandler, isSelected, index, label }) => {
-        //   console.log(isSelected)
-        //   return <Dot isActive={isSelected} />
-        // }}
-        // renderArrowNext={(onClickHandler, hasNext, label) => (
-        //   <TriangleButton right onClick={onClickHandler} />
-        // )}
-        // renderArrowPrev={(onClickHandler, hasPrev, label) => (
-        //   <TriangleButton left onClick={onClickHandler} />
-        // )}
         swipeable={isMobile}
+        // onSwipeEnd={}
       >
         {selectedClips.map((clip, i) => {
           return (
-            <ClipSlide uri={clip.uri} isSelected={selectedClip == i} key={i} />
+            // <div key={i} style={{ height: "100%", width: "100%" }}></div>
+            <ClipSlide clip={clip} isSelected={selectedClip == i} key={i} />
           )
         })}
       </Carousel>
+
+      <Controls
+        prev={prev}
+        next={next}
+        selected={selectedClip}
+        selectedClips={selectedClips}
+      />
     </Frame>
   )
 }
