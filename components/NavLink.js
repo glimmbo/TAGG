@@ -1,7 +1,5 @@
-import { useEffect, useState } from "react"
 import styled from "styled-components"
 import { ActiveCorners } from "./elements/ActiveCorners"
-import { useRouter } from "next/router"
 
 const StyledA = styled.a`
   text-decoration: none;
@@ -27,7 +25,6 @@ const StyledA = styled.a`
 `
 
 export const NavLink = ({ href, children, active }) => {
-  console.log(`Navlink ${href} active:`, active)
   return (
     <ActiveCorners active={active}>
       <StyledA href={href}>{children}</StyledA>

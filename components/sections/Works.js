@@ -4,6 +4,7 @@ import styled from "styled-components"
 import WorkThumb from "../WorkThumb"
 import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
+import { forwardRef } from "react"
 
 const Work = styled.div`
   display: initial;
@@ -22,11 +23,11 @@ const Work = styled.div`
   }
 `
 
-export default function Works({ videoList }) {
+const Works = forwardRef(({ videoList }, ref) => {
   return (
     <HomeSection
       id="works"
-      header="works"
+      ref={ref}
       HeaderComponent={() => (
         <AnimatedHeader id="works-header">
           <svg
@@ -80,11 +81,7 @@ export default function Works({ videoList }) {
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
           return (
-            <Link
-              href="/works/[videoId]" // hosted page file
-              as={`/works/${videoId}`} // actual, generated url
-              key={i}
-            >
+            <Link href="/works/[videoId]" as={`/works/${videoId}`} key={i}>
               <Work key={i}>
                 <WorkThumb
                   images={video.pictures.sizes}
@@ -99,4 +96,6 @@ export default function Works({ videoList }) {
       </StaggerBox>
     </HomeSection>
   )
-}
+})
+
+export default Works

@@ -2,8 +2,7 @@ import styled from "styled-components"
 import WhiteStrokeHeader from "../WhiteStrokeHeader"
 import PoppedHeader from "../PoppedHeader"
 import { useInView } from "react-intersection-observer"
-import { useEffect } from "react"
-import { useRouter } from "next/router"
+import { forwardRef } from "react"
 
 const Section = styled.section`
   position: relative;
@@ -60,24 +59,19 @@ const Section = styled.section`
   }
 `
 
-const WhoWeAre = () => {
-  const { ref, inView, entry } = useInView({
+const WhoWeAre = forwardRef((props, ref) => {
+  const {
+    ref: refAnimation,
+    inView,
+    entry,
+  } = useInView({
     threshold: 0.5,
-    triggerOnce: true,
+    // triggerOnce: true,
   })
-  // const router = useRouter()
-
-  // https://github.com/vercel/next.js/pull/27195 (no scroll on hash push)
-  // useEffect(() => {
-  //   // push new hash when in view
-  //   if (inView && window) {
-  //     router.replace(`/#about`, `/#about`, { shallow: true })
-  //   }
-  // }, [inView])
 
   return (
     <Section id="about" ref={ref}>
-      <div className="centerframe graphic">
+      <div className="centerframe graphic" ref={refAnimation}>
         <img
           src="/images/TAGG_webbanner5.png"
           id="logo"
@@ -117,6 +111,6 @@ const WhoWeAre = () => {
       </div>
     </Section>
   )
-}
+})
 
 export default WhoWeAre

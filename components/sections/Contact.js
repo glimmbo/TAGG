@@ -1,11 +1,13 @@
 import HomeSection from "./HomeSection"
 import ContactCard from "../ContactCard"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
+import { forwardRef } from "react"
 
-export default function Contact() {
+const Contact = forwardRef((props, ref) => {
   return (
     <HomeSection
       id="contact"
+      ref={ref}
       HeaderComponent={() => (
         <AnimatedHeader id="contact-header">
           <svg
@@ -71,4 +73,6 @@ export default function Contact() {
       <ContactCard />
     </HomeSection>
   )
-}
+})
+
+export default Contact

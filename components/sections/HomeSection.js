@@ -1,10 +1,7 @@
 import styled from "styled-components"
-// import { useInView } from "react-intersection-observer"
-// import { useEffect } from "react"
-// import { useRouter } from "next/router"
+import { forwardRef } from "react"
 
 const Section = styled.section`
-  /* background-color: darkslateblue; */
   min-height: fit-content;
   width: 100%;
   margin: 25vh 0;
@@ -20,7 +17,6 @@ const Section = styled.section`
 `
 
 const Content = styled.div`
-  /* background-color: navy; */
   margin-top: -60px;
   z-index: 1;
 
@@ -31,35 +27,15 @@ const Content = styled.div`
   }
 `
 
-const HomeSection = (props) => {
+const HomeSection = forwardRef((props, ref) => {
   const { id, children, HeaderComponent, sectionStyle, contentStyle } = props
 
-  // const {
-  //   ref: refSection,
-  //   inView: inViewSection,
-  //   entry: entrySection,
-  // } = useInView({
-  //   threshold: [0.5],
-  //   trackVisibility: true,
-  //   delay: 100,
-  // })
-
-  // const router = useRouter()
-
-  // https://github.com/vercel/next.js/pull/27195 (no scroll on hash push)
-  // useEffect(() => {
-  //   // push new hash when in view
-  //   if (inViewSection && window) {
-  //     router.replace(`/#${id}`, `/#${id}`, { shallow: true })
-  //   }
-  // }, [inViewSection])
-
   return (
-    <Section id={id} style={sectionStyle}>
+    <Section id={id} style={sectionStyle} ref={ref}>
       <HeaderComponent />
       <Content style={contentStyle}>{children}</Content>
     </Section>
   )
-}
+})
 
 export default HomeSection
