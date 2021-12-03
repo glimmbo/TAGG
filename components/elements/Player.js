@@ -1,7 +1,9 @@
 import React from "react"
 import VimeoPlayer from "react-player/vimeo"
-import parse from "html-react-parser"
 import styled from "styled-components"
+import PoppedHeader from "../PoppedHeader"
+import { ActiveCorners } from "./ActiveCorners"
+import Link from "next/link"
 
 const EmbedContainer = styled.div`
   position: relative;
@@ -98,26 +100,67 @@ const Scanlines = styled.div`
   }
 `
 
-export const ClipSlide = ({ uri, isSelected }) => {
-  const url = `https://player.vimeo.com/video/${uri?.split("/")[2]}`
-  console.log(url)
+const DetailStack = styled.div`
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: 8% 8%;
+  display: flex;
+  flex-direction: column;
+`
+
+const WatchButton = ({ clip, href }) => {
   return (
-    <Scanlines>
-      <VimeoPlayer
-        width="100%"
-        height="80vh"
-        url={url}
-        playing={isSelected}
-        loop
-        muted
-        controls={false}
-        config={{
-          vimeo: {
-            playerOptions: { background: true },
-          },
-        }}
-      />
-    </Scanlines>
+    <DetailStack>
+      <PoppedHeader>{clip.name}</PoppedHeader>
+
+      <Link href={href}>
+        <ActiveCorners
+          active={true}
+          style={{
+            width: "calc(9ch + 1em)",
+            cursor: "pointer",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            color: "var(--red)",
+            fontFamily: "Consolas, sans-serif",
+            margin: 0,
+            padding: ".5em 2em",
+            userSelect: "none",
+            zIndex: 10,
+          }}
+        >
+          WATCH
+        </ActiveCorners>
+      </Link>
+    </DetailStack>
+  )
+}
+
+export const ClipSlide = ({ clip, isSelected }) => {
+  const { name, uri } = clip
+  const url = `https://player.vimeo.com/video/${uri?.split("/")[2]}`
+  return (
+    <div style={{ position: "relative", height: "100%", width: "100%" }}>
+      <Scanlines>
+        <VimeoPlayer
+          width="100%"
+          height="80vh"
+          url={url}
+          playing={false}
+          loop
+          muted
+          controls={false}
+          config={{
+            vimeo: {
+              playerOptions: { background: true },
+            },
+          }}
+        />
+      </Scanlines>
+      <WatchButton clip={clip} href={url} />
+    </div>
   )
 }
 

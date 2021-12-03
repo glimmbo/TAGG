@@ -103,6 +103,7 @@ export const getWorks = async (album_id = "8478566") => {
       },
     )
   })
+  console.log(videoList[0])
   return videoList
 }
 
@@ -120,6 +121,7 @@ export const getWork = async (id) => {
       },
     )
   })
+  console.log(video)
   return video
 }
 

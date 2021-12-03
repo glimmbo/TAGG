@@ -58,7 +58,8 @@ const WorkPageModal = ({ video }) => {
           margin: 0,
           padding: 0,
           inset: 0,
-          maxWidth: "100vw",
+          width: "100vw",
+          height: "100vh",
         },
       }}
     >
