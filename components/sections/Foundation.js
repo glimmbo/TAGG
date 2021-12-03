@@ -6,7 +6,7 @@ import { AnimatedHeader } from "../elements/AnimatedHeader"
 export const Wrap = styled.div`
   display: grid;
   max-width: 100%;
-  padding: 40px 5%; // TODO: should be roughly 130px at Laptop L
+  padding: 0 5%;
   padding-bottom: 0;
   margin-top: -45px;
   grid-template-columns: 1fr 1fr;
@@ -27,7 +27,7 @@ export const Text = styled.div`
   margin-right: auto;
   grid-area: ${({ gridArea }) => gridArea};
   transform: ${({ gridArea }) => {
-    return gridArea === "c" || gridArea === "d" ? "translateY(60%)" : "0"
+    return gridArea === "c" || gridArea === "d" ? "translateY(45%)" : "0"
   }};
 
   @media screen and (max-width: 425px) {
@@ -88,7 +88,14 @@ export default function Foundation() {
       )}
     >
       <Wrap>
-        <Text gridArea="a">
+        <Text
+          gridArea="a"
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+          }}
+        >
           <PoppedHeader>LEAN. AGILE. FULLY DISTRIBUTED</PoppedHeader>
           <p>
             Different places. Different people. All at the top of their game and

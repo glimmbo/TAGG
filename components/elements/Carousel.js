@@ -1,6 +1,6 @@
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import { useEffect, useState } from "react"
+import { forwardRef, useEffect, useState } from "react"
 import { ClipSlide } from "./Player"
 import styled from "styled-components"
 import { useMediaQuery } from "react-responsive"
@@ -8,7 +8,7 @@ import { TriangleButton } from "../elements/DividerWithArrows"
 
 // scanline effect plucked from: https://codepen.io/meduzen/pen/zxbwRV?editors=0100
 
-const Frame = styled.section`
+const Frame = styled.div`
   position: relative;
   height: 91vh;
   width: 100vw;
@@ -19,7 +19,11 @@ const Frame = styled.section`
   position: relative;
   overflow: hidden;
   padding: 10vh 2% 2% 2%;
-  margin-top: 0.5em;
+  margin-top: 1.5em;
+
+  .carousel-root {
+    width: 100%;
+  }
 
   & .carousel {
     border: 10px solid var(--red);
@@ -31,7 +35,7 @@ const Frame = styled.section`
     justify-content: center;
     align-items: center;
     position: relative;
-    overflow: hidden; // only to animate the unique scanline
+    /* overflow: hidden; // only to animate the unique scanline */
   }
 `
 
@@ -100,11 +104,7 @@ const Controls = ({ next, prev, selected, selectedClips }) => {
   )
 }
 
-const ClipCarousel = ({ clipsMobile, clipsDesktop }) => {
-  useEffect(() => {
-    console.log(clipsMobile, clipsDesktop)
-  }, [])
-
+const ClipCarousel = forwardRef(({ clipsMobile, clipsDesktop }, ref) => {
   const [selectedClip, setSelectedClip] = useState(0)
 
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
@@ -123,7 +123,7 @@ const ClipCarousel = ({ clipsMobile, clipsDesktop }) => {
   }
 
   return (
-    <Frame>
+    <Frame ref={ref}>
       <Carousel
         width="100%"
         height="100%"
@@ -152,6 +152,6 @@ const ClipCarousel = ({ clipsMobile, clipsDesktop }) => {
       />
     </Frame>
   )
-}
+})
 
 export default ClipCarousel

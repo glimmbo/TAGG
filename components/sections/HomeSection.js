@@ -14,6 +14,10 @@ const Section = styled.section`
   & svg {
     transform: translateY(-20px);
   }
+
+  @media screen and (max-width: 425px) {
+    margin: 2em 0;
+  }
 `
 
 const Content = styled.div`

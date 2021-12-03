@@ -6,7 +6,7 @@ const Card = styled.div`
   position: relative;
   height: auto;
   z-index: 2;
-  padding: 0 1em;
+  padding: 1em 1em;
   max-width: 500px; // image width
 
   .text {

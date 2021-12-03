@@ -77,7 +77,7 @@ export default function WhatWeDo() {
         </AnimatedHeader>
       )}
       sectionStyle={{ height: "fit-content", marginBottom: "15vh" }}
-      contentStyle={{ height: "fit-content" }}
+      contentStyle={{ height: "fit-content", marginTop: "-10px" }}
     >
       <Wrap>
         <Text gridArea="a">
