@@ -1,4 +1,3 @@
-import { useState, useEffect, useRef, forwardRef, useMemo } from "react"
 import { NavBar } from "../components/NavBar"
 import ClipCarousel from "../components/elements/Carousel"
 import Works from "../components/sections/Works"
@@ -32,18 +31,14 @@ export async function getStaticProps(context) {
 
   return {
     props: { videoList, clipsMobile, clipsDesktop },
-    // revalidate: 60, // (sec) hovering thumbs causes revalidate?
+    // revalidate: 60,
   }
 }
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
   // Nav targeting
   const { ref: refCarousel, inView: inViewCarousel } = useInView()
-  const {
-    ref: refWorks,
-    inView: inViewWorks,
-    entry: entryWorks,
-  } = useInView({ threshold: 0.25 })
+  const { ref: refWorks, inView: inViewWorks } = useInView()
   const { ref: refContact, inView: inViewContact } = useInView({
     threshold: 0.25,
   })
