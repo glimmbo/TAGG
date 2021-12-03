@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, forwardRef } from "react"
+import { useState, useEffect, useRef, forwardRef, useMemo } from "react"
 import { NavBar } from "../components/NavBar"
 import ClipCarousel from "../components/elements/Carousel"
 import Works from "../components/sections/Works"
@@ -15,6 +15,7 @@ import {
   getClipsDesktop,
   getWorks,
 } from "../vimeo"
+import { useInView } from "react-intersection-observer"
 
 // Fetch all video content
 export async function getStaticProps(context) {
@@ -36,81 +37,40 @@ export async function getStaticProps(context) {
 }
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
-  // const worksRef = useRef(null)
-  // const aboutRef = useRef(null)
-  // const foundationRef = useRef(null)
-  // const whatwedoRef = useRef(null)
-  // const peopleRef = useRef(null)
-  // const extendedfamRef = useRef(null)
-  // const workedwithRef = useRef(null)
-  // const contactRef = useRef(null)
-
-  // const sectionRefs = [
-  //   { section: "works", ref: worksRef },
-  //   { section: "about", ref: aboutRef },
-  //   { section: "foundation", ref: foundationRef },
-  //   { section: "whatwedo", ref: whatwedoRef },
-  //   { section: "people", ref: peopleRef },
-  //   { section: "extendedfam", ref: extendedfamRef },
-  //   { section: "workedwith", ref: workedwithRef },
-  //   { section: "contact", ref: contactRef },
-  // ]
-
-  // const getDimensions = (ele) => {
-  //   const { height } = ele?.getBoundingClientRect()
-  //   const offsetTop = ele?.offsetTop
-  //   const offsetBottom = offsetTop + height
-
-  //   return {
-  //     height,
-  //     offsetTop,
-  //     offsetBottom,
-  //   }
-  // }
-
-  // const [visibleSection, setVisibleSection] = useState()
-  // const navRef = useRef(null)
-
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const { height: navHeight } = getDimensions(navRef.current)
-  //     const scrollPosition = window.scrollY + navHeight
-
-  //     console.log(scrollPosition)
-
-  //     const selected = sectionRefs.find(({ section, ref }) => {
-  //       const ele = ref.current
-  //       if (ele) {
-  //         const { offsetBottom, offsetTop } = getDimensions(ele)
-  //         return scrollPosition > offsetTop && scrollPosition < offsetBottom
-  //       }
-  //     })
-
-  //     if (selected && selected.section !== visibleSection) {
-  //       console.log(selected)
-  //       setVisibleSection(selected.section)
-  //     }
-  //   }
-
-  //   window.addEventListener("scroll", handleScroll)
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll)
-  //   }
-  // }, [visibleSection])
+  // Nav targeting
+  const { ref: refCarousel, inView: inViewCarousel } = useInView()
+  const {
+    ref: refWorks,
+    inView: inViewWorks,
+    entry: entryWorks,
+  } = useInView({ threshold: 0.25 })
+  const { ref: refContact, inView: inViewContact } = useInView({
+    threshold: 0.25,
+  })
 
   return (
     <>
-      <NavBar />
+      <NavBar
+        visibleSection={
+          inViewCarousel || inViewWorks
+            ? "works"
+            : inViewContact
+            ? "contact"
+            : "about"
+        }
+      />
       <main>
-        <ClipCarousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
-        <Works videoList={videoList} id="works" />
+        <section ref={refCarousel}>
+          <ClipCarousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
+        </section>
+        <Works videoList={videoList} id="works" ref={refWorks} />
         <WhoWeAre id="about" />
         <Foundation id="foundation" />
         <WhatWeDo id="whatwedo" />
         <People id="people" />
         <ExtendedFam id="extended-fam" />
         <WorkedWith id="worked-with" />
-        <Contact id="contact" />
+        <Contact id="contact" ref={refContact} />
       </main>
     </>
   )
