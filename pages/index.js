@@ -1,5 +1,5 @@
 import { NavBar } from "../components/NavBar"
-import ClipCarousel from "../components/elements/Carousel"
+import Carousel from "../components/sections/Carousel"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
 import Foundation from "../components/sections/Foundation"
@@ -55,9 +55,11 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         }
       />
       <main>
-        <section ref={refCarousel}>
-          <ClipCarousel clipsMobile={clipsMobile} clipsDesktop={clipsDesktop} />
-        </section>
+        <Carousel
+          clipsDesktop={clipsDesktop}
+          clipsMobile={clipsMobile}
+          ref={refCarousel}
+        />
         <Works videoList={videoList} id="works" ref={refWorks} />
         <WhoWeAre id="about" />
         <Foundation id="foundation" />
