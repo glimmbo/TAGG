@@ -6,7 +6,7 @@ import { DividerWithArrows } from "./elements/DividerWithArrows"
 import { useRouter } from "next/router"
 
 const Content = styled.section`
-  overflow: hidden;
+  /* overflow: hidden; */
   margin-top: 10vh;
   background-color: var(--black);
   width: 100%;
