@@ -91,7 +91,7 @@ const Static = styled.img`
 `
 
 const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
-  const [staticOpacity, setStaticOpacity] = useState(0)
+  const [staticOpacity, setStaticOpacity] = useState(0.6)
   const [current, setCurrent] = useState(0)
 
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
