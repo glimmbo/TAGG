@@ -3,14 +3,15 @@ import PoppedHeader from "./PoppedHeader"
 import styled from "styled-components"
 import { FullPlayer } from "./elements/Player"
 import { DividerWithArrows } from "./elements/DividerWithArrows"
+import { useRouter } from "next/router"
 
 const Content = styled.section`
   overflow: hidden;
   margin-top: 10vh;
   background-color: var(--black);
   width: 100%;
+  height: 100vh;
   max-width: 100vw;
-  /* max-height: 100vh; */
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -90,6 +91,7 @@ const Credit = styled.div`
 
 export default function WorkPage({ video, onLeft, onRight, onClose }) {
   const desc = JSON.parse(video?.description)
+  const router = useRouter()
 
   return (
     <>
@@ -97,18 +99,20 @@ export default function WorkPage({ video, onLeft, onRight, onClose }) {
         <title>{video.title}</title>
       </Head>
       <Content>
-        <CloseButton onClick={() => console.log("close")} />
+        <CloseButton onClick={() => router.push("/#works")} />
         <FullPlayer uri={video.uri} />
         <PoppedHeader style={{ marginTop: "2em" }}>{video.name}</PoppedHeader>
         <Flex>
           {desc &&
             Object.entries(desc).map(([key, value]) => {
-              return (
-                <Credit key={key}>
-                  <SmallRedHeader>{key}</SmallRedHeader>
-                  <p>{value}</p>
-                </Credit>
-              )
+              if (key != "id") {
+                return (
+                  <Credit key={key}>
+                    <SmallRedHeader>{key}</SmallRedHeader>
+                    <p>{value}</p>
+                  </Credit>
+                )
+              }
             })}
         </Flex>
         {/* how to get urls to cycle.. */}

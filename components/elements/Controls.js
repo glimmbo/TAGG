@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { TriangleButton } from "../elements/DividerWithArrows"
 
-const Overlay = styled.div`
+export const Overlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
@@ -47,11 +47,12 @@ const ButtonStack = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  opacity: 0.99;
 `
 
 export const Controls = ({ next, prev, selected, selectedClips }) => {
   return (
-    <Overlay>
+    <Overlay style={{ left: "unset", right: 0, width: "50%" }}>
       <ButtonStack>
         {selectedClips &&
           selectedClips?.map((clip, i) => (

@@ -1,16 +1,7 @@
 import styled from "styled-components"
 import Link from "next/link"
 import PoppedHeader from "../PoppedHeader"
-import { ActiveCorners } from "../elements/ActiveCorners"
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 10;
-`
+import { ActiveCorners } from "./ActiveCorners"
 
 const TitleContainer = styled.div`
   position: absolute;
@@ -36,6 +27,7 @@ const WatchButton = () => (
       padding: ".5em 2em",
       userSelect: "none",
       zIndex: 10,
+      opacity: 0.99, // attempt to break stacking context...
     }}
   >
     WATCH
@@ -44,16 +36,14 @@ const WatchButton = () => (
 
 export const Slide = ({ name, href }) => {
   return (
-    <Overlay>
-      <TitleContainer>
-        <PoppedHeader>{name}</PoppedHeader>
+    <TitleContainer>
+      <PoppedHeader>{name}</PoppedHeader>
 
-        <Link href={href} passHref>
-          <a>
-            <WatchButton />
-          </a>
-        </Link>
-      </TitleContainer>
-    </Overlay>
+      <Link href={href} passHref>
+        <a style={{ width: "fit-content" }}>
+          <WatchButton />
+        </a>
+      </Link>
+    </TitleContainer>
   )
 }

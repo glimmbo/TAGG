@@ -1,12 +1,11 @@
 import { Carousel } from "react-responsive-carousel"
 import "react-responsive-carousel/lib/styles/carousel.min.css"
-import ReactPlayer from "react-player/lazy"
 import VimeoPlayer from "react-player/vimeo"
 import styled from "styled-components"
 import { forwardRef, useEffect, useState } from "react"
 import { useMediaQuery } from "react-responsive"
-
-import { Slide } from "../elements/WatchButton"
+import { Overlay } from "../elements/Controls"
+import { Slide } from "../elements/Slide"
 import { Controls } from "../elements/Controls"
 import { EmbedContainer } from "../elements/Player"
 
@@ -18,12 +17,24 @@ const Section = styled.section`
 
 const Frame = styled.div`
   width: 100%;
-  height: 100%;
+  height: 80vh;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
   overflow: hidden;
+
+  .carousel-root a {
+    z-index: 11;
+  }
+  .carousel-root,
+  .carousel,
+  .slide,
+  .slider-wrapper,
+  .slider {
+    width: 100%;
+    height: 100%;
+  }
 
   &::before,
   &::after {
@@ -76,10 +87,11 @@ const Static = styled.img`
   width: 100%;
   height: 100%;
   opacity: ${({ opacity }) => opacity};
+  transition: opacity 300ms ease-in;
 `
 
 const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
-  const [staticOpacity, setStaticOpacity] = useState(0.9)
+  const [staticOpacity, setStaticOpacity] = useState(0)
   const [current, setCurrent] = useState(0)
 
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
@@ -109,7 +121,6 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
 
         {/* player stays loaded, loads new url */}
         <EmbedContainer>
-          {/* <ReactPlayer */}
           <VimeoPlayer
             height="100%"
             width="100%"
@@ -123,29 +134,6 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
           />
         </EmbedContainer>
 
-        {/* carousel changes controls overlay, button href */}
-        <Carousel
-          width="100%"
-          height="100%"
-          infiniteLoop
-          // autoPlay ?
-          selectedItem={current}
-          showIndicators={false}
-          showArrows={false}
-          showThumbs={false}
-          showStatus={false}
-          swipeable={isMobile}
-          // onChange={(i) => setCurrent(i)} ?
-        >
-          {selectedClips.map((video, i) => {
-            // get the matching featured-work id (technically separate videos)
-            const id = JSON.parse(video.description)?.id
-            const path = `/works/${id}`
-
-            return <Slide name={video.name} href={path} key={i} />
-          })}
-        </Carousel>
-
         {/* external controls overlay for carousel */}
         <Controls
           prev={prev}
@@ -153,6 +141,33 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
           selected={current}
           selectedClips={selectedClips}
         />
+
+        {/* carousel changes title/watch button */}
+        <Overlay style={{ width: "50%" }}>
+          <Carousel
+            width="100%"
+            height="100%"
+            infiniteLoop
+            // autoPlay ?
+            selectedItem={current}
+            showIndicators={false}
+            showArrows={false}
+            showThumbs={false}
+            showStatus={false}
+            swipeable={isMobile}
+            // onChange={(index, item) => {
+            //   setCurrent(index)
+            // }}
+          >
+            {selectedClips.map((video, i) => {
+              // get the matching featured-work id (separate video)
+              const id = JSON.parse(video.description)?.id
+              const path = `/works/${id}`
+
+              return <Slide name={video.name} href={path} key={i} />
+            })}
+          </Carousel>
+        </Overlay>
       </Frame>
     </Section>
   )
