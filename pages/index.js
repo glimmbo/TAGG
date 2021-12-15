@@ -15,6 +15,7 @@ import {
   getWorks,
 } from "../vimeo"
 import { useInView } from "react-intersection-observer"
+import styled from "styled-components"
 
 // Fetch all video content
 export async function getStaticProps(context) {
@@ -35,6 +36,13 @@ export async function getStaticProps(context) {
   }
 }
 
+const StaticMain = styled.main`
+  background-image: url("images/bg-static.gif");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-attachment: fixed;
+`
+
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
   // Nav targeting
   const { ref: refCarousel, inView: inViewCarousel } = useInView()
@@ -54,7 +62,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
             : "about"
         }
       />
-      <main>
+      <StaticMain>
         <Carousel
           clipsDesktop={clipsDesktop}
           clipsMobile={clipsMobile}
@@ -68,7 +76,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         <ExtendedFam id="extended-fam" />
         <WorkedWith id="worked-with" />
         <Contact id="contact" ref={refContact} />
-      </main>
+      </StaticMain>
     </>
   )
 }
