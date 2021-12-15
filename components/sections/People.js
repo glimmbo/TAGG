@@ -11,6 +11,7 @@ const leadership = [
     role: "CEO, Executive Producer",
     head: "/images/leadership/Leadership_TroyAdamGordon -CEO.png",
     mask: "/images/leadership/Leadership_TroyAdamGordon -CEO copy.png",
+    bio: "He has over 20K hours of production and post experience under his belt, accumulated over 20M  organic views on content he's produced, worked  with Grammy award winning artists, cult brands, and still unapologetically wastes countless hours watching cat videos.",
   },
   {
     given: "DAVE ‘DABS’",
@@ -18,6 +19,7 @@ const leadership = [
     role: "Chief Partnership Officer",
     head: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative....png",
     mask: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative... copy.png",
+    bio: "Dabs has a unique ability. An ability that's increasingly rare and highly sought after--seeing the Big Picture. However, seeing the big picture is one thing, effectively communicating it is another. This is where Dabs excels. Talented, scrappy, creative, humble; This is the type of person you look forward to working with on a daily basis.",
   },
   {
     given: "ZAQIR",
@@ -25,6 +27,7 @@ const leadership = [
     role: "Strategic Advisor",
     head: "/images/leadership/Leadership_ZaqirVirani - Advisor.png",
     mask: "/images/leadership/Leadership_ZaqirVirani - Advisor copy.png",
+    bio: "An executive leader in business development and growth strategy, Zaqir preaches narrative-driven engagement strategies and systems thinking. In his work as an advisor to TAGG Creative, Zaqir consults on all things growth—from sales strategies to messaging, and from tactical engagement to business development.",
   },
 ]
 
@@ -86,7 +89,7 @@ export default function People() {
         </AnimatedHeader>
       )}
     >
-      <StaggerBox marginTop="-100px">
+      <StaggerBox marginTop="-300px">
         {leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}
