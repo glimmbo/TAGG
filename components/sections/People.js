@@ -89,7 +89,7 @@ export default function People() {
         </AnimatedHeader>
       )}
     >
-      <StaggerBox marginTop="-300px">
+      <StaggerBox marginTop="-350px">
         {leadership.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}
