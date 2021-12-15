@@ -10,6 +10,13 @@ const TitleContainer = styled.div`
   margin: 8% 8%;
   display: flex;
   flex-direction: column;
+
+  a {
+    transition: background-color 0.2s ease-in-out;
+  }
+  a:hover {
+    background-color: var(--lightgrey);
+  }
 `
 
 const WatchButton = () => (
@@ -40,7 +47,11 @@ export const Slide = ({ name, href }) => {
       <PoppedHeader>{name}</PoppedHeader>
 
       <Link href={href} passHref>
-        <a style={{ width: "fit-content" }}>
+        <a
+          style={{
+            width: "fit-content",
+          }}
+        >
           <WatchButton />
         </a>
       </Link>

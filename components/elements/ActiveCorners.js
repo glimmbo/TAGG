@@ -17,25 +17,25 @@ const Corners = styled.div`
 
   .top {
     top: 0;
-    border-top: 4px solid var(--red);
+    border-top: 2px solid var(--red);
     align-self: flex-start;
   }
 
   .bottom {
     bottom: 0;
-    border-bottom: 4px solid var(--red);
+    border-bottom: 2px solid var(--red);
     align-self: flex-end;
   }
 
   .left {
     left: 0;
-    border-left: 4px solid var(--red);
+    border-left: 2px solid var(--red);
     justify-self: left;
   }
 
   .right {
     right: 0;
-    border-right: 4px solid var(--red);
+    border-right: 2px solid var(--red);
     justify-self: right;
   }
 `
