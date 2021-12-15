@@ -15,6 +15,7 @@ const Gif = styled.img`
   width: 100%;
   border-radius: 5px;
   transition: opacity 0.1s ease-in-out;
+  outline: 1px solid var(--red);
 
   opacity: 0;
   :hover {
@@ -24,9 +25,10 @@ const Gif = styled.img`
 
 const Frame = styled.div`
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: rgba(0, 0, 0, 0);
-  border-radius: 5px;
-  border: 1px solid var(--red);
   width: 100%;
 `
 
