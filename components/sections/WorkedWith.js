@@ -4,11 +4,24 @@ import Client from "../elements/HoverLogo"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 
 const Flow = styled.div`
-  margin-top: -80px;
+  padding: 0 5%;
+  margin-top: -30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+
+  a {
+    margin-top: -50px;
+  }
+
+  a:first-of-type {
+    margin-left: 50px;
+  }
+
+  .ucla {
+    padding-left: 20px;
+  }
 
   @media screen and (max-width: 425px) {
     max-height: 90vh;
@@ -17,7 +30,15 @@ const Flow = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
+
+    a {
+      margin-top: 0;
+    }
+
+    a:first-of-type {
+      margin-left: 0;
+    }
   }
 `
 
@@ -59,7 +80,6 @@ export default function WorkedWith() {
                 id="2"
                 vectorEffect="non-scaling-stroke"
                 style={{ transform: "translateX(-5px)" }}
-                style={{ transform: "translateX(-5px)" }}
               />
               <path
                 d="M 662.802 142.402 L 628.002 142.402 L 601.002 103.402 L 599.402 103.402 L 571.202 103.402 L 571.202 142.402 L 538.802 142.402 L 538.802 2.402 L 599.402 2.402 A 94.323 94.323 0 0 1 614.739 3.589 Q 623.996 5.114 631.702 8.602 A 52.244 52.244 0 0 1 644.642 16.797 A 44.895 44.895 0 0 1 652.802 26.202 A 45.653 45.653 0 0 1 659.649 44.985 A 59.229 59.229 0 0 1 660.202 53.202 A 54.454 54.454 0 0 1 658.554 66.882 A 43.364 43.364 0 0 1 652.702 80.102 A 45.971 45.971 0 0 1 636.356 94.966 A 57.534 57.534 0 0 1 631.402 97.402 L 662.802 142.402 Z M 597.602 28.802 L 571.202 28.802 L 571.202 77.602 L 597.602 77.602 A 53.254 53.254 0 0 0 605.995 76.985 Q 610.279 76.3 613.731 74.854 A 23.354 23.354 0 0 0 619.802 71.202 A 20.869 20.869 0 0 0 627.026 58.11 A 30.671 30.671 0 0 0 627.402 53.202 A 29.228 29.228 0 0 0 626.504 45.739 A 20.105 20.105 0 0 0 619.802 35.102 A 24.456 24.456 0 0 0 611.813 30.795 Q 605.815 28.802 597.602 28.802 Z"
@@ -83,8 +103,6 @@ export default function WorkedWith() {
       )}
     >
       <Flow>
-        {/* offset spacer */}
-        <div style={{ width: "100px" }} />
         <Client src="amazon.svg" href="https://aws.amazon.com/" />
         <Client src="cocacola.svg" href="https://www.coca-cola.com/" />
         <Client src="cult.svg" href="https://cultideas.com/" />
@@ -96,7 +114,11 @@ export default function WorkedWith() {
         <Client src="spotify.svg" href="https://www.spotify.com/" />
         <Client src="teekay.svg" href="https://www.teekay.com/" />
         <Client src="troyboi.svg" href="https://troyboimusic.com/" />
-        <Client src="uclahealth.svg" href="https://www.uclahealth.org/" />
+        <Client
+          src="uclahealth.svg"
+          href="https://www.uclahealth.org/"
+          className="ucla"
+        />
         <Client src="underarmour.svg" href="https://www.underarmour.com/" />
       </Flow>
     </HomeSection>
