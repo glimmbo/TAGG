@@ -77,7 +77,6 @@ export default function ExtendedFam() {
                 id="0"
                 vectorEffect="non-scaling-stroke"
                 style={{ transform: "translateX(-5px)" }}
-                style={{ transform: "translateX(-5px)" }}
               />
               <path
                 d="M 235.4 0 L 267.8 0 L 267.8 140 L 235.4 140 L 235.4 82.6 L 171.8 82.6 L 171.8 140 L 139.4 140 L 139.4 0 L 171.8 0 L 171.8 55.2 L 235.4 55.2 L 235.4 0 Z"
