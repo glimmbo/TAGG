@@ -21,8 +21,8 @@ const HoverLogo = styled.img`
   }
 `
 
-const Client = ({ src, href }) => (
-  <a href={href} target="_blank">
+const Client = ({ src, href, id }) => (
+  <a href={href} target="_blank" id={id}>
     <HoverLogo src={"/clients/" + src} />
   </a>
 )

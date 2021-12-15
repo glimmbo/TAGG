@@ -19,7 +19,7 @@ const Flow = styled.div`
     margin-left: 50px;
   }
 
-  .ucla {
+  #ucla {
     padding-left: 20px;
   }
 
@@ -117,7 +117,7 @@ export default function WorkedWith() {
         <Client
           src="uclahealth.svg"
           href="https://www.uclahealth.org/"
-          className="ucla"
+          id="ucla"
         />
         <Client src="underarmour.svg" href="https://www.underarmour.com/" />
       </Flow>
