@@ -1,10 +1,11 @@
 import HomeSection from "./HomeSection"
 import Link from "next/link"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import WorkThumb from "../WorkThumb"
 import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { forwardRef } from "react"
+import PoppedHeader from "../PoppedHeader"
 
 const Work = styled.div`
   display: initial;
@@ -12,7 +13,7 @@ const Work = styled.div`
   cursor: pointer;
   max-width: 100%;
 
-  h3 {
+  /* h3 {
     font-family: Montserrat-Bold;
     color: var(--grey);
     transition: color 200ms;
@@ -20,6 +21,19 @@ const Work = styled.div`
 
   :hover h3 {
     color: var(--red);
+  } */
+
+  & h2 {
+    margin: 0;
+    margin-top: 1em;
+    font-size: 1.3em;
+    transition: text-shadow 0.2s ease-in-out;
+  }
+
+  &:hover {
+    h2 {
+      text-shadow: -0.1em 0.1em var(--red);
+    }
   }
 `
 
@@ -80,6 +94,7 @@ const Works = forwardRef(({ videoList }, ref) => {
       <StaggerBox marginTop="-100px">
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
+          const desc = JSON.parse(video.description)
           return (
             <Link href="/works/[videoId]" as={`/works/${videoId}`} key={i}>
               <Work key={i}>
@@ -88,7 +103,10 @@ const Works = forwardRef(({ videoList }, ref) => {
                   thumb={video?.thumb}
                   key={i}
                 />
-                <h3>{video.name}</h3>
+                <PoppedHeader className="works-client" noShadow>
+                  {desc?.client}
+                </PoppedHeader>
+                <p style={{ margin: 0 }}>{desc?.title}</p>
               </Work>
             </Link>
           )

@@ -14,7 +14,7 @@ const Gif = styled.img`
   position: absolute;
   width: 100%;
   border-radius: 5px;
-  transition: opacity 0.1s ease-in-out;
+  transition: opacity 0.2s ease-in-out;
   outline: 1px solid var(--red);
 
   opacity: 0;
