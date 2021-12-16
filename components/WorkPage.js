@@ -96,16 +96,19 @@ export default function WorkPage({ video, onLeft, onRight, onClose }) {
   return (
     <>
       <Head>
-        <title>{video.title}</title>
+        <title>{desc.title}</title>
       </Head>
       <Content>
         <CloseButton onClick={() => router.push("/#works")} />
         <FullPlayer uri={video.uri} />
-        <PoppedHeader style={{ marginTop: "2em" }}>{video.name}</PoppedHeader>
+        <PoppedHeader style={{ marginTop: "2em", marginBottom: 0 }}>
+          {desc.title}
+        </PoppedHeader>
+        <p>{desc.client}</p>
         <Flex>
           {desc &&
             Object.entries(desc).map(([key, value]) => {
-              if (key != "id") {
+              if (!["id", "title", "client"].includes(key)) {
                 return (
                   <Credit key={key}>
                     <SmallRedHeader>{key}</SmallRedHeader>

@@ -37,7 +37,7 @@ export async function getStaticProps(context) {
 }
 
 const StaticMain = styled.main`
-  background-image: url("images/bg-static.gif");
+  /* background-image: url("images/bg-static.gif"); */
   background-repeat: no-repeat;
   background-size: 100% auto;
   background-attachment: fixed;

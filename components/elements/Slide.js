@@ -10,6 +10,7 @@ const TitleContainer = styled.div`
   margin: 8% 8%;
   display: flex;
   flex-direction: column;
+  text-align: left;
 
   a {
     transition: background-color 0.2s ease-in-out;
@@ -41,11 +42,11 @@ const WatchButton = () => (
   </ActiveCorners>
 )
 
-export const Slide = ({ name, href }) => {
+export const Slide = ({ client, title, href }) => {
   return (
     <TitleContainer>
-      <PoppedHeader>{name}</PoppedHeader>
-
+      <PoppedHeader style={{ margin: 0 }}>{client}</PoppedHeader>
+      <p>{title}</p>
       <Link href={href} passHref>
         <a
           style={{
