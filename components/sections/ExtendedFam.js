@@ -12,7 +12,7 @@ const team = {
       role: "SALLUA // Creative Director + Designer",
       head: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA.png",
       mask: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA copy.png",
-      bio: "We’re not sure how, but she has a knack for clarifying the inexpressible, and forming it into some truly stunning designs. It might be magic. ",
+      bio: "We're not sure how, but she has a knack for clarifying the inexpressible, and forming it into some truly stunning designs. It might be magic. ",
     },
     {
       head: "/images/extended-fam/ExtendedFam_JeffZwicker-DirectorOfPhotography.png",
@@ -20,7 +20,7 @@ const team = {
       given: "JEFF",
       sur: "ZWICKER",
       role: "Cinematographer",
-      bio: "Put him in any room, any location, under any amount of pressure, and this man will light it beautifully. He’s also got a mean Jiu Jitsu take down.",
+      bio: "Put him in any room, any location, under any amount of pressure, and this man will light it beautifully. He's also got a mean Jiu Jitsu take down.",
     },
     {
       head: "/images/extended-fam/ExtendedFam_WilliamSelviz - RENDRD.png",
@@ -36,7 +36,7 @@ const team = {
       given: "NICK",
       sur: "GROSSMAN",
       role: "Motion Graphics & VFX",
-      bio: "Multi-talented across the gamut of post-production, he’s like three people in one, and oftentimes we wish there were three of him…",
+      bio: "Multi-talented across the gamut of post-production, he's like three people in one, and oftentimes we wish there were three of him…",
     },
     {
       head: "/images/extended-fam/ExtendedFam_CurtisHuisman - Sensored.png",
@@ -44,7 +44,15 @@ const team = {
       given: "CURTIS",
       sur: "HUISMAN",
       role: "SENSORED // Agile Production",
-      bio: "Curtis is the ultimate one-man band when it comes to production. Whether it’s on-location, in studio, car, plane, whatever—he’s always ready to hit that little red button.",
+      bio: "Curtis is the ultimate one-man band when it comes to production. Whether it's on-location, in studio, car, plane, whatever—he's always ready to hit that little red button.",
+    },
+    {
+      head: "/images/extended-fam/ExtendedFam_WillMcGrath.png",
+      mask: "/images/extended-fam/ExtendedFam_WillMcGrath copy.png",
+      given: "WILL",
+      sur: "MCGRATH",
+      role: "Photographer",
+      bio: "It's all about detail with Will. He's meticulous about each and every shot, producing something unique with every click of the shutter.",
     },
   ],
 }
@@ -109,8 +117,9 @@ export default function ExtendedFam() {
           </svg>
         </AnimatedHeader>
       )}
+      sectionStyle={{ marginTop: "-15vh" }}
     >
-      <StaggerBox marginTop="-200px">
+      <StaggerBox marginTop="-250px">
         {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
           <RosterCard
             given={given}
