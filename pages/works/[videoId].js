@@ -24,7 +24,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log(params)
   const { videoId } = params
   const video = await getWork(videoId)
 
