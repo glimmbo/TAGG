@@ -58,8 +58,6 @@ export default function ContactCard({ style }) {
           #400 - 22 E 5th AVE
           <br />
           VANCOUVER, BC, CANADA
-          <br />
-          V5T 1G8
         </p>
       </a>
       <div id="icons">

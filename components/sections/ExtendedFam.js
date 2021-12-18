@@ -54,6 +54,14 @@ const team = {
       role: "Photographer",
       bio: "It's all about detail with Will. He's meticulous about each and every shot, producing something unique with every click of the shutter.",
     },
+    {
+      head: "/images/extended-fam/ExtendedFam_Baylee.png",
+      mask: "/images/extended-fam/ExtendedFam_Baylee copy.png",
+      given: "BAYLEE",
+      sur: "UNKNOWN",
+      role: "Photographer? Scientist?",
+      bio: "She's pretty cool! She get's excited by things under this microscope?",
+    },
   ],
 }
 
