@@ -13,16 +13,6 @@ const Work = styled.div`
   cursor: pointer;
   max-width: 100%;
 
-  /* h3 {
-    font-family: Montserrat-Bold;
-    color: var(--grey);
-    transition: color 200ms;
-  }
-
-  :hover h3 {
-    color: var(--red);
-  } */
-
   & h2 {
     margin: 0;
     margin-top: 1em;
@@ -33,6 +23,14 @@ const Work = styled.div`
   &:hover {
     h2 {
       text-shadow: -0.1em 0.1em var(--red);
+    }
+
+    .image {
+      opacity: 0;
+    }
+
+    .gif {
+      opacity: 1;
     }
   }
 `

@@ -4,10 +4,6 @@ const Image = styled.img`
   width: 100%;
   border-radius: 5px;
   transition: opacity 0.2s ease-in-out;
-
-  :hover {
-    opacity: 0;
-  }
 `
 
 const Gif = styled.img`
@@ -16,11 +12,7 @@ const Gif = styled.img`
   border-radius: 5px;
   transition: opacity 0.2s ease-in-out;
   outline: 1px solid var(--red);
-
   opacity: 0;
-  :hover {
-    opacity: 1;
-  }
 `
 
 const Frame = styled.div`
@@ -34,15 +26,12 @@ const Frame = styled.div`
 
 const WorkThumb = ({ images, thumb }) => {
   const imageSrc = images[3]?.link
-  const mobileSizeGif = thumb?.sizes[1].link
   const desktopSizeGif = thumb?.sizes[2].link
 
-  // in case of error code 1504 on getAnimatedThumbs.. show static
-  // need to load gif before render to avoid flickering?
   return (
     <Frame>
-      <Gif src={desktopSizeGif} alt={imageSrc} />
-      <Image src={imageSrc} />
+      <Gif src={desktopSizeGif} alt={imageSrc} className="gif" />
+      <Image src={imageSrc} className="image" />
     </Frame>
   )
 }
