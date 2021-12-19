@@ -58,9 +58,9 @@ const team = {
       head: "/images/extended-fam/ExtendedFam_Baylee.png",
       mask: "/images/extended-fam/ExtendedFam_Baylee copy.png",
       given: "BAYLEE",
-      sur: "UNKNOWN",
-      role: "Photographer? Scientist?",
-      bio: "She's pretty cool! She get's excited by things under this microscope?",
+      sur: "SINNER",
+      role: "Director / Producer",
+      bio: "She's pretty cool! She get's excited by things under this movie making microscope?",
     },
   ],
 }

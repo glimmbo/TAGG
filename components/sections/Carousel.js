@@ -7,7 +7,6 @@ import { useMediaQuery } from "react-responsive"
 import { Overlay } from "../elements/Controls"
 import { Slide } from "../elements/Slide"
 import { Controls } from "../elements/Controls"
-import { EmbedContainer } from "../elements/Player"
 
 const Section = styled.section`
   width: 100vw;
@@ -80,6 +79,24 @@ const Frame = styled.div`
 
   /* frame */
   border: 10px solid var(--red);
+`
+
+const EmbedContainer = styled.div`
+  position: relative;
+  padding-bottom: 56.25%;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+  & iframe,
+  & object,
+  & embed {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 `
 
 const Static = styled.img`
