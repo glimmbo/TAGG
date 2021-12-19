@@ -4,6 +4,8 @@ import styled from "styled-components"
 import { FullPlayer } from "./elements/Player"
 import { DividerWithArrows } from "./elements/DividerWithArrows"
 import { useRouter } from "next/router"
+import { useState } from "react"
+import { indexOf } from "lodash"
 
 const Content = styled.section`
   background-color: var(--black);
@@ -90,7 +92,11 @@ const Credit = styled.div`
   }
 `
 
-export default function WorkPage({ video, onLeft, onRight, onClose }) {
+export default function WorkPage({ videos, videoId }) {
+  const [video, setVideo] = useState(
+    videos.find((video) => video.uri == `/videos/${videoId}`),
+  )
+
   const desc = JSON.parse(video?.description)
   const router = useRouter()
 
@@ -107,8 +113,28 @@ export default function WorkPage({ video, onLeft, onRight, onClose }) {
         </PoppedHeader>
         <p style={{ marginBottom: "-20px" }}>{desc.title}</p>
         <DividerWithArrows
-          onLeft={() => console.log("router.push(left?)")}
-          onRight={() => console.log("router.push(right?)")}
+          onLeft={() => {
+            const currentIndex = indexOf(videos, video)
+            const newIndex =
+              currentIndex - 1 < 0 ? videos.length - 1 : currentIndex - 1
+            setVideo(videos[newIndex])
+
+            const newVideoId = video.uri.split("/")[2]
+            router.push(`/works/[videoId]`, `/works/${newVideoId}`, {
+              shallow: true,
+            })
+          }}
+          onRight={() => {
+            const currentIndex = indexOf(videos, video)
+            const newIndex =
+              currentIndex + 1 > videos.length - 1 ? 0 : currentIndex + 1
+            setVideo(videos[newIndex])
+
+            const newVideoId = video.uri.split("/")[2]
+            router.push(`/works/[videoId]`, `/works/${newVideoId}`, {
+              shallow: true,
+            })
+          }}
         />
         <Credits>
           {desc &&

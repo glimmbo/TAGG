@@ -2,7 +2,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/router"
 import Modal from "react-modal"
 import WorkPage from "../../components/WorkPage"
-import { getWork, getWorks } from "../../vimeo"
+import { getWorks } from "../../vimeo"
 
 // because this is a dynamic route, get all possible routes at build
 export async function getStaticPaths() {
@@ -25,17 +25,17 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const { videoId } = params
-  const video = await getWork(videoId)
+  const videos = await getWorks()
 
   return {
-    props: { video },
+    props: { videos, videoId },
     revalidate: 60,
   }
 }
 
 Modal.setAppElement("#__next")
 
-const WorkPageModal = ({ video }) => {
+const WorkPageModal = ({ videos, videoId }) => {
   const router = useRouter()
 
   useEffect(() => {
@@ -62,7 +62,7 @@ const WorkPageModal = ({ video }) => {
         },
       }}
     >
-      <WorkPage video={video} />
+      <WorkPage videos={videos} videoId={videoId} />
     </Modal>
   )
 }
