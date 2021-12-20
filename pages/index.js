@@ -15,16 +15,13 @@ import {
   getWorks,
 } from "../vimeo"
 import { useInView } from "react-intersection-observer"
-import styled from "styled-components"
+import { BackgroundStatic1 } from "../components/elements/BackgroundStatic1"
 
 // Fetch all video content
 export async function getStaticProps(context) {
   const clipsMobile = await getClipsMobile()
-  // const clipsMobile = []
   const clipsDesktop = await getClipsDesktop()
-  // const clipsDesktop = []
 
-  // let videoList = []
   let videoList = await getWorks()
   for (let video of videoList) {
     video["thumb"] = await getMostRecentAnimatedThumb(video?.uri)
@@ -32,16 +29,9 @@ export async function getStaticProps(context) {
 
   return {
     props: { videoList, clipsMobile, clipsDesktop },
-    // revalidate: 60,
+    revalidate: 60,
   }
 }
-
-const StaticMain = styled.main`
-  /* background-image: url("images/bg-static.gif"); */
-  background-repeat: no-repeat;
-  background-size: 100% auto;
-  background-attachment: fixed;
-`
 
 export default function Home({ videoList, clipsMobile, clipsDesktop }) {
   // Nav targeting
@@ -62,7 +52,8 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
             : "about"
         }
       />
-      <StaticMain>
+      <main>
+        <BackgroundStatic1 />
         <Carousel
           clipsDesktop={clipsDesktop}
           clipsMobile={clipsMobile}
@@ -76,7 +67,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         <ExtendedFam id="extended-fam" />
         <WorkedWith id="worked-with" />
         <Contact id="contact" ref={refContact} />
-      </StaticMain>
+      </main>
     </>
   )
 }
