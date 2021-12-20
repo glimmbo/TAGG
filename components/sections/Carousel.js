@@ -194,6 +194,7 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
                   <Slide client={client} title={title} href={path} key={i} />
                 )
               } catch (error) {
+                console.log("Problem with video named: ", video.name)
                 console.error(error)
                 return null
               }
