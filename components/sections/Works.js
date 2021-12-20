@@ -20,6 +20,10 @@ const Work = styled.div`
     transition: text-shadow 0.2s ease-in-out;
   }
 
+  & p {
+    margin: 0;
+  }
+
   &:hover {
     h2 {
       text-shadow: -0.1em 0.1em var(--red);
@@ -31,6 +35,16 @@ const Work = styled.div`
 
     .gif {
       opacity: 1;
+    }
+  }
+
+  @media screen and (max-width: 425px) {
+    & p {
+      margin-bottom: 2em;
+    }
+
+    & h2 {
+      margin-top: 0.5em;
     }
   }
 `
@@ -104,7 +118,7 @@ const Works = forwardRef(({ videoList }, ref) => {
                 <PoppedHeader className="works-client" noShadow>
                   {desc?.client}
                 </PoppedHeader>
-                <p style={{ margin: 0 }}>{desc?.title}</p>
+                <p>{desc?.title}</p>
               </Work>
             </Link>
           )
