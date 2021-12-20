@@ -60,7 +60,7 @@ const team = {
       given: "BAYLEE",
       sur: "SINNER",
       role: "Director / Producer",
-      bio: "She's pretty cool! She get's excited by things under this movie making microscope?",
+      bio: "A creative power house with a serious knack for documentary storytelling. No matter what she's working on—Baylee's bubbly charisma is ever present, resulting in serious laughs and big time grins. Oh, and she's now an Honorary Canadian after rocking that tuxedo.",
     },
   ],
 }

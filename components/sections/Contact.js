@@ -68,7 +68,7 @@ const Contact = forwardRef((props, ref) => {
           </svg>
         </AnimatedHeader>
       )}
-      sectionStyle={{ minHeight: "80vh", maxHeight: "100vh" }}
+      sectionStyle={{ minHeight: "80vh", maxHeight: "100vh", marginBottom: 0 }}
     >
       <ContactCard />
     </HomeSection>
