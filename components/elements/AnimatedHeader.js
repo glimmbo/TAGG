@@ -17,7 +17,7 @@ const AnimatedSVG = styled.div`
     -webkit-text-stroke: 1px var(--red);
     background-color: transparent;
     stroke: var(--red);
-    fill: var(--black);
+    fill: transparent;
     width: 100%;
     stroke-opacity: 0;
     transition: stroke-opacity 1s ease-in-out;
