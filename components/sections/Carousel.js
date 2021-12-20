@@ -12,6 +12,10 @@ const Section = styled.section`
   width: 100vw;
   height: 100vh;
   padding: 10em 2% 2% 2%;
+
+  @media screen and (max-width: 425px) {
+    padding: 4em 2% 2% 2%;
+  }
 `
 
 const Frame = styled.div`
@@ -22,6 +26,10 @@ const Frame = styled.div`
   align-items: center;
   position: relative;
   overflow: hidden;
+
+  @media screen and (max-width: 425px) {
+    height: 90%;
+  }
 
   .carousel-root a {
     z-index: 11;
@@ -171,7 +179,7 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
             showArrows={false}
             showThumbs={false}
             showStatus={false}
-            swipeable={isMobile}
+            swipeable={false}
             // onChange={(index, item) => {
             //   setCurrent(index)
             // }}

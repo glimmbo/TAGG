@@ -19,6 +19,7 @@ const Nav = styled.nav`
 
   @media screen and (max-width: 425px) {
     font-size: 75%;
+    height: 7em;
     width: calc(100vw + 1em);
   }
 

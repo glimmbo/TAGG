@@ -52,7 +52,7 @@ const Section = styled.section`
     margin-top: auto;
     transition: all 1.5s ease-in 0.3s;
 
-    @media screen and (min-width: 426px) {
+    @media screen and (min-width: 425px) {
       margin-left: 10em;
       margin-right: 10em;
     }
