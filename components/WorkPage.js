@@ -83,6 +83,10 @@ const Credit = styled.div`
   height: fit-content;
   margin: 1em;
 
+  :first-child {
+    margin-left: 0;
+  }
+
   h3 {
     margin: 0;
   }

@@ -8,7 +8,7 @@ export const FullPlayer = ({ uri }) => {
     <VimeoPlayer
       url={url}
       width="100%"
-      height="100%"
+      height="80%"
       style={{ alignSelf: "center" }}
       controls
       config={{

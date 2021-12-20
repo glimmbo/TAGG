@@ -6,7 +6,7 @@ const Nav = styled.nav`
   background-color: transparent;
   display: flex;
   flex-direction: row;
-  height: 10vh;
+  height: 10em;
   justify-content: space-between;
   position: fixed;
   top: 0;
@@ -19,21 +19,33 @@ const Nav = styled.nav`
 
   @media screen and (max-width: 425px) {
     font-size: 75%;
+    width: calc(100vw + 1em);
   }
 
   #logo {
+    position: relative;
     margin-left: -1em;
     margin-top: .5em;
     outline: 1px solid var(--red);
     padding-left: 1em;
-    box-shadow: 4px 4px var(--red), 0 4px var(--red);
+    /* box-shadow: 4px 4px var(--red), 0 4px var(--red); */
     background-color: var(--black);
-    max-height: 64px;
+    
+    ::before {
+      position: absolute;
+      content: "";
+      height: calc(100% + 5px);
+      width: calc(100% + 5px);
+      top: 0;
+      left: 0;
+      background-color: var(--red);
+      clip-path: polygon(100% 100%, 0% 100%, -20% calc(100% - 4px), calc(100% - 4.5px) calc(100% - 4px), calc(100% - 4.5px) 0%, 100% calc(0% + 4px), 100% 100%);
+    }
 }
 
 
     @media screen and (max-width: 425px) {
-      margin-left: -15px;
+      margin: 0 -15px;
     }
   }
 `
@@ -45,9 +57,11 @@ const Links = styled.div`
 `
 
 const Logo = styled.img`
-  margin: 0.5em;
+  margin: 0.75em;
+  margin-bottom: 0.35em;
   margin-left: 1em;
   height: 50px;
+  transition: filter 0.2s ease-in-out;
   filter: invert(20%) sepia(45%) saturate(6941%) hue-rotate(329deg)
     brightness(95%) contrast(94%);
 

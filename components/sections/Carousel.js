@@ -11,7 +11,7 @@ import { Controls } from "../elements/Controls"
 const Section = styled.section`
   width: 100vw;
   height: 100vh;
-  padding: 10vh 2% 2% 2%;
+  padding: 10em 2% 2% 2%;
 `
 
 const Frame = styled.div`
