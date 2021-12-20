@@ -59,10 +59,11 @@ export const getClipsMobile = async (album_id = "8493940") => {
           console.error(error)
           reject(error)
         }
-        resolve(JSON.parse(JSON.stringify(body?.data)))
+        resolve(body?.data)
       },
     )
   })
+  clipList.forEach((clip) => console.log(clip.name))
   return clipList
 }
 
@@ -79,10 +80,11 @@ export const getClipsDesktop = async (album_id = "8493934") => {
           reject(error)
         }
 
-        resolve(JSON.parse(JSON.stringify(body?.data)))
+        resolve(body?.data)
       },
     )
   })
+  clipList.forEach((clip) => console.log(clip.name))
   return clipList
 }
 
@@ -99,28 +101,12 @@ export const getWorks = async (album_id = "8478566") => {
           reject(error)
         }
 
-        resolve(JSON.parse(JSON.stringify(body?.data)))
+        resolve(body?.data)
       },
     )
   })
+  videoList.forEach((video) => console.log(video.name))
   return videoList
-}
-
-export const getWork = async (id) => {
-  const video = await new Promise((resolve, reject) => {
-    vimeoClient.request(
-      {
-        method: "GET",
-        path: `/videos/${id}`,
-        userId: TAGG_ID,
-      },
-      (err, json, status_code) => {
-        console.log("getWork:", status_code)
-        err ? reject(err) : resolve(json)
-      },
-    )
-  })
-  return video
 }
 
 // Thumbnails:
@@ -143,7 +129,7 @@ export const getMostRecentAnimatedThumb = async (uri) => {
           reject(error)
         }
 
-        resolve(JSON.parse(JSON.stringify(body?.data)))
+        resolve(body?.data)
       },
     )
   })

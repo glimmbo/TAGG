@@ -101,59 +101,64 @@ export default function WorkPage({ videos, videoId }) {
     videos.find((video) => video.uri == `/videos/${videoId}`),
   )
 
-  const desc = JSON.parse(video?.description)
-  const router = useRouter()
+  try {
+    const desc = JSON.parse(video?.description)
+    const router = useRouter()
 
-  return (
-    <>
-      <Head>
-        <title>{desc.title}</title>
-      </Head>
-      <Content>
-        <CloseButton onClick={() => router.push("/#works")} />
-        <FullPlayer uri={video.uri} />
-        <PoppedHeader style={{ marginTop: "2em", marginBottom: 0 }}>
-          {desc.client}
-        </PoppedHeader>
-        <p style={{ marginBottom: "-20px" }}>{desc.title}</p>
-        <DividerWithArrows
-          onLeft={() => {
-            const currentIndex = indexOf(videos, video)
-            const newIndex =
-              currentIndex - 1 < 0 ? videos.length - 1 : currentIndex - 1
-            setVideo(videos[newIndex])
+    return (
+      <>
+        <Head>
+          <title>{desc.title}</title>
+        </Head>
+        <Content>
+          <CloseButton onClick={() => router.push("/#works")} />
+          <FullPlayer uri={video.uri} />
+          <PoppedHeader style={{ marginTop: "2em", marginBottom: 0 }}>
+            {desc.client}
+          </PoppedHeader>
+          <p style={{ marginBottom: "-20px" }}>{desc.title}</p>
+          <DividerWithArrows
+            onLeft={() => {
+              const currentIndex = indexOf(videos, video)
+              const newIndex =
+                currentIndex - 1 < 0 ? videos.length - 1 : currentIndex - 1
+              setVideo(videos[newIndex])
 
-            const newVideoId = video.uri.split("/")[2]
-            router.push(`/works/[videoId]`, `/works/${newVideoId}`, {
-              shallow: true,
-            })
-          }}
-          onRight={() => {
-            const currentIndex = indexOf(videos, video)
-            const newIndex =
-              currentIndex + 1 > videos.length - 1 ? 0 : currentIndex + 1
-            setVideo(videos[newIndex])
+              const newVideoId = video.uri.split("/")[2]
+              router.push(`/works/[videoId]`, `/works/${newVideoId}`, {
+                shallow: true,
+              })
+            }}
+            onRight={() => {
+              const currentIndex = indexOf(videos, video)
+              const newIndex =
+                currentIndex + 1 > videos.length - 1 ? 0 : currentIndex + 1
+              setVideo(videos[newIndex])
 
-            const newVideoId = video.uri.split("/")[2]
-            router.push(`/works/[videoId]`, `/works/${newVideoId}`, {
-              shallow: true,
-            })
-          }}
-        />
-        <Credits>
-          {desc &&
-            Object.entries(desc).map(([key, value]) => {
-              if (!["id", "title", "client"].includes(key)) {
-                return (
-                  <Credit key={key}>
-                    <SmallRedHeader>{key}</SmallRedHeader>
-                    <p>{value}</p>
-                  </Credit>
-                )
-              }
-            })}
-        </Credits>
-      </Content>
-    </>
-  )
+              const newVideoId = video.uri.split("/")[2]
+              router.push(`/works/[videoId]`, `/works/${newVideoId}`, {
+                shallow: true,
+              })
+            }}
+          />
+          <Credits>
+            {desc &&
+              Object.entries(desc).map(([key, value]) => {
+                if (!["id", "title", "client"].includes(key)) {
+                  return (
+                    <Credit key={key}>
+                      <SmallRedHeader>{key}</SmallRedHeader>
+                      <p>{value}</p>
+                    </Credit>
+                  )
+                }
+              })}
+          </Credits>
+        </Content>
+      </>
+    )
+  } catch (error) {
+    console.error(error)
+    return <></>
+  }
 }

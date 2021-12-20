@@ -29,7 +29,7 @@ export async function getStaticProps(context) {
 
   return {
     props: { videoList, clipsMobile, clipsDesktop },
-    revalidate: 60,
+    revalidate: 60, // seconds before the site updates after Vimeo content changes
   }
 }
 

@@ -185,11 +185,18 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
             // }}
           >
             {selectedClips.map((video, i) => {
-              // get the matching featured-work id (separate video)
-              const { id, client, title } = JSON.parse(video.description)
-              const path = `/works/${id}`
+              try {
+                // get the matching featured-work id (separate video)
+                const { id, client, title } = JSON.parse(video.description)
+                const path = `/works/${id}`
 
-              return <Slide client={client} title={title} href={path} key={i} />
+                return (
+                  <Slide client={client} title={title} href={path} key={i} />
+                )
+              } catch (error) {
+                console.error(error)
+                return null
+              }
             })}
           </Carousel>
         </Overlay>

@@ -106,22 +106,27 @@ const Works = forwardRef(({ videoList }, ref) => {
       <StaggerBox marginTop="-100px">
         {videoList.map((video, i) => {
           const videoId = video.uri.split("/")[2]
-          const desc = JSON.parse(video.description)
-          return (
-            <Link href="/works/[videoId]" as={`/works/${videoId}`} key={i}>
-              <Work key={i}>
-                <WorkThumb
-                  images={video.pictures.sizes}
-                  thumb={video?.thumb}
-                  key={i}
-                />
-                <PoppedHeader className="works-client" noShadow>
-                  {desc?.client}
-                </PoppedHeader>
-                <p>{desc?.title}</p>
-              </Work>
-            </Link>
-          )
+          try {
+            const desc = JSON.parse(video.description)
+            return (
+              <Link href="/works/[videoId]" as={`/works/${videoId}`} key={i}>
+                <Work key={i}>
+                  <WorkThumb
+                    images={video.pictures.sizes}
+                    thumb={video?.thumb}
+                    key={i}
+                  />
+                  <PoppedHeader className="works-client" noShadow>
+                    {desc?.client}
+                  </PoppedHeader>
+                  <p>{desc?.title}</p>
+                </Work>
+              </Link>
+            )
+          } catch (error) {
+            console.error(error)
+            return null
+          }
         })}
       </StaggerBox>
     </HomeSection>
