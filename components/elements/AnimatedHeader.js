@@ -5,6 +5,11 @@ import { svgPathProperties } from "svg-path-properties"
 const AnimatedSVG = styled.div`
   width: 100%;
   padding: 0 1em;
+
+  @media screen and (max-width: 425px) {
+    padding: 0;
+  }
+
   @keyframes draw {
     to {
       stroke-dashoffset: 0;

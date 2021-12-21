@@ -9,6 +9,9 @@ const Section = styled.section`
   padding: 0;
   height: 100vh;
   margin-bottom: 5vh;
+  @media screen and (max-width: 425px) {
+    height: 110vh;
+  }
 
   .centerframe {
     position: absolute;

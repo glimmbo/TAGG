@@ -63,7 +63,7 @@ export const getClipsMobile = async (album_id = "8493940") => {
       },
     )
   })
-  clipList.forEach((clip) => console.log(clip.name))
+  clipList.forEach((clip) => console.log(clip.name, clip.uri))
   return clipList
 }
 
@@ -84,7 +84,7 @@ export const getClipsDesktop = async (album_id = "8493934") => {
       },
     )
   })
-  clipList.forEach((clip) => console.log(clip.name))
+  clipList.forEach((clip) => console.log(clip.name, clip.uri))
   return clipList
 }
 
@@ -105,7 +105,7 @@ export const getWorks = async (album_id = "8478566") => {
       },
     )
   })
-  videoList.forEach((video) => console.log(video.name))
+  videoList.forEach((video) => console.log(video.name, video.uri))
   return videoList
 }
 
@@ -133,6 +133,8 @@ export const getMostRecentAnimatedThumb = async (uri) => {
       },
     )
   })
+
+  if (gifs.length == 0) console.log(uri)
 
   const mostRecent = gifs?.sort(
     (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,

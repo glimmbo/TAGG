@@ -75,7 +75,7 @@ const BackgroundStatic1 = () => {
     <Static>
       <div className="tv0">
         <div className="tv-static0">
-          <svg viewBox="0 0 200% 200%" xmlns="http://www.w3.org/2000/svg">
+          <svg xmlns="http://www.w3.org/2000/svg">
             <filter id="noiseFilter">
               <feTurbulence
                 type="turbulence"

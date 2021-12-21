@@ -2,7 +2,6 @@ import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
 import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
-import { css } from "styled-components"
 
 const team = {
   extended: [
@@ -125,7 +124,6 @@ export default function ExtendedFam() {
           </svg>
         </AnimatedHeader>
       )}
-      sectionStyle={{ marginTop: "-15vh" }}
     >
       <StaggerBox marginTop="-250px">
         {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (

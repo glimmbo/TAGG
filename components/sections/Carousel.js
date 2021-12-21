@@ -179,10 +179,10 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
             showArrows={false}
             showThumbs={false}
             showStatus={false}
-            swipeable={false}
-            // onChange={(index, item) => {
-            //   setCurrent(index)
-            // }}
+            swipeable={isMobile}
+            onChange={(index, item) => {
+              setCurrent(index)
+            }}
           >
             {selectedClips.map((video, i) => {
               try {

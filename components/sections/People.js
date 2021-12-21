@@ -1,4 +1,3 @@
-import styled from "styled-components"
 import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
@@ -88,6 +87,7 @@ export default function People() {
           </svg>
         </AnimatedHeader>
       )}
+      contentStyle={{ marginBottom: "-5vh" }}
     >
       <StaggerBox marginTop="-350px">
         {leadership.map(({ given, sur, role, bio, head, mask }, i) => (
