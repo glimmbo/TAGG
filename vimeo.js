@@ -52,7 +52,7 @@ export const vimeoClient = new Vimeo(CLIENT_ID, CLIENT_SECRET, ACCESS_TOKEN)
 export const getClipsMobile = async (album_id = "8493940") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(
-      `/users/${TAGG_ID}/albums/${album_id}/videos`,
+      `/users/${TAGG_ID}/albums/${album_id}/videos?sort=manual`,
       (error, body, status_code, headers) => {
         console.log("getClipsMobile:", status_code)
         if (error) {
@@ -72,7 +72,7 @@ export const getClipsMobile = async (album_id = "8493940") => {
 export const getClipsDesktop = async (album_id = "8493934") => {
   const clipList = await new Promise((resolve, reject) => {
     vimeoClient.request(
-      `/users/${TAGG_ID}/albums/${album_id}/videos`,
+      `/users/${TAGG_ID}/albums/${album_id}/videos?sort=manual`,
       (error, body, status_code, headers) => {
         console.log("getClipsDesktop:", status_code)
         if (error) {
@@ -93,7 +93,7 @@ export const getClipsDesktop = async (album_id = "8493934") => {
 export const getWorks = async (album_id = "8478566") => {
   const videoList = await new Promise((resolve, reject) => {
     vimeoClient.request(
-      `/users/${TAGG_ID}/albums/${album_id}/videos`,
+      `/users/${TAGG_ID}/albums/${album_id}/videos?sort=manual`,
       (error, body, status_code, headers) => {
         console.log("getWorks:", status_code)
         if (error) {
