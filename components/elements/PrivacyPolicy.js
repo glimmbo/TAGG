@@ -4,20 +4,20 @@ import Link from "next/link"
 const Quiet = styled.div`
   display: flex;
   width: 100%;
+  margin-top: 100px;
   justify-content: center;
-  z-index: 5;
-
+  color: var(--grey);
+  font-family: Consolas;
   a,
   p {
-    color: var(--grey);
-    margin: 0;
+    z-index: 15 !important;
   }
 `
 const PrivacyPolicy = () => {
   return (
     <Quiet>
       <Link href="/privacy-policy" passHref>
-        <a target="_blank">
+        <a>
           <p>Privacy Policy</p>
         </a>
       </Link>
