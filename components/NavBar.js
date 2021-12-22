@@ -40,7 +40,8 @@ const Nav = styled.nav`
       top: 0;
       left: 0;
       background-color: var(--red);
-      clip-path: polygon(100% 100%, 0% 100%, -20% calc(100% - 4px), calc(100% - 4.5px) calc(100% - 4px), calc(100% - 4.5px) 0%, 100% calc(0% + 4px), 100% 100%);
+      clip-path:  polygon(95% 0, 100% 10%, 100% 100%, 0 100%, 0 0);
+      z-index: -1;
     }
 }
 
