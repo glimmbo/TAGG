@@ -1,11 +1,12 @@
 import HomeSection from "./HomeSection"
 import Link from "next/link"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import WorkThumb from "../WorkThumb"
 import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { forwardRef } from "react"
 import PoppedHeader from "../PoppedHeader"
+import { useMediaQuery } from "react-responsive"
 
 const Work = styled.div`
   display: initial;
@@ -50,10 +51,12 @@ const Work = styled.div`
 `
 
 const Works = forwardRef(({ videoList }, ref) => {
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
       id="works"
       ref={ref}
+      sectionStyle={{ marginTop: isMobile ? 0 : "15vh" }}
       HeaderComponent={() => (
         <AnimatedHeader id="works-header">
           <svg
