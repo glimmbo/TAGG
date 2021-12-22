@@ -2,6 +2,7 @@ import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
 import { StaggerBox } from "../elements/StaggerBox"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
+import { useMediaQuery } from "react-responsive"
 
 const team = {
   extended: [
@@ -68,10 +69,12 @@ const team = {
 }
 
 export default function ExtendedFam() {
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
       id="extended-fam"
       header="extended family"
+      sectionStyle={{ marginTop: isMobile ? 0 : "-10vh" }}
       HeaderComponent={() => (
         <AnimatedHeader id="extended-fam-header">
           <svg
