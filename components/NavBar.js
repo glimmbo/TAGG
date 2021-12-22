@@ -61,7 +61,7 @@ const Logo = styled.img`
   margin: 0.75em;
   margin-bottom: 0.35em;
   margin-left: 1em;
-  height: 50px;
+  height: 35px;
   transition: filter 0.2s ease-in-out;
   filter: invert(20%) sepia(45%) saturate(6941%) hue-rotate(329deg)
     brightness(95%) contrast(94%);
@@ -78,7 +78,7 @@ const Logo = styled.img`
   }
 
   @media screen and (max-width: 425px) {
-    height: 35px;
+    height: 25px;
     margin-left: 1em;
   }
 `
