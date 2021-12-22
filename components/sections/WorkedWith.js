@@ -4,7 +4,7 @@ import Client from "../elements/HoverLogo"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 
 const Flow = styled.div`
-  padding: 0 15%;
+  padding: 0 10%;
   margin-top: -30px;
   display: flex;
   flex-wrap: wrap;
@@ -24,6 +24,7 @@ const Flow = styled.div`
   }
 
   @media screen and (max-width: 425px) {
+    padding: 0 0;
     max-height: 90vh;
     margin-top: -95px;
     display: flex;
