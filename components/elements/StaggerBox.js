@@ -3,10 +3,10 @@ export const StaggerBox = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  width: 60%;
+  width: 70%;
 
   & > div {
-    width: 40%;
+    width: 460px;
     margin-bottom: 1em;
     &:not(:first-child) {
       margin-top: ${({ marginTop }) => marginTop};
