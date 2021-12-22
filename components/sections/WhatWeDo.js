@@ -76,7 +76,6 @@ export default function WhatWeDo() {
           </svg>
         </AnimatedHeader>
       )}
-      sectionStyle={{ height: "fit-content", marginBottom: "15vh" }}
       contentStyle={{ height: "fit-content", marginTop: "-10px" }}
     >
       <Wrap>

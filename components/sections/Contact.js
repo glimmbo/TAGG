@@ -2,6 +2,7 @@ import HomeSection from "./HomeSection"
 import ContactCard from "../ContactCard"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { forwardRef } from "react"
+import { css } from "styled-components"
 
 const Contact = forwardRef((props, ref) => {
   return (
@@ -68,7 +69,6 @@ const Contact = forwardRef((props, ref) => {
           </svg>
         </AnimatedHeader>
       )}
-      sectionStyle={{ minHeight: "80vh", maxHeight: "100vh", marginBottom: 0 }}
     >
       <ContactCard />
     </HomeSection>

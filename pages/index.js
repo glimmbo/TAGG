@@ -8,6 +8,7 @@ import People from "../components/sections/People"
 import ExtendedFam from "../components/sections/ExtendedFam"
 import WorkedWith from "../components/sections/WorkedWith"
 import Contact from "../components/sections/Contact"
+import { PrivacyPolicy } from "../components/elements/PrivacyPolicy"
 import {
   getMostRecentAnimatedThumb,
   getClipsMobile,
@@ -67,6 +68,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         <ExtendedFam id="extended-fam" />
         <WorkedWith id="worked-with" />
         <Contact id="contact" ref={refContact} />
+        <PrivacyPolicy />
       </main>
     </>
   )

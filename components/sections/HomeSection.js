@@ -2,10 +2,10 @@ import styled from "styled-components"
 import { forwardRef } from "react"
 
 const Section = styled.section`
-  min-height: fit-content;
+  min-height: 30vh;
   width: 100%;
-  margin: 25vh 0;
   position: relative;
+  margin-bottom: 10vh;
 
   display: flex;
   flex-direction: column;
@@ -35,7 +35,7 @@ const HomeSection = forwardRef((props, ref) => {
   const { id, children, HeaderComponent, sectionStyle, contentStyle } = props
 
   return (
-    <Section id={id} style={sectionStyle} ref={ref}>
+    <Section id={id} ref={ref} sectionStyle={sectionStyle}>
       <HeaderComponent />
       <Content style={contentStyle}>{children}</Content>
     </Section>

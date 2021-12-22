@@ -43,7 +43,6 @@ export default function Foundation() {
     <HomeSection
       id="foundation"
       header="foundation"
-      sectionStyle={{ marginBottom: 0 }}
       HeaderComponent={() => (
         <AnimatedHeader id="foundation-header">
           <svg

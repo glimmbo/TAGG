@@ -58,7 +58,6 @@ const Card = styled.div`
     padding: 0.2em 0.5em;
     transform: translateX(-0.7em);
     font-family: Montserrat-Bold;
-    margin-top: 0;
   }
 
   .company {
@@ -68,9 +67,7 @@ const Card = styled.div`
     font-family: Consolas;
     letter-spacing: 0.25em;
     margin-top: 0;
-    margin-bottom: 0.15em;
-    padding-top: 0;
-    padding-bottom: 0.2em;
+    margin-bottom: 0;
   }
 
   p {
@@ -145,7 +142,6 @@ export default function RosterCard({
         </h3>
         {company && <h4 className="company">{company}</h4>}
         <h4>{role}</h4>
-        <></>
         {bio && <p>{bio}</p>}
       </div>
     </Card>

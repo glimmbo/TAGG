@@ -2,6 +2,7 @@ import HomeSection from "./HomeSection"
 import RosterCard from "../RosterCard"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { StaggerBox } from "../elements/StaggerBox"
+import { css } from "styled-components"
 
 const leadership = [
   {
@@ -87,7 +88,6 @@ export default function People() {
           </svg>
         </AnimatedHeader>
       )}
-      contentStyle={{ marginBottom: "-5vh" }}
     >
       <StaggerBox marginTop="-350px">
         {leadership.map(({ given, sur, role, bio, head, mask }, i) => (

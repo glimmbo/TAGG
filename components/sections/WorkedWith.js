@@ -1,10 +1,10 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import HomeSection from "./HomeSection"
 import Client from "../elements/HoverLogo"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 
 const Flow = styled.div`
-  padding: 0 5%;
+  padding: 0 15%;
   margin-top: -30px;
   display: flex;
   flex-wrap: wrap;
