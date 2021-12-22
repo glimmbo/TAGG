@@ -150,12 +150,21 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
             height="100%"
             width="100%"
             url={url}
-            playing
-            loop
-            muted
-            controls={false}
             // static be gone
             onPlay={() => setStaticOpacity(0)}
+            config={{
+              vimeo: {
+                playerOptions: {
+                  autoplay: true,
+                  muted: true,
+                  controls: false,
+                  playsinline: true,
+                  keyboard: false,
+                  loop: true,
+                  portrait: false,
+                },
+              },
+            }}
           />
         </EmbedContainer>
 

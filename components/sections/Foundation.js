@@ -2,6 +2,7 @@ import styled from "styled-components"
 import HomeSection from "./HomeSection"
 import PoppedHeader from "../PoppedHeader"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
+import { useMediaQuery } from "react-responsive"
 
 export const Wrap = styled.div`
   display: grid;
@@ -39,10 +40,12 @@ export const Text = styled.div`
 `
 
 export default function Foundation() {
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
       id="foundation"
       header="foundation"
+      sectionStyle={{ marginTop: !isMobile ? "15vh" : 0 }}
       HeaderComponent={() => (
         <AnimatedHeader id="foundation-header">
           <svg

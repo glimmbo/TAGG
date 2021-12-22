@@ -18,6 +18,7 @@ const Section = styled.section`
   @media screen and (max-width: 425px) {
     margin: 2em 0;
   }
+  /* sectionStyle */
 `
 
 const Content = styled.div`
@@ -35,7 +36,7 @@ const HomeSection = forwardRef((props, ref) => {
   const { id, children, HeaderComponent, sectionStyle, contentStyle } = props
 
   return (
-    <Section id={id} ref={ref} sectionStyle={sectionStyle}>
+    <Section id={id} ref={ref} style={sectionStyle}>
       <HeaderComponent />
       <Content style={contentStyle}>{children}</Content>
     </Section>

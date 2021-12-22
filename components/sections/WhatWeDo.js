@@ -2,8 +2,10 @@ import PoppedHeader from "../PoppedHeader"
 import HomeSection from "./HomeSection"
 import { Wrap, Text } from "./Foundation"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
+import { useMediaQuery } from "react-responsive"
 
 export default function WhatWeDo() {
+  const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
       id="what-we-do"
@@ -76,7 +78,12 @@ export default function WhatWeDo() {
           </svg>
         </AnimatedHeader>
       )}
-      contentStyle={{ height: "fit-content", marginTop: "-10px" }}
+      // sectionStyle={{ height: "fit-content", marginBottom: "15vh" }}
+      contentStyle={{
+        height: "fit-content",
+        marginTop: "-10px",
+        marginBottom: !isMobile ? "10vh" : "-5vh",
+      }}
     >
       <Wrap>
         <Text gridArea="a">
