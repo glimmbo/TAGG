@@ -8,10 +8,19 @@ const team = {
     {
       given: "CAT",
       sur: "MEDEIROS",
-      role: "SALLUA // Creative Director + Designer",
+      role: "Creative Director + Designer",
+      company: "SALLUA",
       head: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA.png",
       mask: "/images/extended-fam/ExtendedFam_CatMedeiros - SALLUA copy.png",
       bio: "We're not sure how, but she has a knack for clarifying the inexpressible, and forming it into some truly stunning designs. It might be magic. ",
+    },
+    {
+      head: "/images/extended-fam/ExtendedFam_Baylee.png",
+      mask: "/images/extended-fam/ExtendedFam_Baylee copy.png",
+      given: "BAYLEE",
+      sur: "SINNER",
+      role: "Director / Producer",
+      bio: "A creative power house with a serious knack for documentary storytelling. No matter what she's working on—Baylee's bubbly charisma is ever present, resulting in serious laughs and big time grins. Oh, and she's now an Honorary Canadian after rocking that tuxedo.",
     },
     {
       head: "/images/extended-fam/ExtendedFam_JeffZwicker-DirectorOfPhotography.png",
@@ -26,7 +35,8 @@ const team = {
       mask: "/images/extended-fam/ExtendedFam_WilliamSelviz - RENDRD copy.png",
       given: "WILLIAM",
       sur: "SELVIZ",
-      role: "RENDRD // 3D Animation",
+      role: "3D Animation",
+      company: "RENDRD",
       bio: "A tastemaker when it comes to the 3D content his team produces. His style is fresh, his approach is unique, and of course, his sneaker collection is fire.",
     },
     {
@@ -42,7 +52,8 @@ const team = {
       mask: "/images/extended-fam/ExtendedFam_CurtisHuisman - Sensored copy.png",
       given: "CURTIS",
       sur: "HUISMAN",
-      role: "SENSORED // Agile Production",
+      role: "Agile Production",
+      company: "SENSORED",
       bio: "Curtis is the ultimate one-man band when it comes to production. Whether it's on-location, in studio, car, plane, whatever—he's always ready to hit that little red button.",
     },
     {
@@ -52,14 +63,6 @@ const team = {
       sur: "MCGRATH",
       role: "Photographer",
       bio: "It's all about detail with Will. He's meticulous about each and every shot, producing something unique with every click of the shutter.",
-    },
-    {
-      head: "/images/extended-fam/ExtendedFam_Baylee.png",
-      mask: "/images/extended-fam/ExtendedFam_Baylee copy.png",
-      given: "BAYLEE",
-      sur: "SINNER",
-      role: "Director / Producer",
-      bio: "A creative power house with a serious knack for documentary storytelling. No matter what she's working on—Baylee's bubbly charisma is ever present, resulting in serious laughs and big time grins. Oh, and she's now an Honorary Canadian after rocking that tuxedo.",
     },
   ],
 }
@@ -126,17 +129,20 @@ export default function ExtendedFam() {
       )}
     >
       <StaggerBox marginTop="-250px">
-        {team.extended.map(({ given, sur, role, bio, head, mask }, i) => (
-          <RosterCard
-            given={given}
-            sur={sur}
-            role={role}
-            bio={bio}
-            head={head}
-            mask={mask}
-            key={i}
-          />
-        ))}
+        {team.extended.map(
+          ({ given, sur, role, company, bio, head, mask }, i) => (
+            <RosterCard
+              given={given}
+              sur={sur}
+              role={role}
+              company={company}
+              bio={bio}
+              head={head}
+              mask={mask}
+              key={i}
+            />
+          ),
+        )}
       </StaggerBox>
     </HomeSection>
   )

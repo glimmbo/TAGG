@@ -60,7 +60,7 @@ export const GlobalStyle = createGlobalStyle`
   p {
     color: var(--grey);
     font-family: Consolas;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 25px;
     letter-spacing: 25;
     z-index: 5;
