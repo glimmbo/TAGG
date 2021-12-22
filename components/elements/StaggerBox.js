@@ -5,11 +5,24 @@ export const StaggerBox = styled.div`
   margin: 0 auto;
   width: 70%;
 
+  @media screen and (max-width: 425px) {
+    display: block;
+    width: 95%;
+  }
+
   & > div {
-    width: 460px;
+    max-width: 30%;
     margin-bottom: 1em;
     &:not(:first-child) {
       margin-top: ${({ marginTop }) => marginTop};
+    }
+    @media screen and (max-width: 425px) {
+      max-width: 100%;
+      width: 100%;
+      margin-bottom: 0;
+      &:not(:first-child) {
+        margin-top: 0;
+      }
     }
   }
 
@@ -19,26 +32,5 @@ export const StaggerBox = styled.div`
 
   & > :nth-child(even) {
     align-self: flex-end;
-  }
-
-  @media screen and (max-width: 425px) {
-    display: block;
-    width: 95%;
-
-    & > div {
-      width: 100%;
-      margin-bottom: 0;
-      &:not(:first-child) {
-        margin-top: 0;
-      }
-    }
-
-    & > :nth-child(odd) {
-      align-self: flex-start;
-    }
-
-    & > :nth-child(even) {
-      align-self: flex-end;
-    }
   }
 `
