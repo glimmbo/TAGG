@@ -1,0 +1,33 @@
+{
+  "name": "tagg",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "export": "next build && next start"
+  },
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "html-react-parser": "^1.4.0",
+    "lodash": "^4.17.21",
+    "next": "^12.0.1",
+    "next-images": "^1.8.1",
+    "react": "17.0.2",
+    "react-dom": "17.0.2",
+    "react-icons": "^4.3.1",
+    "react-intersection-observer": "^8.32.2",
+    "react-modal": "^3.14.3",
+    "react-player": "^2.9.0",
+    "react-responsive": "^9.0.0-beta.4",
+    "react-responsive-carousel": "^3.2.22",
+    "styled-components": "^5.3.3",
+    "svg-parser": "^2.0.4",
+    "svg-path-properties": "^1.0.11",
+    "vimeo": "^2.1.1"
+  },
+  "devDependencies": {
+    "babel-plugin-styled-components": "^1.13.3"
+  }
+}
