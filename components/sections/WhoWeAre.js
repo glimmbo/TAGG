@@ -8,7 +8,7 @@ const Section = styled.section`
   position: relative;
   padding: 0;
   height: 100vh;
-  margin-bottom: 5vh;
+  margin-top: 10vh;
   @media screen and (max-width: 425px) {
     height: 110vh;
   }

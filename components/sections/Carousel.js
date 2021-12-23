@@ -188,7 +188,7 @@ const ClipCarousel = forwardRef(({ clipsDesktop, clipsMobile }, ref) => {
             showArrows={false}
             showThumbs={false}
             showStatus={false}
-            swipeable={isMobile}
+            swipeable={false}
             onChange={(index, item) => {
               setCurrent(index)
             }}

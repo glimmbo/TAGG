@@ -8,10 +8,11 @@ export const StaggerBox = styled.div`
   @media screen and (max-width: 425px) {
     display: block;
     width: 95%;
+    margin-bottom: 2em;
   }
 
   & > div {
-    max-width: 30%;
+    max-width: 35%;
     margin-bottom: 1em;
     &:not(:first-child) {
       margin-top: ${({ marginTop }) => marginTop};
