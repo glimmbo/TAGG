@@ -52,10 +52,42 @@ Here is what to do when adding new content to the site's Vimeo folders:
 2. Upload the clips for the video to `featured-works-16-9` and `featured-works-9-16` ***folders***. Provide a JSON description as described above. (identical description for both sizes)
 3. Go to the `featured-works` ***showcase*** and add the new video you uploaded. The order of the videos in this showcase will determine the list under WORKS on the site.
 4. Go to both `featured-works-16-9` and `-9-16` ***showcases*** and add the new clips you uploaded in step 2. The order of the videos in this showcase determine the order of the clips in the carousel.
-5. Final step, you need to redeploy the current production build. Go to the TAGG Vercel project page, find the current build that is in production, and hit `Redeploy`:
+5. Make sure all video privacy settings are set to "Hide From Vimeo".
+6. Final step, you need to redeploy the current production build. Go to the TAGG Vercel project page, find the current build that is in production, and hit `Redeploy`:
 
 ![Vercel Redeploy](./misc/redploy-vercel.png)
+>### Redploy!
+>This site is *mostly* a static website. Any new video content added in Vimeo will require a redploy. This is a no downtime action. The site **won't** need a redeploy for changes to already existing videos in the showcase.
 
+## **Changing Copy / Team Content**
+You can find the copy for the site inside the section files:
+`components/sections`
+### Who We Are
+This section is a fixed styling, so adding more text may not style well.
+### Core/Our Arena
+There's 3 Text components where the copy can be edited. Also, adding more blocks of text here may not be positioned correctly.
+### People/The Fam
+These two sections work the same. There's a list at the top of the file that contains all the people for the section. You can add more people by adding to that list:
+```
+{
+  given: "MARK",
+  sur: "GLIMM",
+  role: "Software Developer",
+  head: "/images/extended-fam/Mark.png",
+  mask: "/images/extended-fam/Mark copy.png",
+  bio: "He made this obscenely detailed README",
+}
+```
+
+`head` is the person's image, which needs to live in the `public/images/` somewhere, and referenced correctly.
+`mask` is a copy of the same image, that has been altered to be fillec black. This is needed for the 'shadow' effect.
+
+### OurRep
+This section has a list of Client components, where you can add more clients by following the pattern. The client's svg must be in `public/clients/` folder.
+
+### Contact
+file: `components/ContactCard`
+Pretty straight forward. Remember to change the `href` attribute if you intend the links to point elsewhere.
 ---
 # `Developer Notes`
 
