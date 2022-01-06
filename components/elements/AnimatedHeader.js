@@ -53,7 +53,7 @@ export const AnimatedHeader = (props) => {
 
   const { ref: refHeader, inView: inViewHeader } = useInView({
     threshold: 1, // fully in view
-    // triggerOnce: true,
+    triggerOnce: true,
   })
 
   const lengths = children.props.children.props.children.map((path) => {
