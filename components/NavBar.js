@@ -22,15 +22,17 @@ const Nav = styled.nav`
     height: 7em;
     width: calc(100vw + 1em);
   }
-
+  
   #logo {
     position: relative;
     margin-left: -1em;
     margin-top: .5em;
     outline: 1px solid var(--red);
-    padding-left: 1em;
     /* box-shadow: 4px 4px var(--red), 0 4px var(--red); */
     background-color: var(--black);
+    @media screen and (max-width: 425px) {
+      padding-left: 1em;
+    }
     
     ::before {
       position: absolute;
