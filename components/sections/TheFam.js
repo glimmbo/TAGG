@@ -68,15 +68,15 @@ const team = {
   ],
 }
 
-export default function ExtendedFam() {
+export default function TheFam() {
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
-      id="extended-fam"
-      header="extended family"
+      id="the-fam"
+      header="the family"
       sectionStyle={{ marginTop: isMobile ? 0 : "-10vh" }}
       HeaderComponent={() => (
-        <AnimatedHeader id="extended-fam-header">
+        <AnimatedHeader id="the-fam-header">
           <svg
             width="924.8"
             height="140"
