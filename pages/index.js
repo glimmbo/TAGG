@@ -6,7 +6,7 @@ import Core from "../components/sections/Core"
 import WhatWeDo from "../components/sections/WhatWeDo"
 import People from "../components/sections/People"
 import TheFam from "../components/sections/TheFam"
-import WorkedWith from "../components/sections/WorkedWith"
+import OurRep from "../components/sections/OurRep"
 import Contact from "../components/sections/Contact"
 import { PrivacyPolicy } from "../components/elements/PrivacyPolicy"
 import {
@@ -66,7 +66,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         <WhatWeDo id="whatwedo" />
         <People id="people" />
         <TheFam id="the-fam" />
-        <WorkedWith id="worked-with" />
+        <OurRep id="our-rep" />
         <Contact id="contact" ref={refContact} />
         <PrivacyPolicy />
       </main>

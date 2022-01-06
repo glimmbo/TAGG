@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import HomeSection from "./HomeSection"
 import Client from "../elements/HoverLogo"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
@@ -43,13 +43,13 @@ const Flow = styled.div`
   }
 `
 
-export default function WorkedWith() {
+export default function OurRep() {
   return (
     <HomeSection
-      id="worked-with"
-      header="worked with"
+      id="our-rep"
+      header="our rep"
       HeaderComponent={() => (
-        <AnimatedHeader id="worked-with-header">
+        <AnimatedHeader id="our-rep-header">
           <svg
             width="941.404"
             height="144.804"
