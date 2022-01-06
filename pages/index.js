@@ -2,7 +2,7 @@ import { NavBar } from "../components/NavBar"
 import Carousel from "../components/sections/Carousel"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
-import Foundation from "../components/sections/Foundation"
+import Core from "../components/sections/Core"
 import WhatWeDo from "../components/sections/WhatWeDo"
 import People from "../components/sections/People"
 import ExtendedFam from "../components/sections/ExtendedFam"
@@ -62,7 +62,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         />
         <Works videoList={videoList} id="works" ref={refWorks} />
         <WhoWeAre id="about" />
-        <Foundation id="foundation" />
+        <Core id="core" />
         <WhatWeDo id="whatwedo" />
         <People id="people" />
         <ExtendedFam id="extended-fam" />

@@ -39,15 +39,15 @@ export const Text = styled.div`
   }
 `
 
-export default function Foundation() {
+export default function Core() {
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
-      id="foundation"
-      header="foundation"
+      id="core"
+      header="core"
       sectionStyle={{ marginTop: !isMobile ? "15vh" : 0 }}
       HeaderComponent={() => (
-        <AnimatedHeader id="foundation-header">
+        <AnimatedHeader id="core-header">
           <svg
             width="576.602"
             height="144.804"

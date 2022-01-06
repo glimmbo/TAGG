@@ -1,6 +1,6 @@
 import PoppedHeader from "../PoppedHeader"
 import HomeSection from "./HomeSection"
-import { Wrap, Text } from "./Foundation"
+import { Wrap, Text } from "./Core"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { useMediaQuery } from "react-responsive"
 
