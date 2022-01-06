@@ -3,7 +3,7 @@ import Carousel from "../components/sections/Carousel"
 import Works from "../components/sections/Works"
 import WhoWeAre from "../components/sections/WhoWeAre"
 import Core from "../components/sections/Core"
-import WhatWeDo from "../components/sections/WhatWeDo"
+import OurArena from "../components/sections/OurArena"
 import People from "../components/sections/People"
 import TheFam from "../components/sections/TheFam"
 import OurRep from "../components/sections/OurRep"
@@ -63,7 +63,7 @@ export default function Home({ videoList, clipsMobile, clipsDesktop }) {
         <Works videoList={videoList} id="works" ref={refWorks} />
         <WhoWeAre id="about" />
         <Core id="core" />
-        <WhatWeDo id="whatwedo" />
+        <OurArena id="our-arena" />
         <People id="people" />
         <TheFam id="the-fam" />
         <OurRep id="our-rep" />

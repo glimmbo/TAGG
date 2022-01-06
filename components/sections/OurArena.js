@@ -4,14 +4,14 @@ import { Wrap, Text } from "./Core"
 import { AnimatedHeader } from "../elements/AnimatedHeader"
 import { useMediaQuery } from "react-responsive"
 
-export default function WhatWeDo() {
+export default function OurArena() {
   const isMobile = useMediaQuery({ query: "(max-width: 425px)" })
   return (
     <HomeSection
-      id="what-we-do"
-      header="what we do"
+      id="our-arena"
+      header="our arena"
       HeaderComponent={() => (
-        <AnimatedHeader id="what-we-do-header">
+        <AnimatedHeader id="our-arena-header">
           <svg
             width="1273.402"
             height="144.804"
