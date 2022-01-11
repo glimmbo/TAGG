@@ -88,6 +88,7 @@ This section has a list of Client components, where you can add more clients by 
 ### Contact
 file: `components/ContactCard`
 Pretty straight forward. Remember to change the `href` attribute if you intend the links to point elsewhere.
+
 ---
 # `Developer Notes`
 
