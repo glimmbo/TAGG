@@ -14,14 +14,6 @@ const leadership = [
     bio: "He has over 20K hours of production and post experience under his belt, accumulated over 20M  organic views on content he's produced, worked  with Grammy award winning artists, cult brands, and still unapologetically wastes countless hours watching cat videos.",
   },
   {
-    given: "DAVE ‘DABS’",
-    sur: "JOHNSON",
-    role: "Chief Partnership Officer",
-    head: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative....png",
-    mask: "/images/leadership/Leadership_ Dave _Dabs_ Johnson_ - Cheif Creative... copy.png",
-    bio: "Dabs has a unique ability. An ability that's increasingly rare and highly sought after--seeing the Big Picture. However, seeing the big picture is one thing, effectively communicating it is another. This is where Dabs excels. Talented, scrappy, creative, humble; This is the type of person you look forward to working with on a daily basis.",
-  },
-  {
     given: "ZAQIR",
     sur: "VIRANI",
     role: "Strategic Advisor",
