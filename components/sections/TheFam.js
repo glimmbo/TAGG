@@ -31,14 +31,6 @@ const team = {
       role: "Cinematographer",
       bio: "Put him in any room, any location, under any amount of pressure, and this man will light it beautifully. He's also got a mean Jiu Jitsu take down.",
     },
-    {
-      head: "/images/extended-fam/ExtendedFam_WillMcGrath.png",
-      mask: "/images/extended-fam/ExtendedFam_WillMcGrath copy.png",
-      given: "WILL",
-      sur: "MCGRATH",
-      role: "Photographer",
-      bio: "It's all about detail with Will. He's meticulous about each and every shot, producing something unique with every click of the shutter.",
-    },
   ],
 }
 
