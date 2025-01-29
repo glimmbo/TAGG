@@ -31,6 +31,14 @@ const team = {
       role: "Cinematographer",
       bio: "Put him in any room, any location, under any amount of pressure, and this man will light it beautifully. He's also got a mean Jiu Jitsu take down.",
     },
+    {
+      head: "/images/extended-fam/TAGG-WEB-TeamPhotos-Pink-Hein-.png",
+      mask: "images/extended-fam/TAGG-WEB-TeamPhotos-Pink-Hein-copy.png",
+      given: "HEIN",
+      sur: "HAMERS",
+      role: "Visual Artist",
+      bio: "It’s not everyday that you meet a professional who perfectly blends technical prowess and unbridled creativity, but Hein is certainly one of them. He’s Multi-disciplined, inventive, cerebral, but most importantly; he  takes our ideas, places them beautifully in the VFX realm and pushes them beyond our imagination.",
+    },
   ],
 }
 
