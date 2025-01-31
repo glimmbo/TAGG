@@ -2,7 +2,7 @@
 
 The video content of this site reads from specific sources in the [`vimeo.com/taggcreative`](vimeo.com/taggcreative) account. Please follow these directions to ensure all intended content loads properly. Each video the site uses require a JSON description.
 
-> ### Note the commas and double quotes when writing descriptions! Last item of the JSON must _not_ have a comma. White space and newlines are ignored. For any problems with writing JSON, check out the official documentation at [json.org](https://www.json.org/json-en.html)
+> ### Note the commas and double quotes when writing descriptions! Last item of the JSON must _not_ have a comma. White space and newlines are ignored. For any problems with writing JSON,use this [validator](https://jsonlint.com/)
 
 ## **WORKS Section JSON Description**
 
