@@ -21,7 +21,6 @@ Changes to the videos included in this showcase will be reflected in the WORKS s
 }
 ```
 
-- **`order`** is used to set the order of the clips in the list
 - **`client`** is the main drop shadow title
 - **`title`** is the smaller, grey font of the title
 - Any other fields included here will be shown as credits on the individual Work page. So for example `"Producer/Director":"Baylee Sinner"` will be rendered as:

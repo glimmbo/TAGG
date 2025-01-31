@@ -54,7 +54,7 @@ export const getClipsMobile = async (album_id = "8493940") => {
     vimeoClient.request(
       `/users/${TAGG_ID}/albums/${album_id}/videos?sort=manual`,
       (error, body, status_code, headers) => {
-        console.log("getClipsMobile:", status_code)
+        console.log("getClipsMobile:", album_id, status_code)
         if (error) {
           console.error(error)
           reject(error)
@@ -63,7 +63,9 @@ export const getClipsMobile = async (album_id = "8493940") => {
       },
     )
   })
-  clipList.forEach((clip) => console.log(clip.name, clip.uri))
+
+  console.log(clipList.length, "mobile clips")
+
   return clipList
 }
 
@@ -74,7 +76,7 @@ export const getClipsDesktop = async (album_id = "8493934") => {
     vimeoClient.request(
       `/users/${TAGG_ID}/albums/${album_id}/videos?sort=manual`,
       (error, body, status_code, headers) => {
-        console.log("getClipsDesktop:", status_code)
+        console.log("getClipsDesktop:", album_id, status_code)
         if (error) {
           console.error(error)
           reject(error)
@@ -84,7 +86,9 @@ export const getClipsDesktop = async (album_id = "8493934") => {
       },
     )
   })
-  clipList.forEach((clip) => console.log(clip.name, clip.uri))
+
+  console.log(clipList.length, "desktop clips")
+
   return clipList
 }
 
@@ -105,8 +109,14 @@ export const getWorks = async (album_id = "8478566") => {
       },
     )
   })
-  videoList.forEach((video) => console.log(video.name, video.uri))
-  return videoList
+
+  const slimVideoList = videoList.map(({ uri, description, pictures }) => ({
+    uri,
+    description: tryToParseJSONdescription(description),
+    pictures,
+  }))
+
+  return slimVideoList
 }
 
 // Thumbnails:
@@ -122,7 +132,7 @@ export const getMostRecentAnimatedThumb = async (uri) => {
         userId: TAGG_ID,
       },
       (error, body, status_code, headers) => {
-        console.log("getAnimatedThumbs:", status_code)
+        console.log("getAnimatedThumbs:", uri, status_code)
 
         if (error) {
           console.error(error)
@@ -134,11 +144,29 @@ export const getMostRecentAnimatedThumb = async (uri) => {
     )
   })
 
-  if (gifs.length == 0) console.log(uri)
-
   const mostRecent = gifs?.sort(
     (thumbA, thumbB) => thumbB.created_on - thumbA.created_on,
   )[0]
 
-  return mostRecent
+  if (!gifs.length) {
+    console.log(uri, "missing animated thumb!")
+  }
+
+  return mostRecent ?? null
+}
+
+export function tryToParseJSONdescription(jsonString) {
+  try {
+    JSON.parse(jsonString)
+    return jsonString
+  } catch (error) {
+    console.log("bad JSON description:")
+    console.log(jsonString)
+    console.error(error)
+
+    return JSON.stringify({
+      client: "unknown",
+      title: "unknown",
+    })
+  }
 }

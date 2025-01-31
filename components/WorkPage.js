@@ -158,7 +158,10 @@ export default function WorkPage({ videos, videoId }) {
       </>
     )
   } catch (error) {
-    console.log("Problem with video named: ", videos[currentIndex].name)
+    console.log(
+      "WORKPAGE Problem with video named: ",
+      videos[currentIndex].name,
+    )
     console.error(error)
     return <></>
   }
