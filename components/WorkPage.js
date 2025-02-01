@@ -114,9 +114,9 @@ export default function WorkPage({ videos, videoId }) {
           <CloseButton onClick={() => router.push("/#works")} />
           <FullPlayer uri={video.uri} />
           <PoppedHeader style={{ marginTop: "2em", marginBottom: 0 }}>
-            {desc.client}
+            {desc.client ?? desc.Client}
           </PoppedHeader>
-          <p style={{ marginBottom: "-20px" }}>{desc.title}</p>
+          <p style={{ marginBottom: "-20px" }}>{desc.title ?? desc.Title}</p>
           <DividerWithArrows
             onLeft={() => {
               const currentIndex = indexOf(videos, video)
