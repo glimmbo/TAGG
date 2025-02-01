@@ -120,9 +120,9 @@ const Works = forwardRef(({ videoList }, ref) => {
                     key={i}
                   />
                   <PoppedHeader className="works-client" noShadow>
-                    {desc?.client}
+                    {desc?.client ?? desc?.Client}
                   </PoppedHeader>
-                  <p>{desc?.title}</p>
+                  <p>{desc?.title ?? desc?.Title}</p>
                 </Work>
               </Link>
             )
